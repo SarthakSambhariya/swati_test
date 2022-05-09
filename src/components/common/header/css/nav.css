@@ -1,0 +1,17 @@
+.icons {
+    display: none;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .nav-link {
+    display: flex;
+    gap: 50px;
+  }
+  
+  @media (max-width: 990px) {
+    .icons {
+      display: inline-block;
+      opacity: 1;
+    }
+  }
+  

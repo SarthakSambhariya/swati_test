@@ -1,0 +1,71 @@
+/* .lightbox-gallery p {
+    color: #fff
+} */
+
+/* .lightbox-gallery h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: #fff
+} */
+
+/* @media (max-width:767px) {
+    .lightbox-gallery h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px
+    }
+} */
+
+.lightbox-gallery .intro {
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+
+.lightbox-gallery .intro p {
+  margin-bottom: 0;
+}
+
+.lightbox-gallery .photos {
+  padding-bottom: 20px;
+  /* max-height:180px;
+    max-width:100px; */
+}
+
+.lightbox-gallery .item {
+  /* max-width:180px; */
+  padding-bottom: 30px;
+  /* border: 2px solid red; */
+}
+
+.progress {
+  border-radius: 40px;
+}
+#profilePage .progress {
+  border-radius: 40px;
+  height: 0.25rem;
+}
+
+.progressred .progress-bar {
+  background-color: #f17a55;
+  border-radius: 40px;
+}
+
+.progressorange .progress-bar {
+  background-color: #fab751;
+  border-radius: 40px;
+}
+.progressyellow .progress-bar {
+  background-color: #f6d757;
+  border-radius: 40px;
+}
+.progressneon .progress-bar {
+  background-color: #b7ea83;
+  border-radius: 40px;
+}
+
+.progressgreen .progress-bar {
+  background-color: #84d9a2;
+  border-radius: 40px;
+}

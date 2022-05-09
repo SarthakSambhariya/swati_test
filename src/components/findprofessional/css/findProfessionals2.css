@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600&display=swap");
+
+.ManropeFont {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21.86px;
+}
+
+#designerListing2Star .crousalimg {
+  display: flex;
+  width: 120%;
+  padding: 12px;
+}
+
+.crousalimg img {
+  object-fit: cover;
+}
+
+#designerListing2Star .fa-star {
+  color: #174e86;
+}
+.review2 {
+  background-color: #000000;
+  opacity: 0.05;
+  z-index: -1;
+}
+.title {
+  position: relative;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: #141414;
+  bottom:14px;
+  cursor:pointer;
+}
+
+.title:after {
+  cursor:pointer;
+  content: "";
+  position: absolute;
+  background-color: #3b5998;
+  width: 150%;
+  height: 6px;
+  left: -25%;
+  top: 23px;
+  border-radius: 5px;
+}
+.title {
+  position: relative;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: #141414;
+  bottom:14px;
+}
+
+.navTextMob  {
+  font-family: Inter;
+  font-size: 600;
+  font-size: 15px;
+  text-align: center;
+  color: #A7A7A7;
+  margin-top: 0px;
+  width: 100%;
+  position: relative;
+}
+
+.title:after {
+  content: "";
+  position: absolute;
+  background-color: #3b5998;
+  width: 150%;
+  height: 6px;
+  left: -25%;
+  top: 23px;
+  border-radius: 5px;
+}
+.titleMob {
+  position: relative;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 13px;
+  text-align: center;
+  color: #141414;
+  margin-top: 18px;
+}
+
+.titleMob:after {
+  content: "";
+  position: absolute;
+  background-color: #3b5998;
+  width: 98%;
+  height: 6px;
+  bottom: -10px;
+  left: 2%;
+  top: 38px;
+  border-radius: 5px;
+}

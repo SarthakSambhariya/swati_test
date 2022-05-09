@@ -1,0 +1,31 @@
+.rev-width{
+    width: 90%;
+}
+.footer-06 li a{
+    color: black;
+}
+.footer-06{
+    font-family: Inter;
+    margin-top: 6%;
+}
+.ftco-footer-social img{
+    width: 10%;
+}
+.inter, .interfont{
+    font-family: 'Noto Sans', sans-serif;
+}
+@media (min-width: 300px) and (max-width: 700px) {
+    #foote{
+font-size: 16px;
+font-weight: 400;
+    }
+    #footing{
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 10px;
+            }
+    #foot{
+        font-size: 18px;
+        margin-top: 10px;
+    }
+}

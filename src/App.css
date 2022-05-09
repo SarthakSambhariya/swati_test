@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Noto Sans', sans-serif !important;
+    
+  }
+  
+
+h1, h2, h3, h4, h5, h6, .dm-serif{
+    font-family: DM Serif Display;
+}
+
+.sf-pro{
+    font-family: SF Pro Text;
+}
+
+.inter, .interfont{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+.w50{
+    width: 40% !important;
+}
+.asd{
+    font-size: 1.2rem;
+}
+.how_chnge{
+    padding: 1rem 1rem 1.3rem 1rem;
+}
+.cards__chnge {
+    height: 15rem;
+    width: 90%;
+    margin: auto;
+  }
+  .martop{
+      margin-top: 8rem;
+  }
+  .chngeviewall {
+    /* cursor: pointer;
+    font-size: 16px;
+    padding-bottom: 10px;
+    -webkit-transform: translateX(90%);
+    transform: translateX(90%); */
+  }
+
+.breadcrumb-item+.breadcrumb-item::before { content: ">" !important; }
+
+
+ 
+  

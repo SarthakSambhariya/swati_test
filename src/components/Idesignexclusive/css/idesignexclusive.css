@@ -1,0 +1,53 @@
+.blue{
+    background: #3B5998;
+}
+
+.boq button{
+    background: #2CBF8140;
+    color: #2CBF81;
+}
+
+/* .qc{
+    background-image: url("../../Idesignexclusive/images/el.png");
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}  */
+
+
+.qc {
+    background-image: url(../../Idesignexclusive/images/qc.png); 
+    height: 22rem;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+#qc , #fb , #el{
+    position: relative;
+    top: 12rem;
+   
+}
+
+.fb {
+    background-image: url(../../Idesignexclusive/images/fb.png); 
+    height: 22rem;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+.el {
+    background-image: url(../../Idesignexclusive/images/el.png); 
+    height: 22rem;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+.grid-btn{
+    width: 96%;
+    margin: auto;
+}

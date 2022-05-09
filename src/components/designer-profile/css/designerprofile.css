@@ -1,0 +1,358 @@
+.star-icon {
+  background: #e7e7e74a;
+  color: #e4d441;
+  padding: 0 8px;
+}
+
+.grey-box {
+  background: grey;
+  height: 6vw;
+}
+
+.design-fee {
+  margin: auto;
+  background: #ebecff;
+  width: 62%;
+  padding: 10px;
+}
+
+p.text-light {
+  padding: 10px 20px;
+}
+p.text-light2 {
+  padding: 10px 10px;
+  color:#174E86;
+}
+.designer-profile img{
+  height: 24rem;
+  object-fit: cover;
+}
+
+.designer-profile {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.contempory {
+  position: absolute;
+  bottom: 12px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+.short-img img {
+  height: 13vw;
+  object-fit: fill;
+}
+
+.half-imag {
+  position: relative;
+  top: -70px;
+}
+
+.para-p {
+  width: 3%;
+  padding: 0.5rem 1.1rem;
+  background: grey;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.see-all {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(166, 166, 166, 0.73) 139.39%
+  );
+  border: none;
+  color: #2394fd;
+}
+
+.form-enquiry {
+  background: #ffffff;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+}
+
+.alic-shadow {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 25%);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.liked-ins {
+  background: #ebecff;
+  width: 40%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.social-icon span,
+.rooms span {
+  margin-right: 28px;
+  font-size: 1.3rem;
+  box-shadow: 0px 0.5px 2px rgb(0 0 0 / 25%);
+  border-radius: 50%;
+  padding: 9px 12px;
+}
+
+.chat-secure,
+.rooms span {
+  border-radius: 0% !important;
+}
+
+.maroon {
+  background: #954141;
+}
+
+.bottom-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.room-position {
+  position: relative;
+  text-align: center;
+}
+
+.room-position img {
+  border: 5px solid #2cbf81;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.row-room {
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 0px;
+  right: 13px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding: 10px 20px;
+}
+
+.bblok {
+  bottom: 15px;
+}
+
+.green-border img {
+  border: 3px solid #2cbf81;
+}
+
+.maroon-border img {
+  border: 5px solid #954141;
+}
+
+.sky-border img {
+  border: 5px solid #1fc2d9;
+}
+
+.view-allroom img {
+  opacity: 0.4;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.green-recon {
+  color: #2cbf81;
+  border: solid 1px #2cbf81;
+}
+
+.wrapper {
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+}
+.slick-slide img {
+  display: inline;
+}
+.wrapper .slick-dots li button:before {
+  font-size: 20px;
+  color: white;
+}
+
+.slider-project .card-body {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Modal CSS */
+
+/* The Modal (background) */
+.pnproject {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 10px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: white;
+}
+
+/* Modal Content */
+.pnproject .modal-content {
+  position: relative;
+  background-color: transparent;
+  margin: auto;
+  padding: 0;
+  border: none;
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+  padding: 70px 0;
+  text-align: center;
+  background: grey;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.arrow {
+  margin: 0 8%;
+  padding: 20px 0;
+}
+
+.project-detail-card {
+  height: 37rem;
+  object-fit: cover;
+}
+
+.modal-img img{
+ height: 75vh;
+ object-fit: cover;
+}
+
+.rating {
+  height: 46px;
+  padding: 0 10px;
+  text-align: center;
+}
+.rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rating:not(:checked) > label {
+  float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:50px;
+    color:#ccc;
+}
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+.rating > input:checked ~ label {
+  color: #ffc700;    
+}
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+

@@ -1,0 +1,149 @@
+.qcomparison {
+  background-image: url("../images/bg.png");
+  background-size: cover;
+  height: 32rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.man {
+  background-image: url("../images/man.png");
+  background-size: unset;
+  height: 29rem;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 38rem;
+}
+
+.loan {
+  background-image: url("../images/billing.png");
+  background-size: unset;
+  height: 29rem;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 38rem;
+}
+
+.benefits-bg {
+  background: rgba(59, 89, 152, 0.27);
+}
+.ibox {
+  width: 100%;
+  height: 12rem;
+}
+
+.group {
+  background-image: url("../images/group.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 39rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.blueman {
+  background-image: url("../images/blueman.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.purpleman {
+  background-image: url("../images/purpleman.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.drag-area {
+  border: 2px dashed grey;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #8b8a8a;
+}
+.drag-area.active {
+  border: 2px solid #8b8a8a;
+}
+.drag-area .icon {
+  font-size: 100px;
+  color: #8b8a8a;
+}
+.drag-area header {
+  font-size: 30px;
+  font-weight: 500;
+  color: #8b8a8a;
+}
+.drag-area span {
+  font-size: 25px;
+  font-weight: 500;
+  color: #8b8a8a;
+  margin: 10px 0 15px 0;
+}
+.drag-area button {
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: #8b8a8a;
+  color: #5256ad;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.drag-area img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.box-border {
+  height: 13rem;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 25%);
+  border-radius: 10px;
+  text-align: center;
+}
+.mid-shadow {
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 25%) !important;
+}
+
+.displaydn{
+  display: none;
+}
+
+.details{
+  padding: 0px;
+  margin-top: 15px;
+}
+
+.form-box{
+  padding: 12px;
+}
+
+.consult-icon img{
+  width: 15%;
+}
+
+.mid-shadow .form-check-input:checked {
+  background-color: #2dbf81;
+  border-color: #2dbf81;
+}
+
+.ieprogress{
+  height: 14px;
+}
+
+.ieprogress-bar{
+  width: 50%;
+}
+
+.ieprog button{
+  width: 2rem; 
+  height:2rem;
+}

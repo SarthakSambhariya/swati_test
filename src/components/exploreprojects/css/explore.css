@@ -1,0 +1,128 @@
+.explore-filter span {
+  box-sizing: border-box;
+  border-radius: 4.04165px;
+  padding: 6px 20px;
+  font-size: 12px;
+  margin-right: 20px;
+  line-height: 40px;
+}
+
+.get-started {
+  border: 2px solid #2cbf81;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 31%;
+  margin: auto;
+  height: 21rem;
+}
+
+.get-started {
+  text-align: center;
+}
+
+.get-started p {
+  margin: auto;
+  text-align: center;
+}
+
+.get-started p:first-child {
+  width: 40%;
+}
+
+.get-started p:last-child {
+  width: 65%;
+}
+
+.start {
+  height: 51px;
+  width: 233px;
+  border-radius: 3px;
+  padding: 8px, 12px, 8px, 12px;
+  background: #2cbf81;
+}
+.popover {
+  max-width: 35%;
+}
+
+.custom-card {
+  height: 15rem;
+  object-fit: cover;
+}
+
+.filter-btn .btn-outline-secondary {
+  width: 7rem;
+}
+
+.explore-ns {
+  background-image: url("../../findprofessional/images/reco.png");
+  background-size: 188px 118px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+ul#pills-tab {
+  padding: 0px;
+  border-radius: 8px;
+  border: 1px solid #3b5998;
+  max-width: 319px;
+  /* margin-top: 35px; */
+}
+
+ul#pills-tab .nav-item {
+  width: 50%;
+  border-radius: 6px 0px 0px 6px;
+}
+
+.still-not-sure {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.explorelist th {
+  padding: 5px;
+}
+
+.stillheight {
+  height: 22rem;
+}
+
+.imagehover {
+  position: relative;
+}
+
+.imagehover:hover .edit {
+  display: block;
+}
+
+.edit {
+  padding-bottom: 25px;
+  padding-right: 7px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.epd p {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  font-weight: 700;
+}
+
+.epd img {
+  filter: brightness(0.5);
+}
+.afilterw {
+  width: 400px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter-btn .btn-outline-secondary {
+    width: auto;
+    padding: 10px;
+  }
+}

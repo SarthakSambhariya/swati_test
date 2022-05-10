@@ -53,6 +53,7 @@ import briefCaseDesigner from "../components/findprofessional/images/briefCaseDe
 import { ProgressBar, Card } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 import DesignerPosts from "./designerPosts";
+import DesignerProfileProjectCarousel from "./DesignerProfileProjectCarousel";
 
 function getScreenWidth() {
   const width = window.innerWidth;
@@ -77,9 +78,10 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 2,
   },
+
 };
 
-const DesignerProfile = ({ match, location }) => {
+const DesignerProfile = ({ match, location, address }) => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const [designerProfile, setDesignerProfile] = useState({});
@@ -254,7 +256,7 @@ const DesignerProfile = ({ match, location }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [location["data"]]);
 
-  console.log(designerProfile);
+  console.log(designerProject);
 
   const textAreaWordCountHandler = () => {
     setWordCount(reviewTextAreaRef.current.value.length);
@@ -1795,13 +1797,18 @@ const DesignerProfile = ({ match, location }) => {
                   }}
                 >
                   <img
-                                    src={
-                                      userData["imageUrl"]["thumbnail"] !== ""
-                                        ? userData["imageUrl"]["thumbnail"]
-                                        : profilePicture
-                                    }
-                                    style={{width:"5rem",height:"5rem",borderRadius:"5rem",objectFit:"cover"}}
-                                  />
+                    src={
+                      userData["imageUrl"]["thumbnail"] !== ""
+                        ? userData["imageUrl"]["thumbnail"]
+                        : profilePicture
+                    }
+                    style={{
+                      width: "5rem",
+                      height: "5rem",
+                      borderRadius: "5rem",
+                      objectFit: "cover",
+                    }}
+                  />
                   {/* <img src={profilePicture} alt="profile-picture" /> */}
                   <span
                     style={{
@@ -1990,7 +1997,7 @@ const DesignerProfile = ({ match, location }) => {
                     <p
                       className={
                         componentsToRender === "projects"
-                          ? "title"
+                          ? "titleSelectedTab"
                           : "navTextMob"
                       }
                     >
@@ -2013,7 +2020,9 @@ const DesignerProfile = ({ match, location }) => {
                   >
                     <p
                       className={
-                        componentsToRender === "posts" ? "title" : "navTextMob"
+                        componentsToRender === "posts"
+                          ? "titleSelectedTab"
+                          : "navTextMob"
                       }
                     >
                       Posts
@@ -2025,8 +2034,8 @@ const DesignerProfile = ({ match, location }) => {
                     style={{
                       position:
                         componentsToRender === "about" ? "relative" : "",
-                      top: componentsToRender === "about" ? "12px" : "",                      cursor: "pointer",
-
+                      top: componentsToRender === "about" ? "12px" : "",
+                      cursor: "pointer",
                     }}
                     onClick={
                       () => setComponentToRender("about")
@@ -2036,7 +2045,9 @@ const DesignerProfile = ({ match, location }) => {
                   >
                     <p
                       className={
-                        componentsToRender === "about" ? "title" : "navTextMob"
+                        componentsToRender === "about"
+                          ? "titleSelectedTab"
+                          : "navTextMob"
                       }
                     >
                       About
@@ -2045,109 +2056,45 @@ const DesignerProfile = ({ match, location }) => {
                 }
               </div>
               <hr style={{ position: "relative", bottom: "16px" }} />
-              <div className="tabContents">{componentsToRender === "projects" && (
-                  <div>
-                    {" "}
-                    <div class="d-flex" style={{ flexFlow: "row wrap" }}>
-                      <div className="p-1"style={{ flex: "50%" }}>
-                        <img
-                          src={
-                            designerProject.length > 0 &&
-                            designerProject[0]["data"].length > 0 &&
-                            designerProject[0]["data"][0]["images"].length > 0
-                              ? designerProject[0]["data"][0]["images"][0][
-                                  "original"
-                                ]
-                              : noimage
-                          }
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="mt-2 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.875rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["name"]}
-                        </div>
-                        <div className="my-1 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.75rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["address"]}
-                        </div>
+              <div className="tabContents">
+                {componentsToRender === "projects" && (
+                  <div className="d-flex justify-content-center">
+                    <div className="" style={{width:"110%"}}>
+                      <DesignerProfileProjectCarousel arrayOfImages={designerProject}>
+                       
+                      </DesignerProfileProjectCarousel>
+                      <div
+                        className="mt-2 ms-2"
+                        style={{
+                          color: "#7F8790",
+                          fontFamily: "Public Sans",
+                          fontSize: "0.875rem",
+                          lineHeight: "1rem",
+                          fontWeight: "400",
+                        }}
+                      >
+                        {designerProject.length > 0 &&
+                          designerProject[0]["name"]}
                       </div>
-                      <div className="p-1"style={{ flex: "50%" }}>
-                        <img
-                          src={
-                            designerProject.length > 0 &&
-                            designerProject[0]["data"].length > 0 &&
-                            designerProject[0]["data"][0]["images"].length > 0
-                              ? designerProject[0]["data"][0]["images"][0][
-                                  "original"
-                                ]
-                              : noimage
-                          }
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="mt-2 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.875rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["name"]}
-                        </div>
-                        <div className="my-1 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.75rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["address"]}
-                        </div>
+                      <div
+                        className="my-1 ms-2"
+                        style={{
+                          color: "#7F8790",
+                          fontFamily: "Public Sans",
+                          fontSize: "0.75rem",
+                          lineHeight: "1rem",
+                          fontWeight: "400",
+                        }}
+                      >
+                        {designerProject.length > 0 &&
+                          designerProject[0]["address"]}
                       </div>
-                      <div className="p-1"style={{ flex: "50%" }}>
-                        <img
-                          src={
-                            designerProject.length > 0 &&
-                            designerProject[0]["data"].length > 0 &&
-                            designerProject[0]["data"][0]["images"].length > 0
-                              ? designerProject[0]["data"][0]["images"][0][
-                                  "original"
-                                ]
-                              : noimage
-                          }
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="mt-2 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.875rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["name"]}
-                        </div>
-                        <div className="my-1 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.75rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["address"]}
-                        </div>
-                      </div>
-                      <div className="p-1"style={{ flex: "50%" }}>
-                        <img
-                          src={
-                            designerProject.length > 0 &&
-                            designerProject[0]["data"].length > 0 &&
-                            designerProject[0]["data"][0]["images"].length > 0
-                              ? designerProject[0]["data"][0]["images"][0][
-                                  "original"
-                                ]
-                              : noimage
-                          }
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        <div className="mt-2 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.875rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["name"]}
-                        </div>
-                        <div className="my-1 ms-2" style={{color:"#7F8790",fontFamily:"Public Sans",fontSize:"0.75rem",lineHeight:"1rem",fontWeight:"400"}}>
-                          {designerProject.length > 0 &&
-                            designerProject[0]["address"]}
-                        </div>
-                      </div>
-                      
                     </div>
                   </div>
                 )}
                 {componentsToRender === "posts" && (
                   <div>
-                    <DesignerPosts/>
+                    <DesignerPosts />
                   </div>
                 )}
                 {componentsToRender === "about" && (
@@ -2252,7 +2199,7 @@ const DesignerProfile = ({ match, location }) => {
                     </div>
                   </div>
                 )}
-                
+
                 <div
                   className="my-4"
                   style={{

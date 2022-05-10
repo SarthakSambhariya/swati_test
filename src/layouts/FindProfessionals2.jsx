@@ -39,6 +39,8 @@ import {
   Spinner,
   Breadcrumb,
   ListGroup,
+  Form,
+  CloseButton,
 } from "react-bootstrap";
 import b2bservice from "../services/b2bservice";
 import authService, { apiLogout } from "../services/authService";
@@ -57,6 +59,10 @@ function getScreenWidth() {
   return width;
 }
 
+const Backdrop = (props) => {
+  return <div className="backdrop" onClick={props.onClose} />;
+};
+
 const FindProfessionals = ({ mobileview, location }) => {
   const [page, setPage] = useState(1);
   const [user, setUser] = useState(false);
@@ -71,6 +77,7 @@ const FindProfessionals = ({ mobileview, location }) => {
   const [screenWidth, setScreenWidth] = useState(getScreenWidth());
   const [expshow, setExpShow] = useState(false);
   const [exptarget, setExpTarget] = useState(null);
+  const [searchFieldVisibility, setSearchFieldVisibility] = useState(false);
 
   const [showFilters, setShowFilters] = useState(false);
 
@@ -346,7 +353,11 @@ const FindProfessionals = ({ mobileview, location }) => {
         <>
           <Header />
           <DesignerModal />
-          <FilterModal componentsToRender={componentsToRender==="contractor"?"contractor":""}/>
+          <FilterModal
+            componentsToRender={
+              componentsToRender === "contractor" ? "contractor" : ""
+            }
+          />
           <section className="filters">
             <div className="container">
               <div className="pt-lg-5 ">
@@ -572,7 +583,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                           handleRemoveCityFromFilter={
                             handleRemoveCityFromFilter
                           }
-                          componentsToRender = {componentsToRender}
+                          componentsToRender={componentsToRender}
                         />
                       </div>
                     </div>
@@ -730,6 +741,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                           city={listing.city}
                                           company={listing.companyName}
                                           phoneNumber={listing.phoneNumber}
+                                          
                                           pro={
                                             listing["planId"]["price"] === 0
                                               ? false
@@ -809,7 +821,7 @@ const FindProfessionals = ({ mobileview, location }) => {
         <>
           <Header />
           <DesignerModal />
-          <FilterModal componentsToRender={componentsToRender}/>
+          <FilterModal componentsToRender={componentsToRender} />
           <section className="filters">
             <div className="container">
               <div className="pt-lg-5 ">
@@ -829,9 +841,16 @@ const FindProfessionals = ({ mobileview, location }) => {
                 <div>
                   {/* <div>Search goes here</div> */}
                   <div className="displaydn mt-3 d-flex justify-content-between">
-                    <span>
-                      <img src={searchIcon} />
-                    </span>
+                    {!searchFieldVisibility && (
+                      <span
+                        onClick={() => {
+                          setSearchFieldVisibility(true);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <img src={searchIcon} />
+                      </span>
+                    )}
                     <p className="ManropeFont">Explore and Hire Designers</p>
                     <span className="float-end align-items-center">
                       <img
@@ -842,11 +861,27 @@ const FindProfessionals = ({ mobileview, location }) => {
                       />
                     </span>
                   </div>
+                  {searchFieldVisibility && (
+                    <div className="mt-3">
+                      <Form.Group controlId="" style={{ position: "relative" }}>
+                        <Form.Control type="text" placeholder="" />
+                        <CloseButton
+                          style={{
+                            position: "absolute",
+                            top: "0.55rem",
+                            right: "0.5rem",
+                          }}
+                          onClick={() => {
+                            setSearchFieldVisibility(false);
+                          }}
+                        />
+                      </Form.Group>
+                    </div>
+                  )}
 
                   {/* <Filter /> */}
-
                   <div className="professional-filter">
-                    <div className="row mtop">
+                    <div className="row ">
                       <div className="col-lg-5 col-md-12 displayn">
                         <div className="container">
                           <div
@@ -963,51 +998,58 @@ const FindProfessionals = ({ mobileview, location }) => {
               </div>
             </div>
           </section>
-          <div className="">
-            <div className="d-flex justify-content-evenly">
-              {
-                <div
-                  style={{
-                    position:
-                      componentsToRender === "designer" ? "relative" : "",
-                    top: componentsToRender === "designer" ? "12px" : "",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => (window.location.href = "/findprofessionals2")}
-                >
-                  <p
-                    className={
-                      componentsToRender === "designer" ? "title" : "navTextMob"
+          <div>
+            <div className="mt-3">
+              <div className=" d-flex justify-content-evenly">
+                {
+                  <div
+                    className="mt-3 me-4"
+                    style={{
+                      position:
+                        componentsToRender === "designer" ? "relative" : "",
+                      top: componentsToRender === "designer" ? "12px" : "",
+                      cursor: "pointer",
+                    }}
+                    onClick={() =>
+                      (window.location.href = "/findprofessionals2")
                     }
                   >
-                    Designer
-                  </p>
-                </div>
-              }
-              {
-                <div
-                  style={{
-                    position:
-                      componentsToRender === "contractor2" ? "relative" : "",
-                    top: componentsToRender === "contractor2" ? "12px" : "",
-                    cursor: "pointer",
-                  }}
-                  onClick={() =>
-                    (window.location.href = "/findprofessionals2/contractor2")
-                  }
-                >
-                  <p
-                    className={
-                      componentsToRender === "contractor2"
-                        ? "title"
-                        : "navTextMob"
+                    <p
+                      className={
+                        componentsToRender === "designer"
+                          ? "titleSelectedTab"
+                          : "navTextMob"
+                      }
+                    >
+                      Designer
+                    </p>
+                  </div>
+                }
+                {
+                  <div
+                    className="mt-3 ms-4"
+                    style={{
+                      position:
+                        componentsToRender === "contractor2" ? "relative" : "",
+                      top: componentsToRender === "contractor2" ? "12px" : "",
+                      cursor: "pointer",
+                    }}
+                    onClick={() =>
+                      (window.location.href = "/findprofessionals2/contractor2")
                     }
                   >
-                    Contractor
-                  </p>
-                </div>
-              }
-              {
+                    <p
+                      className={
+                        componentsToRender === "contractor2"
+                          ? "titleSelectedTab"
+                          : "navTextMob"
+                      }
+                    >
+                      Contractor
+                    </p>
+                  </div>
+                }
+                {/* {
                 <div
                   style={{
                     position: componentsToRender === "oem" ? "relative" : "",
@@ -1025,186 +1067,186 @@ const FindProfessionals = ({ mobileview, location }) => {
                     OEM
                   </p>
                 </div>
-              }
-            </div>
-            <hr style={{ position: "relative", bottom: "16px" }} />
-            <div className="">
-              <div className="col-md-7 ">
-                {/****MAIN CONTENT HERE******/}
-                <div className="" id="">
-                  <div
-                    className="tab-pane fade show active"
-                    id="designer"
-                    role="tabpanel"
-                    aria-labelledby="designer-tab"
-                  >
-                    <section className="design-firm mt-3">
-                      <div className="">
-                        {loading && designerListings.length !== 0 ? (
-                          <center>
-                            <Spinner animation="border" />
-                          </center>
-                        ) : componentsToRender === "contractor2" ? (
-                          designerListings.map((listing, i) => (
-                            <>
-                              {i === 4 && (
-                                <div className="row mt-4">
-                                  <div className="nsure blue row  w-100">
-                                    <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">
-                                      <p>Still not sure?</p>
-                                      <h2>
-                                        Let idesign send you instant
-                                        recommendations.
-                                      </h2>
+              } */}
+              </div>
+              <hr style={{ position: "relative", bottom: "16px" }} />
+              <div className="" style={{ transform: "translateY(-2.4rem)" }}>
+                <div className="col-md-7 ">
+                  {/****MAIN CONTENT HERE******/}
+                  <div className="" id="">
+                    <div
+                      className="tab-pane fade show active"
+                      id="designer"
+                      role="tabpanel"
+                      aria-labelledby="designer-tab"
+                    >
+                      <section className="design-firm">
+                        <div className="">
+                          {loading && designerListings.length !== 0 ? (
+                            <center>
+                              <Spinner animation="border" />
+                            </center>
+                          ) : componentsToRender === "contractor2" ? (
+                            designerListings.map((listing, i) => (
+                              <>
+                                {i === 4 && (
+                                  <div className="row mt-4">
+                                    <div className="nsure blue row  w-100">
+                                      <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">
+                                        <p>Still not sure?</p>
+                                        <h2>
+                                          Let idesign send you instant
+                                          recommendations.
+                                        </h2>
 
-                                      <button
-                                        type="button"
-                                        className="btn btn-light mt-3 blue-text"
-                                        data-bs-toggle="modal"
-                                        data-bs-target={
-                                          user
-                                            ? "#successmodal"
-                                            : "#getstartedmodal"
-                                        }
-                                      >
-                                        <b>Get Started ⋙</b>
-                                      </button>
-                                    </div>
-                                    <div className="col-lg-4 col-md-12 displayn">
-                                      <img src={reco} alt="" />
+                                        <button
+                                          type="button"
+                                          className="btn btn-light mt-3 blue-text"
+                                          data-bs-toggle="modal"
+                                          data-bs-target={
+                                            user
+                                              ? "#successmodal"
+                                              : "#getstartedmodal"
+                                          }
+                                        >
+                                          <b>Get Started ⋙</b>
+                                        </button>
+                                      </div>
+                                      <div className="col-lg-4 col-md-12 displayn">
+                                        <img src={reco} alt="" />
+                                      </div>
                                     </div>
                                   </div>
-                                </div>
-                              )}
-                              <DesignerListing2
-                                id={listing._id}
-                                name={listing.companyName}
-                                address={listing.address}
-                                experience={listing.workExperience}
-                                description={""}
-                                fee={
-                                  listing.fees &&
-                                  listing.fees["designRoomPrice"]
-                                }
-                                phoneNumber={listing.phoneNumber}
-                                city={listing.city}
-                                company={listing.companyName}
-                                pro={
-                                  listing["planId"]["price"] === 0
-                                    ? false
-                                    : true
-                                }
-                                liked={false}
-                                listingName="designer"
+                                )}
+                                <DesignerListing2
+                                  id={listing._id}
+                                  name={listing.companyName}
+                                  address={listing.address?listing.address:"Saket, New Delhi"}
+                                  experience={listing.workExperience}
+                                  description={""}
+                                  fee={
+                                    listing.fees &&
+                                    listing.fees["designRoomPrice"]
+                                  }
+                                  phoneNumber={listing.phoneNumber}
+                                  city={listing.city}
+                                  company={listing.companyName}
+                                  pro={
+                                    listing["planId"]["price"] === 0
+                                      ? false
+                                      : true
+                                  }
+                                  liked={false}
+                                  listingName="designer"
+                                />
+                              </>
+                            ))
+                          ) : componentsToRender === "oem2" ? (
+                            <div>
+                              <OEMListing
+                                listingName={"oem"}
+                                city={"delhi"}
+                                company={"woodmac"}
+                                pricing={"12345"}
                               />
-                            </>
-                          ))
-                        ) : componentsToRender === "oem2" ? (
-                          <div>
-                            <OEMListing
-                              listingName={"oem"}
-                              city={"delhi"}
-                              company={"woodmac"}
-                              pricing={"12345"}
-                            />
-                            <OEMListing
-                              listingName={"oem"}
-                              city={"delhi"}
-                              company={"woodmac"}
-                              pricing={"12345"}
-                            />
-                            <OEMListing
-                              listingName={"oem"}
-                              city={"delhi"}
-                              company={"woodmac"}
-                              pricing={"12345"}
-                            />
-                            <OEMListing
-                              listingName={"oem"}
-                              city={"delhi"}
-                              company={"woodmac"}
-                              pricing={"12345"}
-                            />
-                          </div>
-                        ) : componentsToRender === "designer" ? (
-                          <div
-                            className="tab-pane fade"
-                            id="contractor"
-                            role="tabpanel"
-                            aria-labelledby="contractor-tab"
-                            style={{ opacity: "1" }}
-                          >
-                            <section className="design-firm mt-3">
-                              <div className="">
-                                {designerListings.map((listing) => (
-                                  <DesignerListing2
-                                    id={listing._id}
-                                    name={listing.firstName}
-                                    address={listing.address}
-                                    experience={listing.workExperience}
-                                    description={""}
-                                    fee={listing.fee}
-                                    city={listing.city}
-                                    company={listing.companyName}
-                                    phoneNumber={listing.phoneNumber}
-                                    pro={
-                                      listing["planId"]["price"] === 0
-                                        ? false
-                                        : true
-                                    }
-                                    listingName="contractor"
-                                  />
-                                ))}
-                              </div>
-                            </section>
-                          </div>
-                        ) : (
-                          ""
-                        )}
-                      </div>
-                    </section>
+                              <OEMListing
+                                listingName={"oem"}
+                                city={"delhi"}
+                                company={"woodmac"}
+                                pricing={"12345"}
+                              />
+                              <OEMListing
+                                listingName={"oem"}
+                                city={"delhi"}
+                                company={"woodmac"}
+                                pricing={"12345"}
+                              />
+                              <OEMListing
+                                listingName={"oem"}
+                                city={"delhi"}
+                                company={"woodmac"}
+                                pricing={"12345"}
+                              />
+                            </div>
+                          ) : componentsToRender === "designer" ? (
+                            <div
+                              className="tab-pane fade"
+                              id="contractor"
+                              role="tabpanel"
+                              aria-labelledby="contractor-tab"
+                              style={{ opacity: "1" }}
+                            >
+                              <section className="design-firm mt-0">
+                                <div className="">
+                                  {designerListings.map((listing) => (
+                                    <DesignerListing2
+                                      id={listing._id}
+                                      name={listing.firstName}
+                                      address={listing.address?listing.address:"Saket, New Delhi"}
+                                      experience={listing.workExperience}
+                                      description={""}
+                                      fee={listing.fee}
+                                      city={listing.city}
+                                      company={listing.companyName}
+                                      phoneNumber={listing.phoneNumber}
+                                      pro={
+                                        listing["planId"]["price"] === 0
+                                          ? false
+                                          : true
+                                      }
+                                      listingName="contractor"
+                                    />
+                                  ))}
+                                </div>
+                              </section>
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                      </section>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="container">
-            <div
-              className="dont-know mb-5"
-              id="dont-know"
-              style={{ position: "relative" }}
-            >
-              <img
-                src={blueCard}
-                alt="..."
-                style={{ width: "100%", borderRadius: "5px" }}
-              />
-              <button
-                type="button"
-                className="btn btn-light text-success mt-4"
-                data-bs-toggle="modal"
-                data-bs-target={user ? "#successmodal" : "#getstartedmodal"}
-                style={{ position: "absolute", bottom: "10px", left: "10px" }}
+            <div className="" style={{transform:"translateY(-4.4rem)"}}>
+              <div
+                className="dont-know "
+                id="dont-know"
+                style={{ position: "relative" }}
               >
-                <div className="d-flex align-items-center justify-content-between">
-                  <b className="mx-2" id="" style={{ color: "#3B5998" }}>
-                    Get Started
-                  </b>
-                  <img src={getStartedArrows} alt="..." />
-                </div>
-              </button>
+                <img
+                  src={blueCard}
+                  alt="..."
+                  style={{ width: "100%", borderRadius: "5px" }}
+                />
+                <button
+                  type="button"
+                  className="btn btn-light text-success mt-4"
+                  data-bs-toggle="modal"
+                  data-bs-target={user ? "#successmodal" : "#getstartedmodal"}
+                  style={{ position: "absolute", bottom: "10px", left: "10px" }}
+                >
+                  <div className="d-flex align-items-center justify-content-between">
+                    <b className="mx-2" id="" style={{ color: "#3B5998" }}>
+                      Get Started
+                    </b>
+                    <img src={getStartedArrows} alt="..." />
+                  </div>
+                </button>
+              </div>
             </div>
+            <div id="io">
+              <Pagination
+                page={page}
+                location={location}
+                pageCount={pageCount}
+                pageSize={2}
+              />
+            </div>
+            <Footer2 style={{ zIndex: "1" }} />
           </div>
-          <div id="io">
-            <Pagination
-              page={page}
-              location={location}
-              pageCount={pageCount}
-              pageSize={2}
-            />
-          </div>
-
-          <Footer2 />
         </>
       )}
     </React.Fragment>

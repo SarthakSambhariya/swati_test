@@ -85,6 +85,45 @@ ul#pills-tab .nav-item {
 .stillheight {
   height: 22rem;
 }
+#exploreProjectsHeading{
+  font-family: Manrope;
+font-size: 1.3rem;
+font-weight: 600;
+line-height: 22px;
+
+}
+
+#ProjectsTabHeading  {
+  position: relative;
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  color: #174E86;
+  bottom:0.1rem;
+  cursor:pointer;
+}
+
+#ProjectsTabHeading :after {
+  cursor:pointer;
+  content: "";
+  position: absolute;
+  background-color: #3b5998;
+  width: 225%;
+  height: 0.25rem;
+  left: -65%;
+  top: 1.5625rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+
+#projectsCarousel .carousel-control-next-icon,.carousel-control-prev-icon {
+    position: relative;
+    bottom:3rem;  
+    
+}
+
 
 .imagehover {
   position: relative;

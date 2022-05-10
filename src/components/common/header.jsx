@@ -144,48 +144,11 @@ const Header = () => {
         <ToastContainer />
         <DesignerModal />
         <FilterModal />
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarsExample09"
-            aria-controls="navbarsExample09"
-            aria-expanded={!isNavCollapsed ? true : false}
-            aria-label="Toggle navigation"
-            onClick={handleNavCollapse}
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="navbar-brand d-flex justify-content-between">
-            <Link to="/" className="nav-link mx-">
-              <img
-                src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
-                alt="logo"
-                className="logosize"
-              />
-            </Link>
-            {screenWidth<768?
-              <img
-                className="mx-5"
-                src={profilePic}
-                alt="profile-pic"
-                style={{ cursor: "pointer" }}
-              />:<></>
-            }
-          </div>
-
-          <div
-            className={
-              isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
-            }
-            id="navbarsExample09"
-          >
-            <Link to="/" className="nav-link mobile-logo">
-              <img src={mobilelogo} alt="logo" className="w-50" />
-            </Link>
-            <div
-              className="close__menu"
+        {screenWidth > 768 && (
+          <div className="container-fluid">
+            <button
+              className="navbar-toggler"
+              type="button"
               data-toggle="collapse"
               data-target="#navbarsExample09"
               aria-controls="navbarsExample09"
@@ -193,60 +156,100 @@ const Header = () => {
               aria-label="Toggle navigation"
               onClick={handleNavCollapse}
             >
-              <svg
-                viewPort="0 0 12 12"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line
-                  x1="1"
-                  y1="11"
-                  x2="11"
-                  y2="1"
-                  stroke="black"
-                  stroke-width="2"
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="navbar-brand d-flex justify-content-between">
+              <Link to="/" className="nav-link mx-">
+                <img
+                  src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
+                  alt="logo"
+                  className="logosize"
                 />
-                <line
-                  x1="1"
-                  y1="1"
-                  x2="11"
-                  y2="11"
-                  stroke="black"
-                  stroke-width="2"
+              </Link>
+              {screenWidth < 768 ? (
+                <img
+                  className="mx-5"
+                  src={profilePic}
+                  alt="profile-pic"
+                  style={{ cursor: "pointer" }}
                 />
-              </svg>
+              ) : (
+                <></>
+              )}
             </div>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
-              {menus.map((m) => (
-                <NavLink
-                  link={m.link}
-                  name={m.name}
-                  mobile={false}
-                  icon={window.location.pathname === m.link ? m.icon : " "}
-                  classname={
-                    window.location.pathname === m.link
-                      ? " active displayn"
-                      : " displayn"
-                  }
-                />
-              ))}
 
-              {mobilemenus.map((m, i) => (
-                <NavLink
-                  link={m.link}
-                  img={m.img}
-                  name={m.name}
-                  idx={i}
-                  // icon={m.icon}
-                  mobile={true}
-                  classname={
-                    window.location.pathname === m.link
-                      ? " active displaydn inter"
-                      : " displaydn inter"
-                  }
-                />
-              ))}
-              {/* <li className="nav-item nav-header displaydn">
+            <div
+              className={
+                isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
+              }
+              id="navbarsExample09"
+            >
+              <Link to="/" className="nav-link mobile-logo">
+                <img src={mobilelogo} alt="logo" className="w-50" />
+              </Link>
+              <div
+                className="close__menu"
+                data-toggle="collapse"
+                data-target="#navbarsExample09"
+                aria-controls="navbarsExample09"
+                aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+                onClick={handleNavCollapse}
+              >
+                <svg
+                  viewPort="0 0 12 12"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="1"
+                    y1="11"
+                    x2="11"
+                    y2="1"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="1"
+                    y1="1"
+                    x2="11"
+                    y2="11"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
+                {menus.map((m) => (
+                  <NavLink
+                    link={m.link}
+                    name={m.name}
+                    mobile={false}
+                    icon={window.location.pathname === m.link ? m.icon : " "}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displayn"
+                        : " displayn"
+                    }
+                  />
+                ))}
+
+                {mobilemenus.map((m, i) => (
+                  <NavLink
+                    link={m.link}
+                    img={m.img}
+                    name={m.name}
+                    idx={i}
+                    // icon={m.icon}
+                    mobile={true}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displaydn inter"
+                        : " displaydn inter"
+                    }
+                  />
+                ))}
+                {/* <li className="nav-item nav-header displaydn">
                 <a
                   alt=""
                   data-bs-toggle="modal"
@@ -258,57 +261,230 @@ const Header = () => {
                   Sign In/Up
                 </a>
               </li> */}
-            </ul>
-            <form className="d-flex">
-              <ul className="nav displayn">
-                {/* <button
+              </ul>
+              <form className="d-flex">
+                <ul className="nav displayn">
+                  {/* <button
                   type="button"
                   className="btn green text-light me-4 btn-sm"
                 >
                   Get Free Quotes
                 </button> */}
-                <button
-                  type="button"
-                  className="btn me-4 btn-sm blue text-light fs-6"
-                  onClick={() =>
-                    (window.location.href = "https://pro.idesign.market/login")
-                  }
-                >
-                  Join as Pro
-                </button>
-
-                {/* <Profile imagepath={bellicon} showarrow={false} /> */}
-
-                {!user && (
-                  <li
-                    type=""
-                    className=" me-4 btn-sm"
-                    style={{ cursor: "pointer" }}
+                  <button
+                    type="button"
+                    className="btn me-4 btn-sm blue text-light fs-6"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://pro.idesign.market/login")
+                    }
                   >
-                    <span
-                      className="green-recon border-0"
-                      data-bs-toggle="modal"
-                      data-bs-target={
-                        user ? "#successmodal" : "#staticBackdrop"
-                      }
-                    >
-                      Sign in / Sign up
-                    </span>
-                  </li>
-                )}
+                    Join as Pro
+                  </button>
 
-                {user && (
-                  <Profile
-                    imagepath={"https://github.com/mdo.png"}
-                    showarrow={true}
-                    path="/dashboard/home"
-                    className="displayn"
-                  />
-                )}
-              </ul>
-            </form>
+                  {/* <Profile imagepath={bellicon} showarrow={false} /> */}
+
+                  {!user && (
+                    <li
+                      type=""
+                      className=" me-4 btn-sm"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span
+                        className="green-recon border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target={
+                          user ? "#successmodal" : "#staticBackdrop"
+                        }
+                      >
+                        Sign in / Sign up
+                      </span>
+                    </li>
+                  )}
+
+                  {user && (
+                    <Profile
+                      imagepath={"https://github.com/mdo.png"}
+                      showarrow={true}
+                      path="/dashboard/home"
+                      className="displayn"
+                    />
+                  )}
+                </ul>
+              </form>
+            </div>
           </div>
-        </div>
+        )}
+        {screenWidth < 768 && (
+          <div className="container-fluid">
+            <div
+              className="d-flex justify-content-between align-items-center"
+              style={{ width: "100%" }}
+            >
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarsExample09"
+                aria-controls="navbarsExample09"
+                aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+                onClick={handleNavCollapse}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <Link to="/" className="nav-link me-3">
+                <img
+                  src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
+                  alt="logo"
+                  style={{width:"12rem"}}
+                />
+              </Link>
+              {screenWidth < 768 && (
+                <img
+                  className=""
+                  src={profilePic}
+                  alt="profile-pic"
+                  style={{ cursor: "pointer" }}
+                />
+              )}
+            </div>
+
+            <div
+              className={
+                isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
+              }
+              id="navbarsExample09"
+            >
+              <Link to="/" className="nav-link mobile-logo">
+                <img src={mobilelogo} alt="logo" className="w-50" />
+              </Link>
+              <div
+                className="close__menu"
+                data-toggle="collapse"
+                data-target="#navbarsExample09"
+                aria-controls="navbarsExample09"
+                aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+                onClick={handleNavCollapse}
+              >
+                <svg
+                  viewPort="0 0 12 12"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="1"
+                    y1="11"
+                    x2="11"
+                    y2="1"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="1"
+                    y1="1"
+                    x2="11"
+                    y2="11"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
+                {menus.map((m) => (
+                  <NavLink
+                    link={m.link}
+                    name={m.name}
+                    mobile={false}
+                    icon={window.location.pathname === m.link ? m.icon : " "}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displayn"
+                        : " displayn"
+                    }
+                  />
+                ))}
+
+                {mobilemenus.map((m, i) => (
+                  <NavLink
+                    link={m.link}
+                    img={m.img}
+                    name={m.name}
+                    idx={i}
+                    // icon={m.icon}
+                    mobile={true}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displaydn inter"
+                        : " displaydn inter"
+                    }
+                  />
+                ))}
+                {/* <li className="nav-item nav-header displaydn">
+                <a
+                  alt=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#mobilesignupinmodal"
+                  className="nav-link link-dark headerfont headerpadding "
+                  aria-current="page"
+                >
+                  <FontAwesomeIcon icon={faUser} className="me-2" />
+                  Sign In/Up
+                </a>
+              </li> */}
+              </ul>
+              <form className="d-flex">
+                <ul className="nav displayn">
+                  {/* <button
+                  type="button"
+                  className="btn green text-light me-4 btn-sm"
+                >
+                  Get Free Quotes
+                </button> */}
+                  <button
+                    type="button"
+                    className="btn me-4 btn-sm blue text-light fs-6"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://pro.idesign.market/login")
+                    }
+                  >
+                    Join as Pro
+                  </button>
+
+                  {/* <Profile imagepath={bellicon} showarrow={false} /> */}
+
+                  {!user && (
+                    <li
+                      type=""
+                      className=" me-4 btn-sm"
+                      style={{ cursor: "pointer" }}
+                    >
+                      <span
+                        className="green-recon border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target={
+                          user ? "#successmodal" : "#staticBackdrop"
+                        }
+                      >
+                        Sign in / Sign up
+                      </span>
+                    </li>
+                  )}
+
+                  {user && (
+                    <Profile
+                      imagepath={"https://github.com/mdo.png"}
+                      showarrow={true}
+                      path="/dashboard/home"
+                      className="displayn"
+                    />
+                  )}
+                </ul>
+              </form>
+            </div>
+          </div>
+        )}
       </nav>
 
       <div className="profile_nav">

@@ -121,7 +121,7 @@ const DesignerListing2 = ({
                       .replaceAll(" ", "-")
                       .toLowerCase()}`)
                   }
-                  style={{ cursor: "pointer", height: "180px" }}
+                  style={{ cursor: "pointer", height: "11.375rem",width:"22.5rem" }}
                 />
                 <div
                   className="d-flex justify-content-evenly align-items-center"
@@ -181,10 +181,12 @@ const DesignerListing2 = ({
                       .replaceAll(" ", "-")
                       .toLowerCase()}`)
                   }
-                  style={{ cursor: "pointer", padding: "0",width:"100%" }}
+                  style={{ cursor: "pointer", padding: "0", width: "100%" }}
                 >
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p className="mt-2 d-inline dlsize">{name.length>15?`${name.substr(0,9)}...`:name}</p>
+                    <p className="mt-2 d-inline dlsize">
+                      {name.length > 15 ? `${name.substr(0, 9)}...` : name}
+                    </p>
                     {pro && <img className="ms-2 mt-2" src={tick} alt="" />}
                     <span
                       id="#designerListing2Star"
@@ -249,6 +251,9 @@ const DesignerListing2 = ({
                     )}
                   </td>
                 </div>
+              </tr>
+              <tr>
+                <td style={{fontFamily:"Manrope",color:"#7F8790",fontWeight:"400",fontSize:"0.75rem",lineHeight:"0.88125rem"}}>{address}</td>
               </tr>
             </table>
             <div className="d-flex justify-content-center mt-2" style={{}}>

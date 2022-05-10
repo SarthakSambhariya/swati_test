@@ -25,36 +25,39 @@
   opacity: 0.05;
   z-index: -1;
 }
-.title {
+.titleSelectedTab {
   position: relative;
   font-family: "Inter";
   font-weight: 600;
   font-size: 15px;
   text-align: center;
-  color: #141414;
+  color: #174E86;
   bottom:14px;
   cursor:pointer;
 }
 
-.title:after {
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95rem;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+}
+
+.titleSelectedTab:after {
   cursor:pointer;
   content: "";
   position: absolute;
   background-color: #3b5998;
-  width: 150%;
-  height: 6px;
-  left: -25%;
-  top: 23px;
-  border-radius: 5px;
-}
-.title {
-  position: relative;
-  font-family: "Inter";
-  font-weight: 600;
-  font-size: 15px;
-  text-align: center;
-  color: #141414;
-  bottom:14px;
+  width: 225%;
+  height: 0.25rem;
+  left: -65%;
+  top: 1.5625rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .navTextMob  {
@@ -68,16 +71,6 @@
   position: relative;
 }
 
-.title:after {
-  content: "";
-  position: absolute;
-  background-color: #3b5998;
-  width: 150%;
-  height: 6px;
-  left: -25%;
-  top: 23px;
-  border-radius: 5px;
-}
 .titleMob {
   position: relative;
   font-family: "Inter";

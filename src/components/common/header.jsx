@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import idesignlogo2 from "./header/images/iDesignLogo2.svg";
 import idesignlogo from "./header/images/idesignlogo.png";
+import idesignlogopc from "./header/images/idesignlogopc.svg";
+import notif from "./header/images/notif.svg";
 import profilePic from "./header/images/profilePic.svg";
 
 import mobilelogo from "./../../mobile/image/mobilelogo.png";
@@ -52,6 +54,7 @@ const Header = () => {
   const [showShareEmail, setShowShareEmail] = useState(true);
   const [showShareWhatsApp, setShowShareWhatsApp] = useState(false);
   const [screenWidth, setScreenWidth] = useState(getScreenWidth());
+  const [signedIn, setSignedIn] = useState(false);
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
@@ -161,7 +164,7 @@ const Header = () => {
             <div className="navbar-brand d-flex justify-content-between">
               <Link to="/" className="nav-link mx-">
                 <img
-                  src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
+                  src={screenWidth < 768 ? idesignlogo2 : idesignlogopc}
                   alt="logo"
                   className="logosize"
                 />
@@ -219,7 +222,16 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
+              <ul
+                className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif"
+                style={{
+                  fontFamily: "Manrope",
+                  fontWeight: "600",
+                  fontSize: "1.5rem",
+                  lineHeight: "2.04875rem",
+                  color: "#121212",
+                }}
+              >
                 {menus.map((m) => (
                   <NavLink
                     link={m.link}
@@ -272,11 +284,35 @@ const Header = () => {
                 </button> */}
                   <button
                     type="button"
+                    className="btn me-4 btn-sm text-light fs-6"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://pro.idesign.market/login")
+                    }
+                    style={{
+                      backgroundColor: "#49B7CF",
+                      fontFamily: "Public Sans",
+                      fontSize: "1.25rem",
+                      fontWeight: "500",
+                      lineHeight: "1.5rem",
+                    }}
+                  >
+                    Get Free Quotes
+                  </button>
+                  <button
+                    type="button"
                     className="btn me-4 btn-sm blue text-light fs-6"
                     onClick={() =>
                       (window.location.href =
                         "https://pro.idesign.market/login")
                     }
+                    style={{
+                      backgroundColor: "#49B7CF",
+                      fontFamily: "Public Sans",
+                      fontSize: "1.25rem",
+                      fontWeight: "500",
+                      lineHeight: "1.5rem",
+                    }}
                   >
                     Join as Pro
                   </button>
@@ -289,15 +325,37 @@ const Header = () => {
                       className=" me-4 btn-sm"
                       style={{ cursor: "pointer" }}
                     >
-                      <span
-                        className="green-recon border-0"
-                        data-bs-toggle="modal"
-                        data-bs-target={
-                          user ? "#successmodal" : "#staticBackdrop"
-                        }
-                      >
-                        Sign in / Sign up
-                      </span>
+                      {signedIn ? (
+                        <span
+                          className="green-recon border-0"
+                          data-bs-toggle="modal"
+                          data-bs-target={
+                            user ? "#successmodal" : "#staticBackdrop"
+                          }
+                        >
+                          <img className="me-2" src={notif} alt="..." />
+                          <img
+                            src={profilePic}
+                            alt=""
+                            style={{ width: "3rem" }}
+                          />
+                        </span>
+                      ) : (
+                        <span
+                          className="green-recon border-0"
+                          data-bs-toggle="modal"
+                          data-bs-target={
+                            user ? "#successmodal" : "#staticBackdrop"
+                          }
+                          style={{
+                            fontFamily: "Manrope",
+                            fontWeight: "600",
+                            lineHeight: "2.04875rem",
+                          }}
+                        >
+                          Sign in / Sign up
+                        </span>
+                      )}
                     </li>
                   )}
 
@@ -336,7 +394,7 @@ const Header = () => {
                 <img
                   src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
                   alt="logo"
-                  style={{width:"12rem"}}
+                  style={{ width: "12rem" }}
                 />
               </Link>
               {screenWidth < 768 && (
@@ -547,10 +605,10 @@ const Header = () => {
               onClick={() => (window.location.href = "/idesignexclusive")}
               style={{
                 cursor: "pointer",
-                background: screenWidth < 768 ? "#174E86" : "",
+                background: "#174E86",
               }}
             >
-              iDesign Exclusive
+              iDesign Exclusives
             </li>
             <li
               onClick={() => (window.location.href = "/finalbilling")}

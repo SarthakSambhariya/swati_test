@@ -40,6 +40,7 @@ import { isMobile } from "react-device-detect";
 import "react-toastify/dist/ReactToastify.css";
 import FindProfessionals2 from "../src/layouts/FindProfessionals2";
 import DesignerProfile2 from "./layouts/DesignerProfile2";
+import ContractorProfile from "./layouts/ContractorProfile2";
 function App() {
   return (
     <Switch>

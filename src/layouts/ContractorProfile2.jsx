@@ -21,7 +21,7 @@ import tick from "../components/findprofessional/images/tick.png";
 import share from "../components/findprofessional/images/share.png";
 import like from "../components/findprofessional/images/like.png";
 import location from "../components/findprofessional/images/location.png";
-import { CloseButton, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import authService from "../services/authService";
 import userservice from "../services/userservice";
 import noimage from "../components/home/images/noimage.png";
@@ -41,7 +41,6 @@ import AllProjectsModal from "../components/exploreprojects/allprojectsmodal";
 import Footer2 from "../components/common/footer2";
 import profileBackground from "../components/findprofessional/images/profileBackground.svg";
 import shareBtn from "../components/findprofessional/images/shareButtonOnProfile.svg";
-import contractorWork from "../components/findprofessional/images/contractorWorks.png";
 import profilePicture from "../components/findprofessional/images/profilePicture.svg";
 import profilePageReviewStar from "../components/findprofessional/images/profilePageReviewStar.svg";
 import blueHeart from "../components/findprofessional/images/blueHeart.svg";
@@ -51,13 +50,6 @@ import experienceProfilePage from "../components/findprofessional/images/experie
 import projectsProfilePage from "../components/findprofessional/images/projectsProfilePage.svg";
 import otherDesignerProfilePic from "../components/findprofessional/images/otherDesignersPic.svg";
 import briefCaseDesigner from "../components/findprofessional/images/briefCaseDesigner.svg";
-import falseCeiling from "../components/findprofessional/images/falseCeiling.svg";
-import tiles from "../components/findprofessional/images/tiles.svg";
-import putty from "../components/findprofessional/images/putty.svg";
-import wardrobes from "../components/findprofessional/images/wardrobes.svg";
-import kitchen from "../components/findprofessional/images/kitchen.svg";
-import whiteWhatsapp from "../components/findprofessional/images/whiteWhatsapp.svg";
-import whiteCallButton from "../components/findprofessional/images/whiteCallButton.svg";
 import { ProgressBar, Card } from "react-bootstrap";
 import ReactStars from "react-rating-stars-component";
 import DesignerPosts from "./designerPosts";
@@ -67,10 +59,6 @@ function getScreenWidth() {
   const width = window.innerWidth;
   return width;
 }
-
-const Backdrop = (props) => {
-  return <div className="backdrop" onClick={props.onClose} />;
-};
 
 const responsive = {
   superLargeDesktop: {
@@ -90,9 +78,10 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 2,
   },
+
 };
 
-const DesignerProfile = ({ match, location, address }) => {
+const ContractorProfile = ({ match, location, address }) => {
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(true);
   const [designerProfile, setDesignerProfile] = useState({});
@@ -111,8 +100,6 @@ const DesignerProfile = ({ match, location, address }) => {
   const [writeAReviewTextArea, setWriteAReviewTextArea] = useState(false);
   const reviewTextAreaRef = useRef();
   const [wordCount, setWordCount] = useState(0);
-  const [projectCarouselOpen, setProjectCarouselOpen] = useState(false);
-  // const [listingType, setListingType] = useState("");
 
   const ratingSettings = {
     size: 50,
@@ -126,7 +113,7 @@ const DesignerProfile = ({ match, location, address }) => {
     // halfIcon: <i class="fa-solid fa-star-half-stroke"></i>,
     filledIcon: <i class="far fa-solid fa-star"></i>,
     onChange: (newValue) => {
-      // console.log(`Example 2: new value is ${newValue}`);
+      console.log(`Example 2: new value is ${newValue}`);
     },
   };
 
@@ -222,11 +209,11 @@ const DesignerProfile = ({ match, location, address }) => {
       const projects = await b2bservice.getlistProjectsFilter(
         projectParams + "&" + projectParams
       );
-      // console.log(projects[0]["data"][0]["images"], "project");
+      console.log(projects[0]["data"][0]["images"], "project");
       setDesignerProject(projects);
       if (projects.length > 0) {
         setUserData(projects[0]["userId"]);
-        // console.log(projects[0]["data"]);
+        console.log(projects[0]["data"]);
         setImages(projects[0]["data"][0]["images"]);
         setTotalProjectsByDesigner(projects.length);
       }
@@ -264,15 +251,12 @@ const DesignerProfile = ({ match, location, address }) => {
     function handleResize() {
       setScreenWidth(getScreenWidth());
     }
-    // if (window.location.pathname.includes("contractor")) {
-    //   setListingType("contractor");
-    // } else {
-    //   setListingType("designer");
-    // }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [location["data"]]);
+
+  console.log(designerProject);
 
   const textAreaWordCountHandler = () => {
     setWordCount(reviewTextAreaRef.current.value.length);
@@ -924,7 +908,7 @@ const DesignerProfile = ({ match, location, address }) => {
                               type="button"
                               className="btn text-primary text-primary liked-ins"
                             >
-                              Painting
+                              Paintingssss
                             </button>
                           </>
                         )}
@@ -1752,35 +1736,8 @@ const DesignerProfile = ({ match, location, address }) => {
         </>
       )}
       {screenWidth < 767 && (
-        <div style={{position:"relative"}}>
-          {projectCarouselOpen && (
-            <div
-              className="d-flex flex-column"
-              style={{
-                position: "fixed",
-                zIndex: "20",
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0,0,0,0.7)",
-              }}
-            >
-              <div
-                className="d-flex justify-content-end mt-3 me-3"
-                onClick={() => {
-                  setProjectCarouselOpen(false);
-                }}
-              >
-                <CloseButton variant="white" />
-              </div>
-              <div style={{ position: "relative", top: "20%" }} >
-                <DesignerProfileProjectCarousel
-                  arrayOfImages={designerProject}
-                />
-              </div>
-            </div>
-          )}
+        <>
           <Header />
-
           <section>
             <div>
               <div
@@ -1930,36 +1887,34 @@ const DesignerProfile = ({ match, location, address }) => {
                   Years
                 </span>
               </div>
-              {Name === "designer" && (
-                <div className="d-flex flex-column mx-4 align-items-center">
-                  <img src={designFeeProfilePage} alt="" />
-                  <span
-                    className="mt-2"
-                    style={{
-                      fontFamily: "Manrope",
-                      fontWeight: "400",
-                      fontSize: "12px",
-                      color: "#7F8790",
-                    }}
-                  >
-                    Design fee
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "Manrope",
-                      fontWeight: "400",
-                      fontSize: "12px",
-                      color: "#121212",
-                    }}
-                  >
-                    ₹
-                    {designerProfile && designerProfile["fees"]
-                      ? designerProfile["fees"]["designRoomPrice"]
-                      : "5000"}
-                    /room
-                  </span>
-                </div>
-              )}
+              <div className="d-flex flex-column mx-4 align-items-center">
+                <img src={designFeeProfilePage} alt="" />
+                <span
+                  className="mt-2"
+                  style={{
+                    fontFamily: "Manrope",
+                    fontWeight: "400",
+                    fontSize: "12px",
+                    color: "#7F8790",
+                  }}
+                >
+                  Design fee
+                </span>
+                <span
+                  style={{
+                    fontFamily: "Manrope",
+                    fontWeight: "400",
+                    fontSize: "12px",
+                    color: "#121212",
+                  }}
+                >
+                  ₹
+                  {designerProfile && designerProfile["fees"]
+                    ? designerProfile["fees"]["designRoomPrice"]
+                    : "5000"}
+                  /room
+                </span>
+              </div>
               <div className="d-flex flex-column mx-4 align-items-center">
                 <img src={projectsProfilePage} alt="" />
                 <span
@@ -1985,228 +1940,44 @@ const DesignerProfile = ({ match, location, address }) => {
                 </span>
               </div>
             </div>
-            {Name === "designer" && (
-              <div className="d-flex mt-4 justify-content-center">
-                <span
-                  className="mx-2 py-1 px-2"
-                  style={{
-                    border: "0.2px solid rgba(127, 135, 144, 0.5)",
-                    fontWeight: "400",
-                    lineHeight: "13.66px",
-                    fontFamily: "Manrope",
-                    borderRadius: "7px",
-                  }}
-                >
-                  Bohemian
-                </span>
-                <span
-                  className="mx-2 py-1 px-2"
-                  style={{
-                    border: "0.2px solid rgba(127, 135, 144, 0.5)",
-                    fontWeight: "400",
-                    lineHeight: "13.66px",
-                    fontFamily: "Manrope",
-                    borderRadius: "7px",
-                  }}
-                >
-                  Modern
-                </span>
-                <span
-                  className="mx-2 py-1 px-2"
-                  style={{
-                    border: "0.2px solid rgba(127, 135, 144, 0.5)",
-                    fontWeight: "400",
-                    lineHeight: "13.66px",
-                    fontFamily: "Manrope",
-                    borderRadius: "7px",
-                  }}
-                >
-                  Traditional
-                </span>
-              </div>
-            )}
-            {Name === "contractor" && (
-              <div className="mb-4">
-                <div
-                  className="my-4"
-                  style={{
-                    width: "95%",
-                    borderBottom: "0.0625rem solid rgba(127, 135, 144, 0.2)",
-                  }}
-                />
-                <div className="d-flex mt-4 justify-content-center flex-column ms-5">
-                  <div
-                    className="mb-2 d-flex justify-content-between align-items-center"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.875rem",
-                        fontWeight: "600",
-                        lineHeight: "1.195rem",
-                      }}
-                    >
-                      Provided Services
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "500",
-                        lineHeight: "1.024375rem",
-                      }}
-                    >
-                      Rate per sqft
-                    </div>
-                  </div>
-                  <div
-                    className="my-2 d-flex justify-content-between"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "400",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      <img className="me-2" src={falseCeiling} alt="..." />
-                      POP False Ceiling
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      ₹ 1,000
-                    </div>
-                  </div>
-                  <div
-                    className="my-2 d-flex justify-content-between"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "400",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      {" "}
-                      <img className="me-2" src={tiles} alt="..." />
-                      Tiles
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      ₹ 1,000
-                    </div>
-                  </div>
-                  <div
-                    className="my-2 d-flex justify-content-between"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "400",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      {" "}
-                      <img className="me-2" src={putty} alt="..." />
-                      Putty
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      ₹ 1,000
-                    </div>
-                  </div>
-                  <div
-                    className="my-2 d-flex justify-content-between"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "400",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      {" "}
-                      <img className="me-2" src={wardrobes} alt="..." />
-                      Wardrobe
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      ₹ 1,000
-                    </div>
-                  </div>
-                  <div
-                    className="my-2 d-flex justify-content-between"
-                    style={{ width: "80%" }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "400",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      {" "}
-                      <img className="me-2" src={kitchen} alt="..." />
-                      Kitchen
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "0.75rem",
-                        fontWeight: "700",
-                        lineHeight: "0.88125rem",
-                        color: "#7F8790",
-                      }}
-                    >
-                      ₹ 1,000
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+            <div className="d-flex mt-4 justify-content-center">
+              <span
+                className="mx-2 py-1 px-2"
+                style={{
+                  border: "0.2px solid rgba(127, 135, 144, 0.5)",
+                  fontWeight: "400",
+                  lineHeight: "13.66px",
+                  fontFamily: "Manrope",
+                  borderRadius: "7px",
+                }}
+              >
+                Bohemian
+              </span>
+              <span
+                className="mx-2 py-1 px-2"
+                style={{
+                  border: "0.2px solid rgba(127, 135, 144, 0.5)",
+                  fontWeight: "400",
+                  lineHeight: "13.66px",
+                  fontFamily: "Manrope",
+                  borderRadius: "7px",
+                }}
+              >
+                Modern
+              </span>
+              <span
+                className="mx-2 py-1 px-2"
+                style={{
+                  border: "0.2px solid rgba(127, 135, 144, 0.5)",
+                  fontWeight: "400",
+                  lineHeight: "13.66px",
+                  fontFamily: "Manrope",
+                  borderRadius: "7px",
+                }}
+              >
+                Traditional
+              </span>
+            </div>
             <div className="mt-4 mx-2">
               <div className="d-flex justify-content-evenly">
                 {
@@ -2288,16 +2059,10 @@ const DesignerProfile = ({ match, location, address }) => {
               <div className="tabContents">
                 {componentsToRender === "projects" && (
                   <div className="d-flex justify-content-center">
-                    <div
-                      className=""
-                      style={{ width: "110%", cursor: "pointer" }}
-                      onClick={() => {
-                        setProjectCarouselOpen(true);
-                      }}
-                    >
-                      <DesignerProfileProjectCarousel
-                        arrayOfImages={designerProject}
-                      />
+                    <div className="" style={{width:"110%"}}>
+                      <DesignerProfileProjectCarousel arrayOfImages={designerProject}>
+                       
+                      </DesignerProfileProjectCarousel>
                       <div
                         className="mt-2 ms-2"
                         style={{
@@ -2976,42 +2741,10 @@ const DesignerProfile = ({ match, location, address }) => {
           </section>
 
           <Footer2 />
-          <div className="contactBtns d-flex" style={{ height: "3rem",position:"fixed",width:"100%",bottom:"0" }}>
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{ background: "#174E86", width: "50%",cursor:"pointer" }}
-            >
-              <img className="me-2" src={whiteCallButton} alt="" />
-              <p
-                style={{
-                  fontFamily: "Manrope",
-                  fontSize: "0.875rem",
-                  fontWeight: "500",
-                  lineHeight: "1.1875rem",
-                  color: "white",
-                }}
-              >
-                Call Designer
-              </p>
-            </div>
-            <div
-              className="d-flex justify-content-center align-items-center"
-              style={{ background: "#49B7CF", width: "50%",cursor:"pointer" }}
-            >
-              <img className="me-2" src={whiteWhatsapp} alt="" />
-              <p style={{
-                  fontFamily: "Manrope",
-                  fontSize: "0.875rem",
-                  fontWeight: "500",
-                  lineHeight: "1.1875rem",
-                  color: "white",
-                }}>Whatsapp</p>
-            </div>
-          </div>
-        </div>
+        </>
       )}
     </React.Fragment>
   );
 };
 
-export default DesignerProfile;
+export default ContractorProfile;

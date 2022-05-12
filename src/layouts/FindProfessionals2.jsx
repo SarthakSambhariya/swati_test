@@ -25,6 +25,8 @@ import OEMLogoWhite from "../components/findprofessional/images/OEM White.svg";
 import designervector from "../components/findprofessional/images/designervector.png";
 import designerout from "../components/findprofessional/images/designerout.png";
 import contractorout from "../components/findprofessional/images/contractorout.png";
+import filterIconPc from "../components/findprofessional/images/filterIconPc.svg";
+import renovationCalculatorIllustration from "../components/findprofessional/images/renovationCalculatorIllustration.svg";
 import reco from "../components/findprofessional/images/reco.png";
 import guide from "../components/findprofessional/images/guide.png";
 import filter from "../components/exploreprojects/images/filter.png";
@@ -41,6 +43,8 @@ import {
   ListGroup,
   Form,
   CloseButton,
+  Dropdown,
+  SplitButton,
 } from "react-bootstrap";
 import b2bservice from "../services/b2bservice";
 import authService, { apiLogout } from "../services/authService";
@@ -54,14 +58,16 @@ import Pagination from "../components/common/pagination";
 import CalendarModal from "../components/modal/CalendarModal";
 import Footer2 from "../components/common/footer2";
 import blueCard from "../components/findprofessional/images/blueCard.svg";
+import ContractorListing2 from "../components/findprofessional/ContractorListing2";
 function getScreenWidth() {
   const width = window.innerWidth;
   return width;
 }
 
-const Backdrop = (props) => {
-  return <div className="backdrop" onClick={props.onClose} />;
-};
+function capitalizeAString(str) {
+  const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+  return str2;
+}
 
 const FindProfessionals = ({ mobileview, location }) => {
   const [page, setPage] = useState(1);
@@ -78,7 +84,9 @@ const FindProfessionals = ({ mobileview, location }) => {
   const [expshow, setExpShow] = useState(false);
   const [exptarget, setExpTarget] = useState(null);
   const [searchFieldVisibility, setSearchFieldVisibility] = useState(false);
-
+  const [openCityFilter, setOpenCityFilter] = useState(false);
+  const [openDesignFilter, setOpenDesignFilter] = useState(false);
+  const [openExperienceFilter, setOpenExperienceFilter] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
 
   const [afiltershow, setAfilterShow] = useState(false);
@@ -368,9 +376,16 @@ const FindProfessionals = ({ mobileview, location }) => {
                         Home
                       </a>
                     </li>
+                    <li className="breadcrumb-item">
+                      <a href="/home" className="bred">
+                        Find Designers
+                      </a>
+                    </li>
 
                     <li className="breadcrumb-item" aria-current="page">
-                      <a href="##">Find Professionals</a>
+                      <a href="##">
+                        {capitalizeAString(componentsToRender)} Listings
+                      </a>
                     </li>
                   </ol>
                 </nav>
@@ -390,93 +405,116 @@ const FindProfessionals = ({ mobileview, location }) => {
                   </div>
 
                   <div className="professional-filter">
-                    <div className="col-lg-7">
+                    <div className="">
                       <div className="HeadingAndCalendarButtonStyling">
-                        <h2 className="displayn">Find Professionals</h2>
-                        <CalendarModal />
-                      </div>
-                      <p className="fs-5 mt-lg-2 mb-lg-2 inter displayn">
-                        Contact thousands of experts from one single directory
-                      </p>
-                    </div>
-
-                    <div className="row mtop">
-                      <div className="col-lg-7" id="pill-tab-div">
-                        <ul
-                          className="nav nav-pills"
-                          id="pills-tab"
-                          role="tablist"
+                        <h2
+                          className="displayn"
+                          style={{
+                            fontFamily: "Manrope",
+                            fontSize: "2.25rem",
+                            fontWeight: "700",
+                            lineHeight: "3.0625rem",
+                          }}
                         >
-                          <li className="nav-item" role="presentation">
-                            <button
-                              className={
-                                defaultd
-                                  ? "nav-link btn-sm prof-btn w-100 active"
-                                  : "nav-link btn-sm prof-btn w-100"
-                              }
-                              id="designer-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#designer"
-                              type="button"
-                              role="tab"
-                              aria-controls="designer"
-                              aria-selected="true"
-                              onClick={() =>
-                                (window.location.href = "/findprofessionals")
-                              }
-                            >
-                              {componentsToRender === "designer" ? (
-                                <img
-                                  src={designervector}
-                                  alt=""
-                                  className="me-3"
-                                />
-                              ) : (
-                                <img
-                                  src={designerout}
-                                  alt=""
-                                  className="me-3"
-                                />
-                              )}
-                              Designer
-                            </button>
-                          </li>
-                          <li className="nav-item" role="presentation">
-                            <button
-                              className={
-                                componentsToRender === "contractor"
-                                  ? "nav-link btn-sm prof-btn w-100 active"
-                                  : "nav-link btn-sm prof-btn w-100"
-                              }
-                              id="contractor-tab"
-                              data-bs-toggle="pill"
-                              data-bs-target="#contractor"
-                              type="button"
-                              role="tab"
-                              aria-controls="contractor"
-                              aria-selected="false"
-                              onClick={() =>
-                                (window.location.href =
-                                  "/findprofessionals/contractor")
-                              }
-                            >
-                              {componentsToRender === "contractor" ? (
-                                <img
-                                  src={contractorvector}
-                                  alt=""
-                                  className="me-3"
-                                />
-                              ) : (
-                                <img
-                                  src={contractorout}
-                                  alt=""
-                                  className="me-3"
-                                />
-                              )}
-                              Contractor
-                            </button>
-                          </li>
-                          <li className="nav-item" role="presentation">
+                          Find Professionals
+                        </h2>
+                        {/* <CalendarModal /> */}
+                      </div>
+                      <div
+                        className="d-flex justify-content-between"
+                        style={{ width: "100%" }}
+                      >
+                        <div>
+                          <p
+                            className="fs-5 "
+                            style={{
+                              fontFamily: "Manrope",
+                              fontSize: "1.5rem",
+                              fontWeight: "700",
+                              lineHeight: "1.7625rem",
+                              color: "#7F8790",
+                            }}
+                          >
+                            Contact thousands of experts from one single
+                            directory
+                          </p>
+                        </div>
+                        <div className="" id="pill-tab-div">
+                          <ul
+                            className="nav nav-pills"
+                            id="pills-tab"
+                            role="tablist"
+                          >
+                            <li className="nav-item" role="presentation">
+                              <button
+                                className={
+                                  defaultd
+                                    ? "nav-link btn-sm prof-btn w-100 active"
+                                    : "nav-link btn-sm prof-btn w-100"
+                                }
+                                id="designer-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#designer"
+                                type="button"
+                                role="tab"
+                                aria-controls="designer"
+                                aria-selected="true"
+                                onClick={() =>
+                                  (window.location.href = "/findprofessionals2")
+                                }
+                              >
+                                {componentsToRender === "designer" ? (
+                                  <img
+                                    src={designervector}
+                                    alt=""
+                                    className="me-3"
+                                  />
+                                ) : (
+                                  <img
+                                    src={designerout}
+                                    alt=""
+                                    className="me-3"
+                                  />
+                                )}
+                                Designer
+                              </button>
+                            </li>
+                            <li className="nav-item" role="presentation">
+                              <button
+                                className={
+                                  componentsToRender === "contractor"
+                                    ? "nav-link btn-sm prof-btn w-100 active"
+                                    : "nav-link btn-sm prof-btn w-100"
+                                }
+                                id="contractor-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#contractor"
+                                type="button"
+                                role="tab"
+                                aria-controls="contractor"
+                                aria-selected="false"
+                                onClick={() =>
+                                  (window.location.href =
+                                    "/findprofessionals2/contractor2")
+                                }
+                              >
+                                {componentsToRender === "contractor" ? (
+                                  <img
+                                    src={contractorvector}
+                                    alt=""
+                                    className="me-3"
+                                  />
+                                ) : (
+                                  <img
+                                    src={contractorout}
+                                    alt=""
+                                    className="me-3"
+                                  />
+                                )}
+                                Contractor
+                              </button>
+                            </li>
+                            {/* <li className="nav-item" role="presentation">
                             <button
                               className={
                                 oemIconShow
@@ -512,80 +550,20 @@ const FindProfessionals = ({ mobileview, location }) => {
                               )}
                               OEM
                             </button>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="col-lg-5 col-md-12 displayn">
-                        <div className="container">
-                          <div
-                            className="btn-group btn-group-sm filter-btn"
-                            role="group"
-                            aria-label="First group"
-                          >
-                            <button
-                              type="button"
-                              className="btn btn-outline-secondary"
-                              onClick={(e) => cityPopover(e)}
-                            >
-                              City
-                            </button>
-                            {!designerIconShow && (
-                              <button
-                                type="button"
-                                className="btn btn-outline-secondary"
-                                onClick={(e) => feePopover(e)}
-                                // ref={domNode}
-                              >
-                                Designer Fee
-                              </button>
-                            )}
-
-                            {designerIconShow && (
-                              <button
-                                type="button"
-                                className="btn btn-outline-secondary"
-                                onClick={(e) => feePopover(e)}
-                              >
-                                Services
-                              </button>
-                            )}
-                            <button
-                              type="button"
-                              className="btn btn-outline-secondary"
-                              onClick={(e) => expPopover(e)}
-                            >
-                              Experience
-                            </button>
-                            <button
-                              type="button"
-                              className="btn btn-outline-secondary"
-                              onClick={(e) => afilterPopover(e)}
-                            >
-                              All Filters
-                            </button>
-                          </div>
+                          </li> */}
+                          </ul>
                         </div>
-
-                        <Filters
-                          citytarget={citytarget}
-                          cityshow={cityshow}
-                          cityInit={cityInit}
-                          feeshow={feeshow}
-                          handleCityFilter={handleCityFilter}
-                          afiltershow={afiltershow}
-                          afiltertarget={afiltertarget}
-                          feetarget={feetarget}
-                          expshow={expshow}
-                          exptarget={exptarget}
-                          handleExpFilter={handleExpFilter}
-                          handleDesignerFee={handleDesignerFee}
-                          clearCheckBox={clearCityCheckBox}
-                          handleRemoveCityFromFilter={
-                            handleRemoveCityFromFilter
-                          }
-                          componentsToRender={componentsToRender}
-                        />
                       </div>
+                    </div>
+
+                    <div className="row mtop">
+                      <div
+                        className="mt-3"
+                        style={{
+                          borderBottom: "2px solid rgba(127, 135, 144, 0.2)",
+                          width: "100%",
+                        }}
+                      ></div>
                     </div>
 
                     <div className="mtop">
@@ -639,88 +617,744 @@ const FindProfessionals = ({ mobileview, location }) => {
                               <center>
                                 <Spinner animation="border" />
                               </center>
-                            ) : componentsToRender === "contractor" ? (
-                              designerListings.map((listing, i) => (
-                                <>
-                                  {i === 4 && (
-                                    <div className="row mt-4">
-                                      <div className="nsure blue row  w-100">
-                                        <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">
-                                          <p>Still not sure?</p>
-                                          <h2>
-                                            Let idesign send you instant
-                                            recommendations.
-                                          </h2>
-
-                                          <button
-                                            type="button"
-                                            className="btn btn-light mt-3 blue-text"
-                                            data-bs-toggle="modal"
-                                            data-bs-target={
-                                              user
-                                                ? "#successmodal"
-                                                : "#getstartedmodal"
-                                            }
+                            ) : componentsToRender === "contractor2" ? (
+                              <>
+                                <div
+                                  className="tab-pane fade"
+                                  id="contractor"
+                                  role="tabpanel"
+                                  aria-labelledby="contractor-tab"
+                                  style={{ opacity: "1" }}
+                                >
+                                  <section className="design-firm mt-0">
+                                    <div
+                                      className=""
+                                      style={{ display: "flex" }}
+                                    >
+                                      <div>
+                                        <div
+                                          className="p-2"
+                                          style={{
+                                            boxShadow:
+                                              "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
+                                            borderRadius: "0.25rem",
+                                            // height: "27.8125rem",
+                                            height:"auto"
+                                          }}
+                                        >
+                                          <div>
+                                            <div className="">
+                                              <Form.Group
+                                                controlId=""
+                                                style={{ position: "relative" }}
+                                              >
+                                                <Form.Control
+                                                  type="text"
+                                                  placeholder="Search..."
+                                                />
+                                                <img
+                                                  src={searchIcon}
+                                                  style={{
+                                                    position: "absolute",
+                                                    top: "0.55rem",
+                                                    right: "0.5rem",
+                                                  }}
+                                                />
+                                              </Form.Group>
+                                            </div>
+                                          </div>
+                                          <div
+                                            className="mt-4"
+                                            style={{
+                                              borderBottom:
+                                                "1px solid rgba(127, 135, 144, 0.2)",
+                                              width: "100%",
+                                            }}
+                                          />
+                                          <div className="d-flex mt-4">
+                                            <img src={filterIconPc} alt="" />
+                                            <p
+                                              style={{
+                                                fontFamily: "Manrope",
+                                                fontSize: "1.5rem",
+                                                fontWeight: "600",
+                                                lineHeight: "2rem",
+                                              }}
+                                            >
+                                              Filters
+                                            </p>
+                                          </div>
+                                          <div
+                                            className="mt-3"
+                                            style={{
+                                              border: "1px solid #A7A7A7",
+                                              borderRadius: "0.25rem",
+                                            }}
                                           >
-                                            <b>Get Started ⋙</b>
-                                          </button>
+                                            <div
+                                              className="d-flex align-items-center justify-content-between "
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1.25rem",
+                                                fontWeight: "200",
+                                                lineHeight: "1.5rem",
+                                                borderRadius: "1.25rem",
+                                                height: "2.5rem",
+                                              }}
+                                            >
+                                              <p className="mx-2">City</p>
+                                              {!openCityFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-down"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenCityFilter(
+                                                      !openCityFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                              {openCityFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-up"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenCityFilter(
+                                                      !openCityFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                            </div>
+                                            {openCityFilter && (
+                                              <div>
+                                                <div
+                                                  className=""
+                                                  style={{
+                                                    borderBottom:
+                                                      "1px solid rgba(127, 135, 144, 0.2)",
+                                                    width: "95%",
+                                                    margin: "auto",
+                                                  }}
+                                                />
+                                                <div className="d-flex align-items-center justify-content-end mt-3 mb-3 mx-2">
+                                                  <p
+                                                    style={{
+                                                      fontFamily: "Public Sans",
+                                                      fontSize: "0.875rem",
+                                                      fontWeight: "600",
+                                                      lineHeight: "1rem",
+                                                      color: "#174E86",
+                                                    }}
+                                                  >
+                                                    Clear All
+                                                  </p>
+                                                </div>
+                                                <div
+                                                  className=""
+                                                  style={{
+                                                    width: "90%",
+                                                    margin: "auto",
+                                                  }}
+                                                >
+                                                  <Form.Group
+                                                    controlId=""
+                                                    style={{
+                                                      position: "relative",
+                                                    }}
+                                                  >
+                                                    <Form.Control
+                                                      type="text"
+                                                      placeholder="Search..."
+                                                    />
+                                                    <img
+                                                      src={searchIcon}
+                                                      style={{
+                                                        position: "absolute",
+                                                        top: "0.55rem",
+                                                        right: "0.5rem",
+                                                      }}
+                                                    />
+                                                  </Form.Group>
+                                                </div>
+                                                <div
+                                                  className="mt-3 ms-3"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1.125rem",
+                                                    fontWeight: " 300",
+                                                    lineHeight: "1.321875rem",
+                                                  }}
+                                                >
+                                                  <div className="form-check">
+                                                    <input
+                                                      className="form-check-input"
+                                                      type="checkbox"
+                                                      value=""
+                                                      id="flexCheckDefault"
+                                                      // onClick={() => handleExpFilter("0-1")}
+                                                    />
+                                                    <label
+                                                      className="form-check-label"
+                                                      for="flexCheckDefault"
+                                                    >
+                                                      Delhi
+                                                    </label>
+                                                  </div>
+                                                  <div className="form-check">
+                                                    <input
+                                                      className="form-check-input"
+                                                      type="checkbox"
+                                                      value=""
+                                                      id="flexCheckDefault"
+                                                      // onClick={() => handleExpFilter("1-2")}
+                                                    />
+                                                    <label
+                                                      className="form-check-label"
+                                                      for="flexCheckDefault"
+                                                    >
+                                                      Gurgaon
+                                                    </label>
+                                                  </div>
+                                                  <div className="form-check">
+                                                    <input
+                                                      className="form-check-input"
+                                                      type="checkbox"
+                                                      value=""
+                                                      id="flexCheckDefault"
+                                                      // onClick={() => handleExpFilter("2-3")}
+                                                    />
+                                                    <label
+                                                      className="form-check-label"
+                                                      for="flexCheckDefault"
+                                                    >
+                                                      Bhopal
+                                                    </label>
+                                                  </div>
+                                                  <div className="form-check">
+                                                    <input
+                                                      className="form-check-input"
+                                                      type="checkbox"
+                                                      value=""
+                                                      id="flexCheckDefault"
+                                                      // onClick={() => handleExpFilter("3-4")}
+                                                    />
+                                                    <label
+                                                      className="form-check-label"
+                                                      for="flexCheckDefault"
+                                                    >
+                                                      Chandigarh
+                                                    </label>
+                                                  </div>
+                                                  <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-sm blue text-light fs-6  d-flex"
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "1.25rem",
+                                                        fontWeight: "500",
+                                                        lineHeight: "1.5rem",
+                                                      }}
+                                                    >
+                                                      Apply
+                                                    </button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )}
+                                          </div>
+                                          <div
+                                            className="mt-3"
+                                            style={{
+                                              border: "1px solid #A7A7A7",
+                                              borderRadius: "0.25rem",
+                                            }}
+                                          >
+                                            <div
+                                              className="d-flex align-items-center justify-content-between "
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1.25rem",
+                                                fontWeight: "200",
+                                                lineHeight: "1.5rem",
+                                                borderRadius: "1.25rem",
+                                                height: "2.5rem",
+                                              }}
+                                            >
+                                              <p className="mx-2">
+                                                Design Fees
+                                              </p>
+                                              {!openDesignFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-down"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenDesignFilter(
+                                                      !openDesignFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                              {openDesignFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-up"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenDesignFilter(
+                                                      !openDesignFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                            </div>
+                                            {openDesignFilter && (
+                                              <div>
+                                                <div
+                                                  className=""
+                                                  style={{
+                                                    borderBottom:
+                                                      "1px solid rgba(127, 135, 144, 0.2)",
+                                                    width: "95%",
+                                                    margin: "auto",
+                                                  }}
+                                                />
+                                                <div className="d-flex align-items-center justify-content-end mt-3 mb-3 mx-2">
+                                                  <p
+                                                    style={{
+                                                      fontFamily: "Public Sans",
+                                                      fontSize: "0.875rem",
+                                                      fontWeight: "600",
+                                                      lineHeight: "1rem",
+                                                      color: "#174E86",
+                                                    }}
+                                                  >
+                                                    Clear All
+                                                  </p>
+                                                </div>
+
+                                                <div
+                                                  className="mt-3 ms-3"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1rem",
+                                                    fontWeight: " 400",
+                                                  }}
+                                                >
+                                                  <span>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`5,000 - 10,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`10,000 - 20,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`20,000 - 40,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`40,000 - 60,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`60,000 - 80,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`80,000 - 1,00,000`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`1,00,000 & above`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                  </span>
+                                                  <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-sm blue text-light fs-6  d-flex"
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "1.25rem",
+                                                        fontWeight: "500",
+                                                        lineHeight: "1.5rem",
+                                                      }}
+                                                    >
+                                                      Apply
+                                                    </button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )}
+                                          </div>
+                                          <div
+                                            className="mt-3"
+                                            style={{
+                                              border: "1px solid #A7A7A7",
+                                              borderRadius: "0.25rem",
+                                            }}
+                                          >
+                                            <div
+                                              className="d-flex align-items-center justify-content-between "
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1.25rem",
+                                                fontWeight: "200",
+                                                lineHeight: "1.5rem",
+                                                borderRadius: "1.25rem",
+                                                height: "2.5rem",
+                                              }}
+                                            >
+                                              <p className="mx-2">Experience</p>
+                                              {!openExperienceFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-down"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenExperienceFilter(
+                                                      !openExperienceFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                              {openExperienceFilter && (
+                                                <FontAwesomeIcon
+                                                  className="mx-2"
+                                                  icon="fa-solid fa-angle-up"
+                                                  style={{ cursor: "pointer" }}
+                                                  onClick={() =>
+                                                    setOpenExperienceFilter(
+                                                      !openExperienceFilter
+                                                    )
+                                                  }
+                                                />
+                                              )}
+                                            </div>
+                                            {openExperienceFilter && (
+                                              <div>
+                                                <div
+                                                  className=""
+                                                  style={{
+                                                    borderBottom:
+                                                      "1px solid rgba(127, 135, 144, 0.2)",
+                                                    width: "95%",
+                                                    margin: "auto",
+                                                  }}
+                                                />
+                                                <div className="d-flex align-items-center justify-content-between mt-3 mb-3 mx-2">
+                                                  <div>
+                                                    <p
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "1.125rem",
+                                                        fontWeight: "300",
+                                                        lineHeight:
+                                                          "1.321875rem",
+                                                      }}
+                                                    >
+                                                      In Years
+                                                    </p>
+                                                  </div>
+                                                  <div>
+                                                    <p
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "0.875rem",
+                                                        fontWeight: "600",
+                                                        lineHeight: "1rem",
+                                                        color: "#174E86",
+                                                      }}
+                                                    >
+                                                      Clear All
+                                                    </p>
+                                                  </div>
+                                                </div>
+
+                                                <div
+                                                  className="mt-3 ms-3"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1rem",
+                                                    fontWeight: " 400",
+                                                  }}
+                                                >
+                                                  <span>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`1 - 2`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`2 - 3`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`3 - 4`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`4 - 5`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`5 - 6`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                    <Form>
+                                                      <div
+                                                        key={`default-checkbox`}
+                                                        className="mb-3"
+                                                      >
+                                                        <Form.Check
+                                                          type={"checkbox"}
+                                                          id={`default-checkbox`}
+                                                          label={`6 & above`}
+                                                        />
+                                                      </div>
+                                                    </Form>
+                                                  </span>
+                                                  <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-sm blue text-light fs-6  d-flex"
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "1.25rem",
+                                                        fontWeight: "500",
+                                                        lineHeight: "1.5rem",
+                                                      }}
+                                                    >
+                                                      Apply
+                                                    </button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )}
+                                          </div>
                                         </div>
-                                        <div className="col-lg-4 col-md-12 displayn">
-                                          <img src={reco} alt="" />
+                                        <div
+                                          className="mt-3"
+                                          style={{
+                                            boxShadow:
+                                              "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
+                                            borderRadius: "0.25rem",
+                                            width:"20.5625rem"
+                                            
+                                          }}
+                                        >
+                                          <div className="d-flex justify-content-center">
+                                            <img
+                                              className=" mt-3"
+                                              src={
+                                                renovationCalculatorIllustration
+                                              }
+                                              alt="..."
+                                            />
+                                          </div>
+                                          <p className="mt-3" style={{
+                                              textAlign: "center",
+                                              fontFamily: "Manrope",
+                                              fontWeight: "500",
+                                              fontSize: "1.5rem",
+                                            }}>Renovation Calculator</p>
+                                          <p
+                                            className="mt-3"
+                                            style={{
+                                              textAlign: "center",
+                                              fontFamily: "Public Sans",
+                                              fontWeight: "300",
+                                              fontSize: "1rem",
+                                              lineHeight: "1.46875rem",
+                                            }}
+                                          >
+                                            How much should you<br/> <b>Budget</b> for your<br/>
+                                            renovation?
+                                          </p>
+                                          <div className="d-flex justify-content-center mt-3 mb-3">
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-sm blue text-light fs-6 mb-3 d-flex"
+                                                      style={{
+                                                        fontFamily:
+                                                          "Public Sans",
+                                                        fontSize: "1.25rem",
+                                                        fontWeight: "500",
+                                                        lineHeight: "1.5rem",
+                                                      }}
+                                                    >
+                                                      Start Calculator
+                                                    </button>
+                                                  </div>
                                         </div>
                                       </div>
+
+                                      {designerListings.map((listing) => (
+                                        <ContractorListing2
+                                          id={listing._id}
+                                          name={listing.companyName}
+                                          address={
+                                            listing.address
+                                              ? listing.address
+                                              : "Saket, New Delhi"
+                                          }
+                                          experience={listing.workExperience}
+                                          description={""}
+                                          fee={
+                                            listing.fees &&
+                                            listing.fees["designRoomPrice"]
+                                          }
+                                          phoneNumber={listing.phoneNumber}
+                                          city={listing.city}
+                                          company={listing.companyName}
+                                          pro={
+                                            listing["planId"]["price"] === 0
+                                              ? false
+                                              : true
+                                          }
+                                          liked={false}
+                                          listingName="contractor"
+                                        />
+                                      ))}
                                     </div>
-                                  )}
-                                  <DesignerListing2
-                                    id={listing._id}
-                                    name={listing.companyName}
-                                    experience={listing.workExperience}
-                                    description={""}
-                                    fee={
-                                      listing.fees &&
-                                      listing.fees["designRoomPrice"]
-                                    }
-                                    phoneNumber={listing.phoneNumber}
-                                    city={listing.city}
-                                    company={listing.companyName}
-                                    pro={
-                                      listing["planId"]["price"] === 0
-                                        ? false
-                                        : true
-                                    }
-                                    liked={false}
-                                    listingName="designer"
-                                  />
-                                </>
-                              ))
-                            ) : componentsToRender === "oem" ? (
-                              <div>
-                                <OEMListing
-                                  listingName={"oem"}
-                                  city={"delhi"}
-                                  company={"woodmac"}
-                                  pricing={"12345"}
-                                />
-                                <OEMListing
-                                  listingName={"oem"}
-                                  city={"delhi"}
-                                  company={"woodmac"}
-                                  pricing={"12345"}
-                                />
-                                <OEMListing
-                                  listingName={"oem"}
-                                  city={"delhi"}
-                                  company={"woodmac"}
-                                  pricing={"12345"}
-                                />
-                                <OEMListing
-                                  listingName={"oem"}
-                                  city={"delhi"}
-                                  company={"woodmac"}
-                                  pricing={"12345"}
-                                />
-                              </div>
-                            ) : componentsToRender === "designer" ? (
+                                  </section>
+                                </div>
+                              </>
+                            ) : // :componentsToRender === "oem" ? (
+                            //   <div>
+                            //     <OEMListing
+                            //       listingName={"oem"}
+                            //       city={"delhi"}
+                            //       company={"woodmac"}
+                            //       pricing={"12345"}
+                            //     />
+                            //     <OEMListing
+                            //       listingName={"oem"}
+                            //       city={"delhi"}
+                            //       company={"woodmac"}
+                            //       pricing={"12345"}
+                            //     />
+                            //     <OEMListing
+                            //       listingName={"oem"}
+                            //       city={"delhi"}
+                            //       company={"woodmac"}
+                            //       pricing={"12345"}
+                            //     />
+                            //     <OEMListing
+                            //       listingName={"oem"}
+                            //       city={"delhi"}
+                            //       company={"woodmac"}
+                            //       pricing={"12345"}
+                            //     />
+                            //   </div>
+                            // )
+                            componentsToRender === "designer" ? (
                               <div
                                 className="tab-pane fade"
                                 id="contractor"
@@ -741,7 +1375,6 @@ const FindProfessionals = ({ mobileview, location }) => {
                                           city={listing.city}
                                           company={listing.companyName}
                                           phoneNumber={listing.phoneNumber}
-                                          
                                           pro={
                                             listing["planId"]["price"] === 0
                                               ? false
@@ -749,7 +1382,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                           }
                                           listingName="contractor"
                                         />
-                                      </>;
+                                      </>
                                     })}
                                   </div>
                                 </section>
@@ -763,7 +1396,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                     </div>
                   </div>
                 </div>
-                <div className="dont-know mb-5" id="dont-know">
+                {/* <div className="dont-know mb-5" id="dont-know">
                   <div className="">
                     <div className="mt-lg-5">
                       <div
@@ -801,7 +1434,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>
@@ -862,20 +1495,36 @@ const FindProfessionals = ({ mobileview, location }) => {
                     </span>
                   </div>
                   {searchFieldVisibility && (
-                    <div className="mt-3">
-                      <Form.Group controlId="" style={{ position: "relative" }}>
-                        <Form.Control type="text" placeholder="" />
-                        <CloseButton
-                          style={{
-                            position: "absolute",
-                            top: "0.55rem",
-                            right: "0.5rem",
-                          }}
-                          onClick={() => {
-                            setSearchFieldVisibility(false);
-                          }}
-                        />
-                      </Form.Group>
+                    <div style={{ position: "relative" }}>
+                      <div className="mt-3">
+                        <Form.Group
+                          controlId=""
+                          style={{ position: "relative" }}
+                        >
+                          <Form.Control type="text" placeholder="" />
+                          <CloseButton
+                            style={{
+                              position: "absolute",
+                              top: "0.55rem",
+                              right: "0.5rem",
+                            }}
+                            onClick={() => {
+                              setSearchFieldVisibility(false);
+                            }}
+                          />
+                        </Form.Group>
+                      </div>
+                      <div
+                        className="d-flex flex-column"
+                        style={{
+                          position: "absolute",
+                          zIndex: "20",
+                          width: "100vw",
+                          height: "150vh",
+                          left: "-0.75rem",
+                          backgroundColor: "rgba(0,0,0,0.7)",
+                        }}
+                      ></div>
                     </div>
                   )}
 
@@ -1087,60 +1736,45 @@ const FindProfessionals = ({ mobileview, location }) => {
                               <Spinner animation="border" />
                             </center>
                           ) : componentsToRender === "contractor2" ? (
-                            designerListings.map((listing, i) => (
-                              <>
-                                {i === 4 && (
-                                  <div className="row mt-4">
-                                    <div className="nsure blue row  w-100">
-                                      <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">
-                                        <p>Still not sure?</p>
-                                        <h2>
-                                          Let idesign send you instant
-                                          recommendations.
-                                        </h2>
-
-                                        <button
-                                          type="button"
-                                          className="btn btn-light mt-3 blue-text"
-                                          data-bs-toggle="modal"
-                                          data-bs-target={
-                                            user
-                                              ? "#successmodal"
-                                              : "#getstartedmodal"
-                                          }
-                                        >
-                                          <b>Get Started ⋙</b>
-                                        </button>
-                                      </div>
-                                      <div className="col-lg-4 col-md-12 displayn">
-                                        <img src={reco} alt="" />
-                                      </div>
-                                    </div>
-                                  </div>
-                                )}
-                                <DesignerListing2
-                                  id={listing._id}
-                                  name={listing.companyName}
-                                  address={listing.address?listing.address:"Saket, New Delhi"}
-                                  experience={listing.workExperience}
-                                  description={""}
-                                  fee={
-                                    listing.fees &&
-                                    listing.fees["designRoomPrice"]
-                                  }
-                                  phoneNumber={listing.phoneNumber}
-                                  city={listing.city}
-                                  company={listing.companyName}
-                                  pro={
-                                    listing["planId"]["price"] === 0
-                                      ? false
-                                      : true
-                                  }
-                                  liked={false}
-                                  listingName="designer"
-                                />
-                              </>
-                            ))
+                            <div
+                              className="tab-pane fade"
+                              id="contractor"
+                              role="tabpanel"
+                              aria-labelledby="contractor-tab"
+                              style={{ opacity: "1" }}
+                            >
+                              <section className="design-firm mt-0">
+                                <div className="">
+                                  {designerListings.map((listing) => (
+                                    <ContractorListing2
+                                      id={listing._id}
+                                      name={listing.companyName}
+                                      address={
+                                        listing.address
+                                          ? listing.address
+                                          : "Saket, New Delhi"
+                                      }
+                                      experience={listing.workExperience}
+                                      description={""}
+                                      fee={
+                                        listing.fees &&
+                                        listing.fees["designRoomPrice"]
+                                      }
+                                      phoneNumber={listing.phoneNumber}
+                                      city={listing.city}
+                                      company={listing.companyName}
+                                      pro={
+                                        listing["planId"]["price"] === 0
+                                          ? false
+                                          : true
+                                      }
+                                      liked={false}
+                                      listingName="contractor"
+                                    />
+                                  ))}
+                                </div>
+                              </section>
+                            </div>
                           ) : componentsToRender === "oem2" ? (
                             <div>
                               <OEMListing
@@ -1169,37 +1803,81 @@ const FindProfessionals = ({ mobileview, location }) => {
                               />
                             </div>
                           ) : componentsToRender === "designer" ? (
-                            <div
-                              className="tab-pane fade"
-                              id="contractor"
-                              role="tabpanel"
-                              aria-labelledby="contractor-tab"
-                              style={{ opacity: "1" }}
-                            >
-                              <section className="design-firm mt-0">
-                                <div className="">
-                                  {designerListings.map((listing) => (
-                                    <DesignerListing2
-                                      id={listing._id}
-                                      name={listing.firstName}
-                                      address={listing.address?listing.address:"Saket, New Delhi"}
-                                      experience={listing.workExperience}
-                                      description={""}
-                                      fee={listing.fee}
-                                      city={listing.city}
-                                      company={listing.companyName}
-                                      phoneNumber={listing.phoneNumber}
-                                      pro={
-                                        listing["planId"]["price"] === 0
-                                          ? false
-                                          : true
-                                      }
-                                      listingName="contractor"
-                                    />
-                                  ))}
-                                </div>
-                              </section>
-                            </div>
+                            designerListings.map((listing, i) => (
+                              <>
+                                {i === 4 && (
+                                  <div
+                                    className=""
+                                    style={{ transform: "translateY(-1.8rem)" }}
+                                  >
+                                    <div
+                                      className="dont-know "
+                                      id="dont-know"
+                                      style={{ position: "relative" }}
+                                    >
+                                      <img
+                                        src={blueCard}
+                                        alt="..."
+                                        style={{
+                                          width: "100%",
+                                          borderRadius: "5px",
+                                        }}
+                                      />
+                                      <button
+                                        type="button"
+                                        className="btn btn-light text-success mt-4"
+                                        data-bs-toggle="modal"
+                                        data-bs-target={
+                                          user
+                                            ? "#successmodal"
+                                            : "#getstartedmodal"
+                                        }
+                                        style={{
+                                          position: "absolute",
+                                          bottom: "10px",
+                                          left: "10px",
+                                        }}
+                                      >
+                                        <div className="d-flex align-items-center justify-content-between">
+                                          <b
+                                            className="mx-2"
+                                            id=""
+                                            style={{ color: "#3B5998" }}
+                                          >
+                                            Get Started
+                                          </b>
+                                          <img
+                                            src={getStartedArrows}
+                                            alt="..."
+                                          />
+                                        </div>
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                                <DesignerListing2
+                                  id={listing._id}
+                                  name={listing.firstName}
+                                  address={
+                                    listing.address
+                                      ? listing.address
+                                      : "Saket, New Delhi"
+                                  }
+                                  experience={listing.workExperience}
+                                  description={""}
+                                  fee={listing.fee}
+                                  city={listing.city}
+                                  company={listing.companyName}
+                                  phoneNumber={listing.phoneNumber}
+                                  pro={
+                                    listing["planId"]["price"] === 0
+                                      ? false
+                                      : true
+                                  }
+                                  listingName="designer"
+                                />
+                              </>
+                            ))
                           ) : (
                             ""
                           )}
@@ -1210,7 +1888,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                 </div>
               </div>
             </div>
-            <div className="" style={{transform:"translateY(-4.4rem)"}}>
+            {/* <div className="" style={{transform:"translateY(-4.4rem)"}}>
               <div
                 className="dont-know "
                 id="dont-know"
@@ -1236,7 +1914,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                   </div>
                 </button>
               </div>
-            </div>
+            </div> */}
             <div id="io">
               <Pagination
                 page={page}

@@ -14,10 +14,14 @@
 .inter, .interfont{
     font-family: 'Noto Sans', sans-serif;
 }
+.foote{
+    color:black
+}
 @media (min-width: 300px) and (max-width: 700px) {
     #foote{
 font-size: 16px;
 font-weight: 400;
+
     }
     #footing{
         font-size: 16px;

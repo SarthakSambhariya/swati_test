@@ -58,6 +58,7 @@ import Pagination from "../components/common/pagination";
 import CalendarModal from "../components/modal/CalendarModal";
 import Footer2 from "../components/common/footer2";
 import blueCard from "../components/findprofessional/images/blueCard.svg";
+import blueCardPC from "../components/findprofessional/images/blueCardPc.svg";
 import ContractorListing2 from "../components/findprofessional/ContractorListing2";
 function getScreenWidth() {
   const width = window.innerWidth;
@@ -372,19 +373,49 @@ const FindProfessionals = ({ mobileview, location }) => {
                 <nav aria-label="breadcrumb" className="displayn">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                      <a href="/home" className="bred">
+                      <a
+                        href="/home"
+                        className="bred"
+                        style={{
+                          fontFamily: "Public Sans",
+                          fontSize: "1rem",
+                          fontWeight: "500",
+                          lineHeight: "21px",
+                          color: "#7F8790",
+                        }}
+                      >
                         Home
                       </a>
                     </li>
                     <li className="breadcrumb-item">
-                      <a href="/home" className="bred">
+                      <a
+                        href="/home"
+                        className="bred"
+                        style={{
+                          fontFamily: "Public Sans",
+                          fontSize: "1rem",
+                          fontWeight: "500",
+                          lineHeight: "21px",
+                          color: "#7F8790",
+                        }}
+                      >
                         Find Designers
                       </a>
                     </li>
 
                     <li className="breadcrumb-item" aria-current="page">
-                      <a href="##">
-                        {capitalizeAString(componentsToRender)} Listings
+                      <a
+                        href="##"
+                        style={{
+                          fontFamily: "Public Sans",
+                          fontSize: "1rem",
+                          fontWeight: "700",
+                          lineHeight: "21px",
+                          color: "#174E86",
+                        }}
+                      >
+
+                        {componentsToRender==="designer"?capitalizeAString(componentsToRender):capitalizeAString(componentsToRender.slice(0, -1))} Listings
                       </a>
                     </li>
                   </ol>
@@ -445,7 +476,14 @@ const FindProfessionals = ({ mobileview, location }) => {
                             id="pills-tab"
                             role="tablist"
                           >
-                            <li className="nav-item" role="presentation">
+                            <li
+                              className={
+                                componentsToRender === "designer"
+                                  ? "nav-item "
+                                  : "nav-item mt-1"
+                              }
+                              role="presentation"
+                            >
                               <button
                                 className={
                                   defaultd
@@ -479,26 +517,33 @@ const FindProfessionals = ({ mobileview, location }) => {
                                 Designer
                               </button>
                             </li>
-                            <li className="nav-item" role="presentation">
+                            <li
+                              className={
+                                componentsToRender === "contractor2"
+                                  ? "nav-item "
+                                  : "nav-item mt-1"
+                              }
+                              role="presentation"
+                            >
                               <button
                                 className={
-                                  componentsToRender === "contractor"
+                                  componentsToRender === "contractor2"
                                     ? "nav-link btn-sm prof-btn w-100 active"
                                     : "nav-link btn-sm prof-btn w-100"
                                 }
                                 id="contractor-tab"
                                 data-bs-toggle="pill"
-                                data-bs-target="#contractor"
+                                data-bs-target="#contractor2"
                                 type="button"
                                 role="tab"
-                                aria-controls="contractor"
+                                aria-controls="contractor2"
                                 aria-selected="false"
                                 onClick={() =>
                                   (window.location.href =
                                     "/findprofessionals2/contractor2")
                                 }
                               >
-                                {componentsToRender === "contractor" ? (
+                                {componentsToRender === "contractor2" ? (
                                   <img
                                     src={contractorvector}
                                     alt=""
@@ -612,7 +657,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                         aria-labelledby="designer-tab"
                       >
                         <section className="design-firm mt-3">
-                          <div className="container">
+                          <div className="">
                             {loading && designerListings.length !== 0 ? (
                               <center>
                                 <Spinner animation="border" />
@@ -629,7 +674,10 @@ const FindProfessionals = ({ mobileview, location }) => {
                                   <section className="design-firm mt-0">
                                     <div
                                       className=""
-                                      style={{ display: "flex" }}
+                                      style={{
+                                        display: "flex",
+                                        flex: "30%",
+                                      }}
                                     >
                                       <div>
                                         <div
@@ -639,7 +687,8 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
                                             borderRadius: "0.25rem",
                                             // height: "27.8125rem",
-                                            height:"auto"
+                                            height: "auto",
+                                            width: "15rem",
                                           }}
                                         >
                                           <div>
@@ -1240,13 +1289,12 @@ const FindProfessionals = ({ mobileview, location }) => {
                                           </div>
                                         </div>
                                         <div
-                                          className="mt-3"
+                                          className="mt-3 me-2 p-2"
                                           style={{
                                             boxShadow:
                                               "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
                                             borderRadius: "0.25rem",
-                                            width:"20.5625rem"
-                                            
+                                            width: "15rem",
                                           }}
                                         >
                                           <div className="d-flex justify-content-center">
@@ -1256,14 +1304,20 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                 renovationCalculatorIllustration
                                               }
                                               alt="..."
+                                              style={{ width: "90%" }}
                                             />
                                           </div>
-                                          <p className="mt-3" style={{
+                                          <p
+                                            className="mt-3"
+                                            style={{
                                               textAlign: "center",
                                               fontFamily: "Manrope",
                                               fontWeight: "500",
                                               fontSize: "1.5rem",
-                                            }}>Renovation Calculator</p>
+                                            }}
+                                          >
+                                            Renovation Calculator
+                                          </p>
                                           <p
                                             className="mt-3"
                                             style={{
@@ -1274,54 +1328,164 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               lineHeight: "1.46875rem",
                                             }}
                                           >
-                                            How much should you<br/> <b>Budget</b> for your<br/>
+                                            How much should you
+                                            <br /> <b>Budget</b> for your
+                                            <br />
                                             renovation?
                                           </p>
                                           <div className="d-flex justify-content-center mt-3 mb-3">
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-sm blue text-light fs-6 mb-3 d-flex"
-                                                      style={{
-                                                        fontFamily:
-                                                          "Public Sans",
-                                                        fontSize: "1.25rem",
-                                                        fontWeight: "500",
-                                                        lineHeight: "1.5rem",
-                                                      }}
-                                                    >
-                                                      Start Calculator
-                                                    </button>
-                                                  </div>
+                                            <button
+                                              type="button"
+                                              className="btn btn-sm blue text-light fs-6 mb-3 d-flex"
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1.25rem",
+                                                fontWeight: "500",
+                                                lineHeight: "1.5rem",
+                                              }}
+                                            >
+                                              Start Calculator
+                                            </button>
+                                          </div>
                                         </div>
                                       </div>
-
-                                      {designerListings.map((listing) => (
-                                        <ContractorListing2
-                                          id={listing._id}
-                                          name={listing.companyName}
-                                          address={
-                                            listing.address
-                                              ? listing.address
-                                              : "Saket, New Delhi"
-                                          }
-                                          experience={listing.workExperience}
-                                          description={""}
-                                          fee={
-                                            listing.fees &&
-                                            listing.fees["designRoomPrice"]
-                                          }
-                                          phoneNumber={listing.phoneNumber}
-                                          city={listing.city}
-                                          company={listing.companyName}
-                                          pro={
-                                            listing["planId"]["price"] === 0
-                                              ? false
-                                              : true
-                                          }
-                                          liked={false}
-                                          listingName="contractor"
-                                        />
-                                      ))}
+                                      <div
+                                        className="d-flex flex-wrap"
+                                        style={{ flex: "30%" }}
+                                      >
+                                        {designerListings.map((listing, i) => (
+                                          <>
+                                            {i === 1 && (
+                                              <div className="">
+                                                {screenWidth < 768 && (
+                                                  <div
+                                                    className="dont-know "
+                                                    id="dont-know"
+                                                    style={{
+                                                      position: "relative",
+                                                    }}
+                                                  >
+                                                    <img
+                                                      src={blueCard}
+                                                      alt="..."
+                                                      style={{
+                                                        width: "100%",
+                                                        borderRadius: "5px",
+                                                      }}
+                                                    />
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-light text-success mt-4"
+                                                      data-bs-toggle="modal"
+                                                      data-bs-target={
+                                                        user
+                                                          ? "#successmodal"
+                                                          : "#getstartedmodal"
+                                                      }
+                                                      style={{
+                                                        position: "absolute",
+                                                        bottom: "10px",
+                                                        left: "10px",
+                                                      }}
+                                                    >
+                                                      <div className="d-flex align-items-center justify-content-between">
+                                                        <b
+                                                          className="mx-2"
+                                                          id=""
+                                                          style={{
+                                                            color: "#3B5998",
+                                                          }}
+                                                        >
+                                                          Get Started
+                                                        </b>
+                                                        <img
+                                                          src={getStartedArrows}
+                                                          alt="..."
+                                                        />
+                                                      </div>
+                                                    </button>
+                                                  </div>
+                                                )}
+                                                {screenWidth > 768 && (
+                                                  <div
+                                                    className="dont-know mb-2 me-2 ms-2"
+                                                    id=""
+                                                    style={{
+                                                      position: "relative",
+                                                      width: "20.8125rem",
+                                                      height: "33rem",
+                                                    }}
+                                                  >
+                                                    <img
+                                                      src={blueCardPC}
+                                                      alt="..."
+                                                      style={{
+                                                        borderRadius: "5px",
+                                                        width: "100%",
+                                                        height: "33rem",
+                                                      }}
+                                                    />
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-light text-success mt-4"
+                                                      data-bs-toggle="modal"
+                                                      data-bs-target={
+                                                        user
+                                                          ? "#successmodal"
+                                                          : "#getstartedmodal"
+                                                      }
+                                                      style={{
+                                                        position: "absolute",
+                                                        bottom: "45%",
+                                                        left: "6%",
+                                                      }}
+                                                    >
+                                                      <div className="d-flex align-items-center justify-content-between">
+                                                        <b
+                                                          className="mx-2"
+                                                          id=""
+                                                          style={{
+                                                            color: "#3B5998",
+                                                          }}
+                                                        >
+                                                          Get Started
+                                                        </b>
+                                                        <img
+                                                          src={getStartedArrows}
+                                                          alt="..."
+                                                        />
+                                                      </div>
+                                                    </button>
+                                                  </div>
+                                                )}
+                                              </div>
+                                            )}
+                                            <ContractorListing2
+                                              id={listing._id}
+                                              name={listing.firstName}
+                                              address={
+                                                listing.address
+                                                  ? listing.address
+                                                  : "Saket, New Delhi"
+                                              }
+                                              experience={
+                                                listing.workExperience
+                                              }
+                                              description={""}
+                                              fee={listing.fee}
+                                              city={listing.city}
+                                              company={listing.companyName}
+                                              phoneNumber={listing.phoneNumber}
+                                              pro={
+                                                listing["planId"]["price"] === 0
+                                                  ? false
+                                                  : true
+                                              }
+                                              listingName="contractor"
+                                            />
+                                          </>
+                                        ))}
+                                      </div>
                                     </div>
                                   </section>
                                 </div>
@@ -1362,13 +1526,785 @@ const FindProfessionals = ({ mobileview, location }) => {
                                 aria-labelledby="contractor-tab"
                                 style={{ opacity: "1" }}
                               >
-                                <section className="design-firm mt-3">
-                                  <div className="container">
-                                    {designerListings.map((listing) => {
+                                <section className="design-firm mt-3 d-flex">
+                                  <div style={{ width: "15rem" }}>
+                                    <div
+                                      className="p-2 me-2"
+                                      style={{
+                                        boxShadow:
+                                          "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
+                                        borderRadius: "0.25rem",
+                                        // height: "27.8125rem",
+                                        height: "auto",
+                                      }}
+                                    >
+                                      <div>
+                                        <div className="">
+                                          <Form.Group
+                                            controlId=""
+                                            style={{ position: "relative" }}
+                                          >
+                                            <Form.Control
+                                              type="text"
+                                              placeholder="Search..."
+                                            />
+                                            <img
+                                              src={searchIcon}
+                                              style={{
+                                                position: "absolute",
+                                                top: "0.55rem",
+                                                right: "0.5rem",
+                                              }}
+                                            />
+                                          </Form.Group>
+                                        </div>
+                                      </div>
+                                      <div
+                                        className="mt-4 "
+                                        style={{
+                                          borderBottom:
+                                            "1px solid rgba(127, 135, 144, 0.2)",
+                                          width: "100%",
+                                        }}
+                                      />
+                                      <div className="d-flex mt-4 ">
+                                        <img src={filterIconPc} alt="" />
+                                        <p
+                                          style={{
+                                            fontFamily: "Manrope",
+                                            fontSize: "1.5rem",
+                                            fontWeight: "600",
+                                            lineHeight: "2rem",
+                                          }}
+                                        >
+                                          Filters
+                                        </p>
+                                      </div>
+                                      <div
+                                        className="mt-3"
+                                        style={{
+                                          border: "1px solid #A7A7A7",
+                                          borderRadius: "0.25rem",
+                                        }}
+                                      >
+                                        <div
+                                          className="d-flex align-items-center justify-content-between "
+                                          style={{
+                                            fontFamily: "Public Sans",
+                                            fontSize: "1.25rem",
+                                            fontWeight: "200",
+                                            lineHeight: "1.5rem",
+                                            borderRadius: "1.25rem",
+                                            height: "2.5rem",
+                                          }}
+                                        >
+                                          <p className="mx-2">City</p>
+                                          {!openCityFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-down"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenCityFilter(
+                                                  !openCityFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                          {openCityFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-up"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenCityFilter(
+                                                  !openCityFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                        </div>
+                                        {openCityFilter && (
+                                          <div>
+                                            <div
+                                              className=""
+                                              style={{
+                                                borderBottom:
+                                                  "1px solid rgba(127, 135, 144, 0.2)",
+                                                width: "95%",
+                                                margin: "auto",
+                                              }}
+                                            />
+                                            <div className="d-flex align-items-center justify-content-end mt-3 mb-3 mx-2">
+                                              <p
+                                                style={{
+                                                  fontFamily: "Public Sans",
+                                                  fontSize: "0.875rem",
+                                                  fontWeight: "600",
+                                                  lineHeight: "1rem",
+                                                  color: "#174E86",
+                                                }}
+                                              >
+                                                Clear All
+                                              </p>
+                                            </div>
+                                            <div
+                                              className=""
+                                              style={{
+                                                width: "90%",
+                                                margin: "auto",
+                                              }}
+                                            >
+                                              <Form.Group
+                                                controlId=""
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <Form.Control
+                                                  type="text"
+                                                  placeholder="Search..."
+                                                />
+                                                <img
+                                                  src={searchIcon}
+                                                  style={{
+                                                    position: "absolute",
+                                                    top: "0.55rem",
+                                                    right: "0.5rem",
+                                                  }}
+                                                />
+                                              </Form.Group>
+                                            </div>
+                                            <div
+                                              className="mt-3 ms-3"
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1.125rem",
+                                                fontWeight: " 300",
+                                                lineHeight: "1.321875rem",
+                                              }}
+                                            >
+                                              <div className="form-check">
+                                                <input
+                                                  className="form-check-input"
+                                                  type="checkbox"
+                                                  value=""
+                                                  id="flexCheckDefault"
+                                                  // onClick={() => handleExpFilter("0-1")}
+                                                />
+                                                <label
+                                                  className="form-check-label"
+                                                  for="flexCheckDefault"
+                                                >
+                                                  Delhi
+                                                </label>
+                                              </div>
+                                              <div className="form-check">
+                                                <input
+                                                  className="form-check-input"
+                                                  type="checkbox"
+                                                  value=""
+                                                  id="flexCheckDefault"
+                                                  // onClick={() => handleExpFilter("1-2")}
+                                                />
+                                                <label
+                                                  className="form-check-label"
+                                                  for="flexCheckDefault"
+                                                >
+                                                  Gurgaon
+                                                </label>
+                                              </div>
+                                              <div className="form-check">
+                                                <input
+                                                  className="form-check-input"
+                                                  type="checkbox"
+                                                  value=""
+                                                  id="flexCheckDefault"
+                                                  // onClick={() => handleExpFilter("2-3")}
+                                                />
+                                                <label
+                                                  className="form-check-label"
+                                                  for="flexCheckDefault"
+                                                >
+                                                  Bhopal
+                                                </label>
+                                              </div>
+                                              <div className="form-check">
+                                                <input
+                                                  className="form-check-input"
+                                                  type="checkbox"
+                                                  value=""
+                                                  id="flexCheckDefault"
+                                                  // onClick={() => handleExpFilter("3-4")}
+                                                />
+                                                <label
+                                                  className="form-check-label"
+                                                  for="flexCheckDefault"
+                                                >
+                                                  Chandigarh
+                                                </label>
+                                              </div>
+                                              <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-sm blue text-light fs-6  d-flex"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1.25rem",
+                                                    fontWeight: "500",
+                                                    lineHeight: "1.5rem",
+                                                  }}
+                                                >
+                                                  Apply
+                                                </button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                      <div
+                                        className="mt-3"
+                                        style={{
+                                          border: "1px solid #A7A7A7",
+                                          borderRadius: "0.25rem",
+                                        }}
+                                      >
+                                        <div
+                                          className="d-flex align-items-center justify-content-between "
+                                          style={{
+                                            fontFamily: "Public Sans",
+                                            fontSize: "1.25rem",
+                                            fontWeight: "200",
+                                            lineHeight: "1.5rem",
+                                            borderRadius: "1.25rem",
+                                            height: "2.5rem",
+                                          }}
+                                        >
+                                          <p className="mx-2">Design Fees</p>
+                                          {!openDesignFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-down"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenDesignFilter(
+                                                  !openDesignFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                          {openDesignFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-up"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenDesignFilter(
+                                                  !openDesignFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                        </div>
+                                        {openDesignFilter && (
+                                          <div>
+                                            <div
+                                              className=""
+                                              style={{
+                                                borderBottom:
+                                                  "1px solid rgba(127, 135, 144, 0.2)",
+                                                width: "95%",
+                                                margin: "auto",
+                                              }}
+                                            />
+                                            <div className="d-flex align-items-center justify-content-end mt-3 mb-3 mx-2">
+                                              <p
+                                                style={{
+                                                  fontFamily: "Public Sans",
+                                                  fontSize: "0.875rem",
+                                                  fontWeight: "600",
+                                                  lineHeight: "1rem",
+                                                  color: "#174E86",
+                                                }}
+                                              >
+                                                Clear All
+                                              </p>
+                                            </div>
+
+                                            <div
+                                              className="mt-3 ms-3"
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1rem",
+                                                fontWeight: " 400",
+                                              }}
+                                            >
+                                              <span>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`5,000 - 10,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`10,000 - 20,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`20,000 - 40,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`40,000 - 60,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`60,000 - 80,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`80,000 - 1,00,000`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`1,00,000 & above`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                              </span>
+                                              <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-sm blue text-light fs-6  d-flex"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1.25rem",
+                                                    fontWeight: "500",
+                                                    lineHeight: "1.5rem",
+                                                  }}
+                                                >
+                                                  Apply
+                                                </button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                      <div
+                                        className="mt-3"
+                                        style={{
+                                          border: "1px solid #A7A7A7",
+                                          borderRadius: "0.25rem",
+                                        }}
+                                      >
+                                        <div
+                                          className="d-flex align-items-center justify-content-between "
+                                          style={{
+                                            fontFamily: "Public Sans",
+                                            fontSize: "1.25rem",
+                                            fontWeight: "200",
+                                            lineHeight: "1.5rem",
+                                            borderRadius: "1.25rem",
+                                            height: "2.5rem",
+                                          }}
+                                        >
+                                          <p className="mx-2">Experience</p>
+                                          {!openExperienceFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-down"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenExperienceFilter(
+                                                  !openExperienceFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                          {openExperienceFilter && (
+                                            <FontAwesomeIcon
+                                              className="mx-2"
+                                              icon="fa-solid fa-angle-up"
+                                              style={{ cursor: "pointer" }}
+                                              onClick={() =>
+                                                setOpenExperienceFilter(
+                                                  !openExperienceFilter
+                                                )
+                                              }
+                                            />
+                                          )}
+                                        </div>
+                                        {openExperienceFilter && (
+                                          <div>
+                                            <div
+                                              className=""
+                                              style={{
+                                                borderBottom:
+                                                  "1px solid rgba(127, 135, 144, 0.2)",
+                                                width: "95%",
+                                                margin: "auto",
+                                              }}
+                                            />
+                                            <div className="d-flex align-items-center justify-content-between mt-3 mb-3 mx-2">
+                                              <div>
+                                                <p
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1.125rem",
+                                                    fontWeight: "300",
+                                                    lineHeight: "1.321875rem",
+                                                  }}
+                                                >
+                                                  In Years
+                                                </p>
+                                              </div>
+                                              <div>
+                                                <p
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "0.875rem",
+                                                    fontWeight: "600",
+                                                    lineHeight: "1rem",
+                                                    color: "#174E86",
+                                                  }}
+                                                >
+                                                  Clear All
+                                                </p>
+                                              </div>
+                                            </div>
+
+                                            <div
+                                              className="mt-3 ms-3"
+                                              style={{
+                                                fontFamily: "Public Sans",
+                                                fontSize: "1rem",
+                                                fontWeight: " 400",
+                                              }}
+                                            >
+                                              <span>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`1 - 2`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`2 - 3`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`3 - 4`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`4 - 5`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`5 - 6`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                                <Form>
+                                                  <div
+                                                    key={`default-checkbox`}
+                                                    className="mb-3"
+                                                  >
+                                                    <Form.Check
+                                                      type={"checkbox"}
+                                                      id={`default-checkbox`}
+                                                      label={`6 & above`}
+                                                    />
+                                                  </div>
+                                                </Form>
+                                              </span>
+                                              <div className="d-flex justify-content-end mt-5 mb-3 me-3">
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-sm blue text-light fs-6  d-flex"
+                                                  style={{
+                                                    fontFamily: "Public Sans",
+                                                    fontSize: "1.25rem",
+                                                    fontWeight: "500",
+                                                    lineHeight: "1.5rem",
+                                                  }}
+                                                >
+                                                  Apply
+                                                </button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                    <div
+                                      className="mt-3 me-2 p-2"
+                                      style={{
+                                        boxShadow:
+                                          "0px 0px 0.25rem rgba(0, 0, 0, 0.1)",
+                                        borderRadius: "0.25rem",
+                                      }}
+                                    >
+                                      <div className="d-flex justify-content-center ">
+                                        <img
+                                          className=" mt-3 "
+                                          src={renovationCalculatorIllustration}
+                                          alt="..."
+                                          style={{ width: "90%" }}
+                                        />
+                                      </div>
+                                      <p
+                                        className="mt-3"
+                                        style={{
+                                          textAlign: "center",
+                                          fontFamily: "Manrope",
+                                          fontWeight: "500",
+                                          fontSize: "1.5rem",
+                                        }}
+                                      >
+                                        Renovation Calculator
+                                      </p>
+                                      <p
+                                        className="mt-3"
+                                        style={{
+                                          textAlign: "center",
+                                          fontFamily: "Public Sans",
+                                          fontWeight: "300",
+                                          fontSize: "1rem",
+                                          lineHeight: "1.46875rem",
+                                        }}
+                                      >
+                                        How much should you
+                                        <br /> <b>Budget</b> for your
+                                        <br />
+                                        renovation?
+                                      </p>
+                                      <div className="d-flex justify-content-center mt-3 mb-3">
+                                        <button
+                                          type="button"
+                                          className="btn btn-sm blue text-light fs-6 mb-3 d-flex"
+                                          style={{
+                                            fontFamily: "Public Sans",
+                                            fontSize: "1.25rem",
+                                            fontWeight: "500",
+                                            lineHeight: "1.5rem",
+                                          }}
+                                        >
+                                          Start Calculator
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="d-flex flex-wrap"
+                                    style={{ flex: "30%" }}
+                                  >
+                                    {designerListings.map((listing, i) => (
                                       <>
+                                        {i === 4 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{ position: "relative" }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mx-2 mb-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                  height:"26rem"
+                                                }}
+                                              >
+                                                <div style={{boxSizing:"content-box",height:"25rem"}}>
+
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    width:"100%",
+                                                    height:"100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                </div>
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
                                         <DesignerListing2
                                           id={listing._id}
                                           name={listing.firstName}
+                                          address={
+                                            listing.address
+                                              ? listing.address
+                                              : "Saket, New Delhi"
+                                          }
                                           experience={listing.workExperience}
                                           description={""}
                                           fee={listing.fee}
@@ -1380,10 +2316,10 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               ? false
                                               : true
                                           }
-                                          listingName="contractor"
+                                          listingName="designer"
                                         />
                                       </>
-                                    })}
+                                    ))}
                                   </div>
                                 </section>
                               </div>

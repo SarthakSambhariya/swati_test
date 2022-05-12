@@ -73,24 +73,24 @@ const Footer = () => {
             <p className="inter" id="foot">
               <b>Company</b>
             </p>
-            <ul className="list-unstyled">
-              <li id="foote">
+            <ul className="list-unstyled" >
+              <li id="foote" >
                 <a
                   href="https://pro.idesign.market/about-us"
-                  className="py-1 d-block" id="foote"
+                  className="py-1 d-block" id="foote" style={{color:"black"}}
                 >
                   About
                 </a>
               </li>
               <li id="foote">
-                <a href="https://angel.co/company/idesign-market-1/jobs" className="py-1 d-block">
-                  Carrers
+                <a href="https://angel.co/company/idesign-market-1/jobs" className="py-1 d-block" style={{color:"black"}}>
+                  Careers
                 </a>
               </li>
               <li id="foote">
                 <a
                   href="https://pro.idesign.market/privacy-policy"
-                  className="py-1 d-block"
+                  className="py-1 d-block" style={{color:"black"}}
                 >
                   Privacy Policy
                 </a>
@@ -98,20 +98,20 @@ const Footer = () => {
               <li id="foote">
                 <a
                   href="https://pro.idesign.market/terms"
-                  className="py-1 d-block"
+                  className="py-1 d-block" style={{color:"black"}}
                 >
                   Terms & Conditions
                 </a>
               </li>
               <li id="foote">
-                <a href="https://pro.idesign.market/cookie-policy" className="py-1 d-block">
+                <a href="https://pro.idesign.market/cookie-policy" className="py-1 d-block" style={{color:"black"}}>
                   Cookie policy
                 </a>
               </li>
               <li id="footing">
                 <a
                   href="https://pro.idesign.market/contact"
-                  className="py-1 d-block"
+                  className="py-1 d-block" style={{color:"black"}}
                 >
                   Contact
                 </a>
@@ -130,7 +130,7 @@ const Footer = () => {
                 <a href="https://www.idesign.market/findprofessionals" className="py-1 d-block"></a>
               </li> */}
               <li id="foote">
-                <a href="https://www.idesign.market/findprofessionals" className="py-1 d-block">
+                <a href="https://www.idesign.market/findprofessionals" className="py-1 d-block" style={{color:"black"}}>
                 Design Professionals
                 </a>
               </li>
@@ -138,42 +138,42 @@ const Footer = () => {
                 {/* <Link to="/exploreprojects" className="py-1 d-block">
                   Explore Project
                 </Link> */}
-                <a href="https://www.idesign.market/exploreprojects" className="py-1 d-block">Explore Project</a>
+                <a href="https://www.idesign.market/exploreprojects" className="py-1 d-block" style={{color:"black"}}>Explore Project</a>
               </li>
               <li id="footing">
                 <Link
                   to="#"
                   data-bs-toggle="modal"
                   data-bs-target={user ? "#successmodal" : "#staticBackdrop"}
-                  className="py-1 d-block"
+                  className="py-1 d-block"style={{color:"black"}}
                 >
                   Sign in
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="col-lg-2 col-xs-12">
-            <p className="inter" id="foot">
+          <div className="col-lg-2 col-xs-12" >
+            <p className="inter" id="foot" >
               <b>Design Professionals</b>
             </p>
             <ul className="list-unstyled">
               <li id="foote">
-                <a href="https://pro.idesign.market" className="py-1 d-block">
+                <a href="https://pro.idesign.market" className="py-1 d-block" style={{color:"black"}}>
                   Join iDesign Pro
                 </a>
               </li>
               <li id="foote">
-                <a href="https://pro.idesign.market/pricing" className="py-1 d-block">
+                <a href="https://pro.idesign.market/pricing" className="py-1 d-block" style={{color:"black"}}>
                   Pricing
                 </a>
               </li>
               <li id="foote">
-                <a href="https://www.idesign.market/magazines" className="py-1 d-block">
+                <a href="https://www.idesign.market/magazines" className="py-1 d-block" style={{color:"black"}}>
                   Magazine
                 </a>
               </li>
               <li id="footing">
-                <a href="https://pro.idesign.market/login" className="py-1 d-block">
+                <a href="https://pro.idesign.market/login" className="py-1 d-block" style={{color:"black"}}>
                   Sign in
                 </a>
               </li>

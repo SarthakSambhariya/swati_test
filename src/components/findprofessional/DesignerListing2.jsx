@@ -212,7 +212,7 @@ const DesignerListing2 = ({
                     >
                       <div style={{ display: "flex", alignItems: "center" }}>
                         <p className="mt-2 d-inline dlsize">
-                          {name.length > 15 ? `${name.substr(0, 9)}...` : name}
+                          {name.length > 8 ? `${name.substr(0, 8)}...` : name}
                         </p>
                         {pro && <img className="ms-2 mt-2" src={tick} alt="" />}
                         <span

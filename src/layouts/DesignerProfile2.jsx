@@ -16,6 +16,7 @@ import {
   faLocation,
   faArrowRight,
   faArrowLeft,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import tick from "../components/findprofessional/images/tick.png";
 import share from "../components/findprofessional/images/share.png";
@@ -47,6 +48,8 @@ import profilePageReviewStar from "../components/findprofessional/images/profile
 import blueHeart from "../components/findprofessional/images/blueHeart.svg";
 import blankHeart from "../components/findprofessional/images/blankHeart.svg";
 import fullHeart from "../components/findprofessional/images/fullHeart.svg";
+import emptyStar from "../components/findprofessional/images/emptyStar.svg";
+import fullStar from "../components/findprofessional/images/fullStar.svg";
 import designFeeProfilePage from "../components/findprofessional/images/designFeeProfilePage.svg";
 import experienceProfilePage from "../components/findprofessional/images/experienceProfilePage.svg";
 import projectsProfilePage from "../components/findprofessional/images/projectsProfilePage.svg";
@@ -69,9 +72,10 @@ function getScreenWidth() {
   return width;
 }
 
-const Backdrop = (props) => {
-  return <div className="backdrop" onClick={props.onClose} />;
-};
+function capitalizeAString(str) {
+  const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+  return str2;
+}
 
 const responsive = {
   superLargeDesktop: {
@@ -106,7 +110,7 @@ const DesignerProfile = ({ match, location, address }) => {
   const [ratingValue, setRatingValue] = useState(0);
   const [images, setImages] = useState([]);
   const [screenWidth, setScreenWidth] = useState(getScreenWidth());
-  const [componentsToRender, setComponentToRender] = useState("about");
+  const [componentsToRender, setComponentToRender] = useState("projects");
   const [totalProjectsByDesigner, setTotalProjectsByDesigner] =
     useState("200+");
   const [writeAReviewTextArea, setWriteAReviewTextArea] = useState(false);
@@ -119,16 +123,16 @@ const DesignerProfile = ({ match, location, address }) => {
   // const [listingType, setListingType] = useState("");
 
   const ratingSettings = {
-    size: 50,
+    size: 20,
     count: 5,
     color: "#888888",
     activeColor: "#ffd700",
     value: 4,
     a11y: true,
     // isHalf: true,
-    emptyIcon: <i class="far fa-thin fa-star"></i>,
+    emptyIcon: <i className="bi bi-star mx-3"></i>,
     // halfIcon: <i class="fa-solid fa-star-half-stroke"></i>,
-    filledIcon: <i class="far fa-solid fa-star"></i>,
+    filledIcon: <i className="bi bi-star-fill mx-3"></i>,
     onChange: (newValue) => {
       // console.log(`Example 2: new value is ${newValue}`);
     },
@@ -391,7 +395,6 @@ const DesignerProfile = ({ match, location, address }) => {
                         />
                       )}
                       {alert && (
-
                         <Alert
                           key={"light"}
                           variant={"light"}
@@ -432,6 +435,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       height: "5rem",
                       borderRadius: "5rem",
                       objectFit: "cover",
+                      
                     }}
                   />
                   {/* <img src={profilePicture} alt="profile-picture" /> */}
@@ -794,7 +798,7 @@ const DesignerProfile = ({ match, location, address }) => {
               style={{
                 height: "3rem",
                 width: "40%",
-                margin:"auto"
+                margin: "auto",
               }}
             >
               <div
@@ -1307,7 +1311,7 @@ const DesignerProfile = ({ match, location, address }) => {
                         Tell others what you think
                       </p>
                     </div>
-                    <div className="d-flex justify-content-center">
+                    <div className="d-flex justify-content-center" style={{width:"100%"}}>
                       <ReactStars {...ratingSettings} />
                     </div>
                   </div>
@@ -1658,6 +1662,29 @@ const DesignerProfile = ({ match, location, address }) => {
                 <DesignerProfileProjectCarousel
                   arrayOfImages={designerProject}
                 />
+                <div
+                  className="mt-5 p-2 d-flex justify-content-evenly align-items-center"
+                  style={{
+                    color: "white",
+                    border: "2px solid white",
+                    width: "25%",
+                    cursor: "pointer",
+                    borderRadius:"0.2rem",margin:"auto"
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    size="lg"
+                    color={"white"}
+                    className=""
+                  />
+                  <span style={{
+                    color: "#F5F5F5",
+                    fontSize:"0.825rem",
+                    lineHeight:"0.85375rem",
+                    fontWeight:"600"
+                  }}>SAVE</span>
+                </div>
               </div>
             </div>
           )}
@@ -1772,16 +1799,19 @@ const DesignerProfile = ({ match, location, address }) => {
                       height: "5rem",
                       borderRadius: "5rem",
                       objectFit: "cover",
+                      border:"4px solid white"
                     }}
                   />
                   {/* <img src={profilePicture} alt="profile-picture" /> */}
                   <span
+                    className="mt-2"
                     style={{
                       fontSize: "16px",
                       fontWeight: "600",
                       lineHeight: "21.86px",
                       fontFamily: "Manrope",
                       textAlign: "center",
+                      width: "98vw",
                     }}
                   >
                     {Company ? Company : "ABC Design Firm"}
@@ -1795,9 +1825,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       lineHeight: "14.1px",
                     }}
                   >
-                    {designerProfile
-                      ? designerProfile["city"]
-                      : "Saket,New Delhi"}
+                    {Name ? capitalizeAString(Name) : "Saket,New Delhi"}
                   </span>
                   <span
                     className="d-flex align-items-center mt-2"
@@ -2596,7 +2624,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       </p>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <ReactStars {...ratingSettings} />
+                      <ReactStars {...ratingSettings} style={{width:"50%"}}/>
                     </div>
                   </div>
                   <div

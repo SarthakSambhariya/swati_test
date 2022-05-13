@@ -1769,7 +1769,10 @@ const DesignerProfile = ({ match, location, address }) => {
                             top: "85%",
                             zIndex: "12",
                             left: "25%",
-                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",fontFamily: "Public Sans",
+                            fontSize: "0.625rem",
+                            fontWeight: "300",
+                            lineHeight: "0.734375rem",
                           }}
                         >
                           <img className="me-2" src={fullHeart} alt="" />
@@ -2722,13 +2725,17 @@ const DesignerProfile = ({ match, location, address }) => {
                             height: "3rem",
                             position: "fixed",
                             width: "50%",
-                            top: "40%",
+                            top: "85%",
                             zIndex: "12",
                             left: "25%",
-                            border: "1px solid",
+                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",fontFamily: "Public Sans",
+                            fontSize: "0.625rem",
+                            fontWeight: "300",
+                            lineHeight: "0.875rem",
+                            
                           }}
                         >
-                          Comment posted!
+                          Your review has been posted
                         </Alert>
                       )}
                     </div>

@@ -414,8 +414,12 @@ const FindProfessionals = ({ mobileview, location }) => {
                           color: "#174E86",
                         }}
                       >
-
-                        {componentsToRender==="designer"?capitalizeAString(componentsToRender):capitalizeAString(componentsToRender.slice(0, -1))} Listings
+                        {componentsToRender === "designer"
+                          ? capitalizeAString(componentsToRender)
+                          : capitalizeAString(
+                              componentsToRender.slice(0, -1)
+                            )}{" "}
+                        Listings
                       </a>
                     </li>
                   </ol>
@@ -778,7 +782,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               )}
                                             </div>
                                             {openCityFilter && (
-                                              <div>
+                                              <div >
                                                 <div
                                                   className=""
                                                   style={{
@@ -2247,20 +2251,24 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                 style={{
                                                   position: "relative",
                                                   width: "20.8125rem",
-                                                  height:"26rem"
+                                                  height: "26rem",
                                                 }}
                                               >
-                                                <div style={{boxSizing:"content-box",height:"25rem"}}>
-
-                                                <img
-                                                  src={blueCardPC}
-                                                  alt="..."
+                                                <div
                                                   style={{
-                                                    width:"100%",
-                                                    height:"100%",
-                                                    borderRadius: "5px",
+                                                    boxSizing: "content-box",
+                                                    height: "25rem",
                                                   }}
-                                                />
+                                                >
+                                                  <img
+                                                    src={blueCardPC}
+                                                    alt="..."
+                                                    style={{
+                                                      width: "100%",
+                                                      height: "100%",
+                                                      borderRadius: "5px",
+                                                    }}
+                                                  />
                                                 </div>
                                                 <button
                                                   type="button"

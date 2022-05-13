@@ -390,21 +390,22 @@ const Header = () => {
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <Link to="/" className="nav-link me-3">
+              <Link to="/" className="nav-link">
                 <img
                   src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
                   alt="logo"
                   style={{ width: "12rem" }}
                 />
               </Link>
-              {screenWidth < 768 && (
-                <img
-                  className=""
-                  src={profilePic}
-                  alt="profile-pic"
-                  style={{ cursor: "pointer" }}
-                />
-              )}
+              {user && (
+                
+                    <Profile
+                      imagepath={"https://github.com/mdo.png"}
+                      showarrow={true}
+                      path="/dashboard/home"
+                      className="displayn"
+                    />
+                  )}
             </div>
 
             <div
@@ -545,13 +546,7 @@ const Header = () => {
         )}
       </nav>
 
-      <div className="profile_nav">
-        {user && (
-          <a onClick={() => setShow(!show)}>
-            <img src={idesignprofile} className="newlogo" />
-          </a>
-        )}
-      </div>
+      
       {show ? (
         <div className="right-nav_mobile displaydn">
           <div className="nav_mobile">

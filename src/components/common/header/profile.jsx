@@ -42,12 +42,12 @@ const Profile = ({ imagepath, showarrow, path }) => {
     // </Dropdown>
 
     <Dropdown >
-      <Dropdown.Toggle style={{backgroundColor:"white", border:"white"}} id="dropdown-basic">
+      <Dropdown.Toggle style={{backgroundColor:"#F8F9FA", width:"3rem",border:"white"}} id="dropdown-basic">
         <img
           src={imagepath}
           alt="mdo"
-          width="32"
-          height="32"
+          width="40"
+          height="40"
           className="rounded-circle"
         />
       </Dropdown.Toggle>

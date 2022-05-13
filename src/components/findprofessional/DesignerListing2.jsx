@@ -61,7 +61,6 @@ const DesignerListing2 = ({
   const [review, setReview] = useState({ avgReview: 0, count: 0 });
   const [projects, setProjects] = useState([]);
   const [screenWidth, setScreenWidth] = useState(getScreenWidth());
-
   const handleLike = async () => {
     const params = {
       designerId: id,
@@ -495,7 +494,8 @@ const DesignerListing2 = ({
                           style={{
                             width: "20px",
                             cursor: "pointer",
-                            margin: "0 0.5em",
+                            margin: "0 0.5em",                              border:"2px solid red"
+
                           }}
                           alt=""
                           srcSet=""

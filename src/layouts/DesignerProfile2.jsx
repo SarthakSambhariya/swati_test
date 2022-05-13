@@ -21,7 +21,7 @@ import tick from "../components/findprofessional/images/tick.png";
 import share from "../components/findprofessional/images/share.png";
 import like from "../components/findprofessional/images/like.png";
 import location from "../components/findprofessional/images/location.png";
-import { CloseButton, Spinner } from "react-bootstrap";
+import { CloseButton, Spinner, Alert } from "react-bootstrap";
 import authService from "../services/authService";
 import userservice from "../services/userservice";
 import noimage from "../components/home/images/noimage.png";
@@ -46,6 +46,7 @@ import profilePicture from "../components/findprofessional/images/profilePicture
 import profilePageReviewStar from "../components/findprofessional/images/profilePageReviewStar.svg";
 import blueHeart from "../components/findprofessional/images/blueHeart.svg";
 import blankHeart from "../components/findprofessional/images/blankHeart.svg";
+import fullHeart from "../components/findprofessional/images/fullHeart.svg";
 import designFeeProfilePage from "../components/findprofessional/images/designFeeProfilePage.svg";
 import experienceProfilePage from "../components/findprofessional/images/experienceProfilePage.svg";
 import projectsProfilePage from "../components/findprofessional/images/projectsProfilePage.svg";
@@ -112,6 +113,8 @@ const DesignerProfile = ({ match, location, address }) => {
   const reviewTextAreaRef = useRef();
   const [wordCount, setWordCount] = useState(0);
   const [projectCarouselOpen, setProjectCarouselOpen] = useState(false);
+  const [profileLiked, setProfileLiked] = useState(false);
+  const [alert, setAlert] = useState(false);
   // const [listingType, setListingType] = useState("");
 
   const ratingSettings = {
@@ -261,6 +264,10 @@ const DesignerProfile = ({ match, location, address }) => {
     if (location["data"]) {
       setSkip(location["data"]["skip"]);
     }
+
+    setTimeout(() => {
+      setAlert(false);
+    }, 3000);
     function handleResize() {
       setScreenWidth(getScreenWidth());
     }
@@ -272,7 +279,7 @@ const DesignerProfile = ({ match, location, address }) => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [location["data"]]);
+  }, [location["data"],alert]);
 
   const textAreaWordCountHandler = () => {
     setWordCount(reviewTextAreaRef.current.value.length);
@@ -1752,7 +1759,7 @@ const DesignerProfile = ({ match, location, address }) => {
         </>
       )}
       {screenWidth < 767 && (
-        <div style={{position:"relative"}}>
+        <div style={{ position: "relative" }}>
           {projectCarouselOpen && (
             <div
               className="d-flex flex-column"
@@ -1772,7 +1779,7 @@ const DesignerProfile = ({ match, location, address }) => {
               >
                 <CloseButton variant="white" />
               </div>
-              <div style={{ position: "relative", top: "20%" }} >
+              <div style={{ position: "relative", top: "20%" }}>
                 <DesignerProfileProjectCarousel
                   arrayOfImages={designerProject}
                 />
@@ -1823,10 +1830,50 @@ const DesignerProfile = ({ match, location, address }) => {
                             fontSize: "8px",
                           }}
                         >
-                          34
+                          {profileLiked ? 0 : 1}
                         </p>
                       </span>
-                      <img src={blankHeart} alt="" />
+                      {}
+                      {profileLiked && (
+                        <img
+                          src={blankHeart}
+                          alt=""
+                          onClick={() => {
+                            setProfileLiked(!profileLiked);
+                            setAlert(true);
+                          }}
+                          style={{ cursor: "pointer" }}
+                        />
+                      )}
+                      {!profileLiked && (
+                        <img
+                          src={fullHeart}
+                          alt=""
+                          onClick={() => {
+                            setProfileLiked(!profileLiked);
+                            setAlert(false);
+                          }}
+                          style={{ cursor: "pointer" }}
+                        />
+                      )}
+                      {alert && (
+                        <Alert
+                          key={"light"}
+                          variant={"light"}
+                          style={{
+                            height: "3rem",
+                            position: "fixed",
+                            width: "50%",
+                            top: "40%",
+                            zIndex: "12",
+                            left: "25%",
+                            border: "1px solid",
+                          }}
+                        >
+                          <img className="me-2" src={fullHeart} alt="" />
+                          This has been wishlisted
+                        </Alert>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -2976,10 +3023,18 @@ const DesignerProfile = ({ match, location, address }) => {
           </section>
 
           <Footer2 />
-          <div className="contactBtns d-flex" style={{ height: "3rem",position:"fixed",width:"100%",bottom:"0" }}>
+          <div
+            className="contactBtns d-flex"
+            style={{
+              height: "3rem",
+              position: "fixed",
+              width: "100%",
+              bottom: "0",
+            }}
+          >
             <div
               className="d-flex justify-content-center align-items-center"
-              style={{ background: "#174E86", width: "50%",cursor:"pointer" }}
+              style={{ background: "#174E86", width: "50%", cursor: "pointer" }}
             >
               <img className="me-2" src={whiteCallButton} alt="" />
               <p
@@ -2996,16 +3051,20 @@ const DesignerProfile = ({ match, location, address }) => {
             </div>
             <div
               className="d-flex justify-content-center align-items-center"
-              style={{ background: "#49B7CF", width: "50%",cursor:"pointer" }}
+              style={{ background: "#49B7CF", width: "50%", cursor: "pointer" }}
             >
               <img className="me-2" src={whiteWhatsapp} alt="" />
-              <p style={{
+              <p
+                style={{
                   fontFamily: "Manrope",
                   fontSize: "0.875rem",
                   fontWeight: "500",
                   lineHeight: "1.1875rem",
                   color: "white",
-                }}>Whatsapp</p>
+                }}
+              >
+                Whatsapp
+              </p>
             </div>
           </div>
         </div>

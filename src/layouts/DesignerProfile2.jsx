@@ -115,6 +115,7 @@ const DesignerProfile = ({ match, location, address }) => {
   const [projectCarouselOpen, setProjectCarouselOpen] = useState(false);
   const [profileLiked, setProfileLiked] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [commentAlert, setCommentAlert] = useState(false);
   // const [listingType, setListingType] = useState("");
 
   const ratingSettings = {
@@ -268,6 +269,10 @@ const DesignerProfile = ({ match, location, address }) => {
     setTimeout(() => {
       setAlert(false);
     }, 3000);
+    setTimeout(() => {
+      setCommentAlert(false);
+      setWriteAReviewTextArea(false);
+    }, 3000);
     function handleResize() {
       setScreenWidth(getScreenWidth());
     }
@@ -279,7 +284,7 @@ const DesignerProfile = ({ match, location, address }) => {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [location["data"],alert]);
+  }, [location["data"],alert,commentAlert]);
 
   const textAreaWordCountHandler = () => {
     setWordCount(reviewTextAreaRef.current.value.length);
@@ -2804,9 +2809,27 @@ const DesignerProfile = ({ match, location, address }) => {
                           border: "none",
                           borderRadius: "0.3125rem",
                         }}
+                        onClick={()=>{setCommentAlert(true)}}
                       >
                         Submit
                       </button>
+                      {commentAlert && (
+                        <Alert
+                          key={"light"}
+                          variant={"light"}
+                          style={{
+                            height: "3rem",
+                            position: "fixed",
+                            width: "50%",
+                            top: "40%",
+                            zIndex: "12",
+                            left: "25%",
+                            border: "1px solid",
+                          }}
+                        >
+                          Comment posted!
+                        </Alert>
+                      )}
                     </div>
                   )}
                 </section>

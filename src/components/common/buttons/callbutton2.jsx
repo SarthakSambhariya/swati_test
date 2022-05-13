@@ -14,15 +14,15 @@ function CallButton2({ number, listingName }) {
   }, []);
 
   return (
+
     <button
       type="button"
-      className="btn text-light2 btn-width "
+      className="btn text-light2 btn-width d-flex align-items-center justify-content-center"
       data-bs-toggle="modal"
       data-bs-target={!user && "#staticBackdrop"}
       onClick={() => user && setShowNumber(!showNumber)}
-      style={{borderRight:"2px solid rgba(127, 135, 144, 0.2)",borderRadius:"0"}}
     >
-      <i className="me-1">
+      <i className="me-2">
         <img src={callButton2} />
       </i>
 

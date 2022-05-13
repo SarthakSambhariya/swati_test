@@ -2400,7 +2400,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       style={{
                         fontFamily: "Manrope",
                         fontWeight: "300",
-                        fontSize: "16px",
+                        fontSize: "1rem",
                         lineHeight: "21.86px",
                       }}
                     >

@@ -500,9 +500,9 @@ const ContractorListing2 = ({
                           .replaceAll(" ", "-")
                           .toLowerCase()}`)
                       }
-                      style={{ cursor: "pointer", padding: "0", width: "100%" }}
+                      style={{ cursor: "pointer", padding: "0", width: "400%" }}
                     >
-                      <div style={{ display: "flex", alignItems: "center" }}>
+                      <div style={{ display: "flex", alignItems: "center"}}>
                         <p className="mt-2 d-inline dlsize">
                           {name.length > 15 ? `${name.substr(0, 9)}...` : name}
                         </p>

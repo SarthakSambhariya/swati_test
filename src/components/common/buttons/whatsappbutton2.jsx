@@ -15,7 +15,7 @@ function WhatsApp2({ phoneNumber }) {
   return (
     <button
       type="button"
-      className="btn text-light2 btn-width"
+      className="btn text-light2 btn-width d-flex align-items-center justify-content-center"
       data-bs-toggle="modal"
       data-bs-target={!user && "#staticBackdrop"}
       onClick={
@@ -25,7 +25,7 @@ function WhatsApp2({ phoneNumber }) {
       }
       style={{ color: "#174E86" }}
     >
-      <i className="me-1">
+      <i className="me-2">
         <img src={whatsappImage} />
       </i>
       Whatsapp

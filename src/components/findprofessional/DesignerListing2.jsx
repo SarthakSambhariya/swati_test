@@ -347,9 +347,22 @@ const DesignerListing2 = ({
                   className="mt-3"
                   style={{ borderTop: "2px solid rgba(127, 135, 144, 0.2)" }}
                 />
-                <div className="d-flex justify-content-center mt-2">
-                  <CallButton2 number={phoneNumber} listingName={listingName} />
-                  <WhatsApp2 phoneNumber={phoneNumber} />
+                <div className="d-flex justify-content-evenly align-items-center mt-2">
+                  <div>
+                    <CallButton2
+                      number={phoneNumber}
+                      listingName={listingName}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                      height: "1.1875rem",
+                    }}
+                  ></div>
+                  <div>
+                    <WhatsApp2 phoneNumber={phoneNumber} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -362,7 +375,7 @@ const DesignerListing2 = ({
           style={{ border: "2px solid rgba(127, 135, 144, 0.2)" }}
         >
           <div className="" key={id}>
-            <div className="col-lg-4 col-md-12">
+            <div className="">
               {projects.length > 0 ? (
                 <div style={{ position: "relative" }}>
                   <img
@@ -429,7 +442,10 @@ const DesignerListing2 = ({
                 </div>
               )}
             </div>
-            <div className="col-lg-5 col-md-12 socialpart p-3">
+            <div
+              className="col-lg-5 col-md-12 socialpart px-3"
+              style={{ height: "auto" }}
+            >
               <table style={{ width: "100%" }} className="social">
                 <tr>
                   <td
@@ -438,7 +454,7 @@ const DesignerListing2 = ({
                         .replaceAll(" ", "-")
                         .toLowerCase()}`)
                     }
-                    style={{ cursor: "pointer", padding: "0", width: "100%" }}
+                    style={{ cursor: "pointer", padding: "0", width: "400%" }}
                   >
                     <div style={{ display: "flex", alignItems: "center" }}>
                       <p className="mt-2 d-inline dlsize">
@@ -523,7 +539,10 @@ const DesignerListing2 = ({
                   </td>
                 </tr>
               </table>
-              <div className="d-flex justify-content-center mt-2" style={{}}>
+              <div
+                className="d-flex justify-content-evenly mt-2"
+                style={{ width: "110%", transform: "translateX(-1.1rem)" }}
+              >
                 <div
                   className="d-flex flex-column align-items-center  p-3"
                   style={{ borderRight: "2px solid rgba(127, 135, 144, 0.2)" }}
@@ -568,8 +587,14 @@ const DesignerListing2 = ({
                 className="mt-3"
                 style={{ borderTop: "2px solid rgba(127, 135, 144, 0.2)" }}
               />
-              <div className="d-flex justify-content-center mt-2">
+              <div className="d-flex justify-content-evenly align-items-center mt-1">
                 <CallButton2 number={phoneNumber} listingName={listingName} />
+                <div
+                  style={{
+                    borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    height: "1.1875rem",
+                  }}
+                ></div>
                 <WhatsApp2 phoneNumber={phoneNumber} />
               </div>
             </div>

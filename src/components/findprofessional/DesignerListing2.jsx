@@ -119,13 +119,16 @@ const DesignerListing2 = ({
   return (
     <React.Fragment>
       {screenWidth > 768 && (
-        <div className="d-flex me-2 ms-2 mb-3" style={{width:"20.8125rem",height: "25rem"}}>
+        <div
+          className="d-flex me-2 ms-2 mb-3"
+          style={{ width: "20.8125rem", height: "25rem" }}
+        >
           <div
             className="mb-1 "
             style={{
               border: "2px solid rgba(127, 135, 144, 0.2)",
               width: "20.8125rem",
-              height:"100%"
+              height: "100%",
             }}
           >
             <div className="" key={id}>
@@ -494,8 +497,7 @@ const DesignerListing2 = ({
                           style={{
                             width: "20px",
                             cursor: "pointer",
-                            margin: "0 0.5em",                              border:"2px solid red"
-
+                            margin: "0 0.5em",
                           }}
                           alt=""
                           srcSet=""

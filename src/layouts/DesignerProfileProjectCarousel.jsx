@@ -23,7 +23,7 @@ const responsive = {
 const DesignerProfileProjectCarousel = () => {
   return (
     <React.Fragment>
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} transitionDuration={false}>
         <img
           src="https://idesignmedia.s3.amazonaws.com/Pic_1362544516842.jpg"
           style={{ width: "100%" }}

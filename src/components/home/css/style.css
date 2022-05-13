@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.react-multiple-carousel__arrow{
+  z-index: auto !important;
+}
+
 body {
   font-size: 12px;
   background: #fff;

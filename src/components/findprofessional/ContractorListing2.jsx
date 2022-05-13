@@ -120,14 +120,16 @@ const ContractorListing2 = ({
   return (
     <React.Fragment>
       {screenWidth > 768 && (
-        <div className="d-flex me-2 ms-2 mb-3" style={{width:"20.8125rem",height: "34.5rem"}}>
+        <div
+          className="d-flex me-2 ms-2 mb-3"
+          style={{ width: "20.8125rem", height: "34.5rem" }}
+        >
           <div
             className="mb-1 "
             style={{
               border: "2px solid rgba(127, 135, 144, 0.2)",
               width: "20.8125rem",
-              height:"100%"
-
+              height: "100%",
             }}
           >
             <div className="" key={id}>

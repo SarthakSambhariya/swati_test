@@ -59,6 +59,7 @@ import CalendarModal from "../components/modal/CalendarModal";
 import Footer2 from "../components/common/footer2";
 import blueCard from "../components/findprofessional/images/blueCard.svg";
 import blueCardPC from "../components/findprofessional/images/blueCardPc.svg";
+import blueCardPCContractor from "../components/findprofessional/images/blueCardPCContractor.svg";
 import ContractorListing2 from "../components/findprofessional/ContractorListing2";
 function getScreenWidth() {
   const width = window.innerWidth;
@@ -1421,7 +1422,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                     }}
                                                   >
                                                     <img
-                                                      src={blueCardPC}
+                                                      src={blueCardPCContractor}
                                                       alt="..."
                                                       style={{
                                                         borderRadius: "5px",
@@ -1683,7 +1684,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               className="mt-3 ms-3"
                                               style={{
                                                 fontFamily: "Public Sans",
-                                                fontSize: "1.125rem",
+                                                fontSize: "1rem",
                                                 fontWeight: " 300",
                                                 lineHeight: "1.321875rem",
                                               }}
@@ -1703,7 +1704,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Delhi
                                                 </label>
                                               </div>
-                                              <div className="form-check">
+                                              <div className="form-check mt-2">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"
@@ -1718,7 +1719,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Gurgaon
                                                 </label>
                                               </div>
-                                              <div className="form-check">
+                                              <div className="form-check mt-2">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"
@@ -1733,7 +1734,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Bhopal
                                                 </label>
                                               </div>
-                                              <div className="form-check">
+                                              <div className="form-check mt-2">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"

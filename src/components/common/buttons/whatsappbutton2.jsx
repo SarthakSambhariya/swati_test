@@ -5,7 +5,7 @@ import authService from "../../../services/authService";
 import constants from "../../../services/constants";
 import whatsappImage from "../../findprofessional/images/whatsappButton2.svg";
 
-function WhatsApp2({ phoneNumber }) {
+function WhatsApp2({ phoneNumber, listingName }) {
   const [user, setUser] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,10 @@ function WhatsApp2({ phoneNumber }) {
           ? () => (window.location.href = constants.whatsAppApi(phoneNumber))
           : ""
       }
-      style={{ color: "#174E86" }}
+      style={{
+        color: "#174E86",
+        fontSize: listingName === "contractor" && "0.9rem",
+      }}
     >
       <i className="me-2">
         <img src={whatsappImage} />

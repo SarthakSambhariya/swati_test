@@ -41,6 +41,7 @@ import noProject from "../components/common/noimage/noProject.png";
 import AllProjectsModal from "../components/exploreprojects/allprojectsmodal";
 import Footer2 from "../components/common/footer2";
 import profileBackground from "../components/findprofessional/images/profileBackground.svg";
+import profileBackgroundPc from "../components/findprofessional/images/profileBackgroundPc.svg";
 import shareBtn from "../components/findprofessional/images/shareButtonOnProfile.svg";
 import contractorWork from "../components/findprofessional/images/contractorWorks.png";
 import profilePicture from "../components/findprofessional/images/profilePicture.svg";
@@ -51,8 +52,11 @@ import fullHeart from "../components/findprofessional/images/fullHeart.svg";
 import emptyStar from "../components/findprofessional/images/emptyStar.svg";
 import fullStar from "../components/findprofessional/images/fullStar.svg";
 import designFeeProfilePage from "../components/findprofessional/images/designFeeProfilePage.svg";
+import designFeeProfilePagePc from "../components/findprofessional/images/designFeeProfilePagePc.svg";
 import experienceProfilePage from "../components/findprofessional/images/experienceProfilePage.svg";
+import experienceProfilePagePc from "../components/findprofessional/images/experienceProfilePagePc.svg";
 import projectsProfilePage from "../components/findprofessional/images/projectsProfilePage.svg";
+import projectsProfilePagePc from "../components/findprofessional/images/projectsProfilePagePc.svg";
 import otherDesignerProfilePic from "../components/findprofessional/images/otherDesignersPic.svg";
 import briefCaseDesigner from "../components/findprofessional/images/briefCaseDesigner.svg";
 import falseCeiling from "../components/findprofessional/images/falseCeiling.svg";
@@ -81,11 +85,11 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 8,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    items: 6,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -123,7 +127,7 @@ const DesignerProfile = ({ match, location, address }) => {
   // const [listingType, setListingType] = useState("");
 
   const ratingSettings = {
-    size: 20,
+    size: screenWidth < 767 ? 20 : 30,
     count: 5,
     color: "#888888",
     activeColor: "#ffd700",
@@ -133,6 +137,21 @@ const DesignerProfile = ({ match, location, address }) => {
     emptyIcon: <i className="bi bi-star mx-3"></i>,
     // halfIcon: <i class="fa-solid fa-star-half-stroke"></i>,
     filledIcon: <i className="bi bi-star-fill mx-3"></i>,
+    onChange: (newValue) => {
+      // console.log(`Example 2: new value is ${newValue}`);
+    },
+  };
+  const ratingSetting2 = {
+    size: 20,
+    count: 5,
+    color: "#888888",
+    activeColor: "#49B7CF",
+    value: 5,
+    a11y: true,
+    // isHalf: true,
+    emptyIcon: <i className="bi bi-star me-1"></i>,
+    // halfIcon: <i class="fa-solid fa-star-half-stroke"></i>,
+    filledIcon: <i className="bi bi-star-fill me-1"></i>,
     onChange: (newValue) => {
       // console.log(`Example 2: new value is ${newValue}`);
     },
@@ -334,7 +353,7 @@ const DesignerProfile = ({ match, location, address }) => {
               >
                 <div style={{ position: "relative" }}>
                   <img
-                    src={profileBackground}
+                    src={profileBackgroundPc}
                     alt="..."
                     style={{ margin: "auto", width: "100%" }}
                   />
@@ -342,30 +361,38 @@ const DesignerProfile = ({ match, location, address }) => {
                     className="shareLikesHeart"
                     style={{
                       position: "absolute",
-                      bottom: "-30px",
-                      right: "15px",
+                      bottom: "-2.6rem",
+                      right: "1rem",
                     }}
                   >
                     <div className="d-flex justify-content-end">
-                      <img src={shareBtn} alt="..." />
+                      <img src={shareBtn} alt="..." style={{ width: "2rem" }} />
                     </div>
                     <div className="d-flex justify-content-between mt-4">
                       <span
-                        className="d-flex align-items-center mx-3"
+                        className="d-flex align-items-center justify-content-evenly mx-3"
                         style={{
                           border: "0.2px solid #7F8790",
-                          borderRadius: "12px",
+                          borderRadius: "1.8rem",
+                          width: "5.89375rem",
+                          height: "2.4175rem",
                         }}
                       >
-                        <img className="mx-1" src={blueHeart} alt="" />
+                        <img
+                          className=""
+                          src={blueHeart}
+                          alt=""
+                          style={{ width: "2rem" }}
+                        />
                         <p
-                          className="me-1"
+                          className=""
                           style={{
                             fontWeight: "500",
                             lineHeight: "9.4px",
                             fontFamily: "Public Sans",
                             color: "#888888",
-                            fontSize: "8px",
+                            fontSize: "1.20875rem",
+                            width: "2rem",
                           }}
                         >
                           {profileLiked ? 0 : 1}
@@ -380,7 +407,7 @@ const DesignerProfile = ({ match, location, address }) => {
                             setProfileLiked(!profileLiked);
                             setAlert(true);
                           }}
-                          style={{ cursor: "pointer" }}
+                          style={{ cursor: "pointer", width: "2rem" }}
                         />
                       )}
                       {!profileLiked && (
@@ -391,7 +418,7 @@ const DesignerProfile = ({ match, location, address }) => {
                             setProfileLiked(!profileLiked);
                             setAlert(false);
                           }}
-                          style={{ cursor: "pointer" }}
+                          style={{ cursor: "pointer", width: "2rem" }}
                         />
                       )}
                       {alert && (
@@ -402,7 +429,7 @@ const DesignerProfile = ({ match, location, address }) => {
                             height: "3rem",
                             position: "fixed",
                             width: "50%",
-                            top: "150vh",
+                            top: "85%",
                             zIndex: "12",
                             left: "25%",
                             boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
@@ -419,7 +446,7 @@ const DesignerProfile = ({ match, location, address }) => {
                   className="profilePictureAndInfoBox d-flex flex-column justify-content-center align-items-center"
                   style={{
                     position: "absolute",
-                    top: "60%",
+                    top: "75%",
                     left: "33%",
                     width: "35%",
                   }}
@@ -431,21 +458,23 @@ const DesignerProfile = ({ match, location, address }) => {
                         : profilePicture
                     }
                     style={{
-                      width: "5rem",
-                      height: "5rem",
-                      borderRadius: "5rem",
+                      width: "10rem",
+                      height: "10rem",
+                      borderRadius: "15rem",
                       objectFit: "cover",
-                      
+                      boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                      border: "4px solid white",
                     }}
                   />
                   {/* <img src={profilePicture} alt="profile-picture" /> */}
                   <span
                     style={{
-                      fontSize: "16px",
+                      fontSize: "1.75rem",
                       fontWeight: "600",
-                      lineHeight: "21.86px",
+                      lineHeight: "2.390625rem",
                       fontFamily: "Manrope",
                       textAlign: "center",
+                      textTransform: "capitalize",
                     }}
                   >
                     {Company ? Company : "ABC Design Firm"}
@@ -455,31 +484,38 @@ const DesignerProfile = ({ match, location, address }) => {
                       fontFamily: "Public Sans",
                       fontWeight: "400",
                       color: "#7F8790",
-                      fontSize: "12px",
-                      lineHeight: "14.1px",
+                      fontSize: "1.25rem",
+                      lineHeight: "1.46875rem",
+                      textTransform: "capitalize",
                     }}
                   >
-                    {designerProfile
-                      ? designerProfile["city"]
-                      : "Saket,New Delhi"}
+                    {Name}
                   </span>
                   <span
-                    className="d-flex align-items-center mt-2"
+                    className="d-flex align-items-center mt-2 justify-content-center"
                     style={{
                       background: "rgba(0,0,0,0.05)",
-                      borderRadius: "5px",
+                      borderRadius: "0.484375rem",
                       // border: "2px solid red",
                       top: "10px",
+                      width: "4.45625rem",
+                      height: "1.9375rem",
                     }}
                   >
-                    <img className="mx-1" src={profilePageReviewStar} alt="" />
+                    <img
+                      className="mx-1"
+                      src={profilePageReviewStar}
+                      alt=""
+                      style={{ width: "0.840625rem" }}
+                    />
                     <p
                       className="mx-1"
                       style={{
                         color: "#174E86",
                         fontWeight: "500",
-                        fontSize: "10px",
+                        fontSize: "0.96875rem",
                         fontFamily: "Inter",
+                        lineHeight: "1.1725rem",
                       }}
                     >
                       4.3
@@ -489,16 +525,17 @@ const DesignerProfile = ({ match, location, address }) => {
               </div>
             </div>
           </section>
-          <section className="container" style={{ marginTop: "34%" }}>
-            <div className="d-flex justify-content-center">
-              <div className="d-flex flex-column mx-4 align-items-center">
-                <img src={experienceProfilePage} alt="" />
+          <section className="container" style={{ marginTop: "14%" }}>
+            <div className="d-flex justify-content-evenly">
+              <div className="d-flex flex-column  align-items-center">
+                <img src={experienceProfilePagePc} alt="" />
                 <span
                   className="mt-2"
                   style={{
                     fontFamily: "Manrope",
-                    fontWeight: "400",
-                    fontSize: "12px",
+                    fontWeight: "500",
+                    fontSize: "1.5rem",
+                    lineHeight: "2.04875rem",
                     color: "#7F8790",
                   }}
                 >
@@ -507,8 +544,9 @@ const DesignerProfile = ({ match, location, address }) => {
                 <span
                   style={{
                     fontFamily: "Manrope",
-                    fontWeight: "400",
-                    fontSize: "12px",
+                    fontWeight: "500",
+                    fontSize: "1.5rem",
+                    lineHeight: "1.7625rem",
                     color: "#121212",
                   }}
                 >
@@ -517,14 +555,15 @@ const DesignerProfile = ({ match, location, address }) => {
                 </span>
               </div>
               {Name === "designer" && (
-                <div className="d-flex flex-column mx-4 align-items-center">
-                  <img src={designFeeProfilePage} alt="" />
+                <div className="d-flex flex-column  align-items-center">
+                  <img src={designFeeProfilePagePc} alt="" />
                   <span
                     className="mt-2"
                     style={{
                       fontFamily: "Manrope",
-                      fontWeight: "400",
-                      fontSize: "12px",
+                      fontWeight: "500",
+                      fontSize: "1.5rem",
+                      lineHeight: "2.04875rem",
                       color: "#7F8790",
                     }}
                   >
@@ -533,8 +572,9 @@ const DesignerProfile = ({ match, location, address }) => {
                   <span
                     style={{
                       fontFamily: "Manrope",
-                      fontWeight: "400",
-                      fontSize: "12px",
+                      fontWeight: "500",
+                      fontSize: "1.5rem",
+                      lineHeight: "1.7625rem",
                       color: "#121212",
                     }}
                   >
@@ -546,14 +586,15 @@ const DesignerProfile = ({ match, location, address }) => {
                   </span>
                 </div>
               )}
-              <div className="d-flex flex-column mx-4 align-items-center">
-                <img src={projectsProfilePage} alt="" />
+              <div className="d-flex flex-column  align-items-center">
+                <img src={projectsProfilePagePc} alt="" />
                 <span
                   className="mt-2"
                   style={{
                     fontFamily: "Manrope",
-                    fontWeight: "400",
-                    fontSize: "12px",
+                    fontWeight: "500",
+                    fontSize: "1.5rem",
+                    lineHeight: "2.04875rem",
                     color: "#7F8790",
                   }}
                 >
@@ -562,8 +603,9 @@ const DesignerProfile = ({ match, location, address }) => {
                 <span
                   style={{
                     fontFamily: "Manrope",
-                    fontWeight: "400",
-                    fontSize: "12px",
+                    fontWeight: "500",
+                    fontSize: "1.5rem",
+                    lineHeight: "1.7625rem",
                     color: "#121212",
                   }}
                 >
@@ -572,15 +614,16 @@ const DesignerProfile = ({ match, location, address }) => {
               </div>
             </div>
             {Name === "designer" && (
-              <div className="d-flex mt-4 justify-content-center">
+              <div className="d-flex mt-5 justify-content-center">
                 <span
                   className="mx-2 py-1 px-2"
                   style={{
                     border: "0.2px solid rgba(127, 135, 144, 0.5)",
                     fontWeight: "400",
-                    lineHeight: "13.66px",
+                    lineHeight: "2.04875rem",
                     fontFamily: "Manrope",
                     borderRadius: "7px",
+                    fontSize: "1.5rem",
                   }}
                 >
                   Bohemian
@@ -590,9 +633,10 @@ const DesignerProfile = ({ match, location, address }) => {
                   style={{
                     border: "0.2px solid rgba(127, 135, 144, 0.5)",
                     fontWeight: "400",
-                    lineHeight: "13.66px",
+                    lineHeight: "2.04875rem",
                     fontFamily: "Manrope",
                     borderRadius: "7px",
+                    fontSize: "1.5rem",
                   }}
                 >
                   Modern
@@ -602,9 +646,10 @@ const DesignerProfile = ({ match, location, address }) => {
                   style={{
                     border: "0.2px solid rgba(127, 135, 144, 0.5)",
                     fontWeight: "400",
-                    lineHeight: "13.66px",
+                    lineHeight: "2.04875rem",
                     fontFamily: "Manrope",
                     borderRadius: "7px",
+                    fontSize: "1.5rem",
                   }}
                 >
                   Traditional
@@ -794,7 +839,7 @@ const DesignerProfile = ({ match, location, address }) => {
               </div>
             )}
             <div
-              className="contactBtns d-flex mt-3"
+              className="contactBtns d-flex mt-5"
               style={{
                 height: "3rem",
                 width: "40%",
@@ -846,10 +891,11 @@ const DesignerProfile = ({ match, location, address }) => {
                 </p>
               </div>
             </div>
-            <div className="mt-4 mx-2">
-              <div className="d-flex justify-content-evenly">
+            <div className="mt-5">
+              <div className="d-flex mx-5">
                 {
                   <div
+                    className="me-5"
                     style={{
                       position:
                         componentsToRender === "projects" ? "relative" : "",
@@ -875,6 +921,7 @@ const DesignerProfile = ({ match, location, address }) => {
                 }
                 {
                   <div
+                    className="me-5"
                     style={{
                       position:
                         componentsToRender === "posts" ? "relative" : "",
@@ -899,6 +946,7 @@ const DesignerProfile = ({ match, location, address }) => {
                 }
                 {
                   <div
+                    className="me-5"
                     style={{
                       position:
                         componentsToRender === "about" ? "relative" : "",
@@ -929,7 +977,7 @@ const DesignerProfile = ({ match, location, address }) => {
                   <div className="d-flex justify-content-center">
                     <div
                       className=""
-                      style={{ width: "110%", cursor: "pointer" }}
+                      style={{ width: "100%", cursor: "pointer" }}
                       onClick={() => {
                         setProjectCarouselOpen(true);
                       }}
@@ -1081,8 +1129,8 @@ const DesignerProfile = ({ match, location, address }) => {
                     borderBottom: "0.0625rem solid rgba(127, 135, 144, 0.2)",
                   }}
                 />
-                <section>
-                  <div className=" ">
+                <section className="d-flex justify-content-evenly">
+                  <div className=" " style={{ width: "100%" }}>
                     <div
                       className="mb-3"
                       style={{
@@ -1092,22 +1140,31 @@ const DesignerProfile = ({ match, location, address }) => {
                         lineHeight: "21.86px",
                       }}
                     >
-                      <p>User Reviews ({review.count ? review.count : "17"})</p>
+                      <p
+                        style={{
+                          fontFamily: "Manrope",
+                          fontWeight: "500",
+                          fontSize: "1.75rem",
+                          lineHeight: "2.390625rem",
+                        }}
+                      >
+                        User Reviews ({review.count ? review.count : "17"})
+                      </p>
                     </div>
-                    <div className="">
+                    <div className="mt-5">
                       <div className="review-by-others">
                         <div className="container p-2 ">
                           <div className="">
                             {/*CHANGE FLEX COLUMN TO ROW */}
                             <div className="d-flex justify-content-evenly">
-                              <div className=" d-flex flex-column justify-content-center align-content-center justify-items-center">
-                                <div>
+                              <div className=" d-flex flex-column justify-content-center align-content-center justify-items-center align-items-center">
+                                <div style={{ textAlign: "center" }}>
                                   <p
                                     style={{
-                                      fontSize: "2rem",
+                                      fontSize: "4.3475rem",
                                       fontFamily: "Public Sans",
                                       fontWeight: "500",
-                                      lineHeight: "37.6px",
+                                      lineHeight: "5.108125rem",
                                     }}
                                   >
                                     3.8
@@ -1116,10 +1173,10 @@ const DesignerProfile = ({ match, location, address }) => {
                                 <div>
                                   <p
                                     style={{
-                                      fontSize: "0.75rem",
+                                      fontSize: "1.630625rem",
                                       fontFamily: "Public Sans",
                                       fontWeight: "500",
-                                      lineHeight: "14.1px",
+                                      lineHeight: "1.915625rem",
                                     }}
                                   >
                                     out of 5
@@ -1128,58 +1185,108 @@ const DesignerProfile = ({ match, location, address }) => {
                               </div>
                               <div
                                 className="reviewProgressBars"
-                                style={{ width: "66%" }}
-                                id="profilePage"
+                                style={{ width: "66%", color: "#8C8C8C" }}
+                                id="profilePagePc"
                               >
                                 <span className="d-flex align-items-center">
-                                  <p className="px-3">5</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    5
+                                  </p>
                                   <p style={{ width: "100%" }}>
                                     <ProgressBar
                                       className="my-1 progressgreen"
                                       now={50}
                                     />
                                   </p>
-                                  <p className="px-3">67</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    67
+                                  </p>
                                 </span>
                                 <span className="d-flex align-items-center">
-                                  <p className="px-3">4</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    4
+                                  </p>
                                   <p style={{ width: "100%" }}>
                                     <ProgressBar
                                       className="my-2 progressneon"
                                       now={70}
                                     />
                                   </p>
-                                  <p className="px-3">98</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    98
+                                  </p>
                                 </span>
                                 <span className="d-flex align-items-center">
-                                  <p className="px-3">3</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    3
+                                  </p>
                                   <p style={{ width: "100%" }}>
                                     <ProgressBar
                                       className="my-2 progressyellow"
                                       now={55}
                                     />
                                   </p>
-                                  <p className="px-3">73</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    73
+                                  </p>
                                 </span>
                                 <span className="d-flex align-items-center">
-                                  <p className="px-3">2</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    2
+                                  </p>
                                   <p style={{ width: "100%" }}>
                                     <ProgressBar
                                       className="my-2 progressorange"
                                       now={60}
                                     />
                                   </p>
-                                  <p className="px-3">84</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    84
+                                  </p>
                                 </span>
                                 <span className="d-flex align-items-center">
-                                  <p className="px-3">1</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    1
+                                  </p>
                                   <p style={{ width: "100%" }}>
                                     <ProgressBar
                                       className="my-2 progressred"
                                       now={40}
                                     />
                                   </p>
-                                  <p className="px-3">45</p>
+                                  <p
+                                    className="px-3"
+                                    style={{ fontSize: "1.35875rem" }}
+                                  >
+                                    45
+                                  </p>
                                 </span>
                               </div>
                             </div>
@@ -1187,241 +1294,257 @@ const DesignerProfile = ({ match, location, address }) => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </section>
-                <section className="mt-4">
-                  <div className="">
-                    <div className="review-by-others">
-                      <div className="">
-                        <div
-                          className="mt-3 g-0 "
-                          style={{ display: "flex", alignItems: "center" }}
-                        >
-                          <div
-                            className="d-flex justify-content-center text-white para-p "
-                            style={{ backgroundColor: "#174E86" }}
-                          >
-                            P
-                          </div>
-                          <div
-                            className="d-inline ms-3"
-                            style={{ width: "auto" }}
-                          >
-                            <b
-                              style={{
-                                fontFamily: "Manrope",
-                                fontWeight: "500",
-                                fontSize: "0.875rem",
-                                lineHeight: "1.195rem",
-                              }}
+                    <section className="mt-5">
+                      <div className="me-5">
+                        <div className="review-by-others">
+                          <div className="">
+                            <div
+                              className="mt-3 g-0 "
+                              style={{ display: "flex", alignItems: "center" }}
                             >
-                              Parismita Raval &nbsp;
                               <div
-                                class="badge badge-pill"
+                                className="d-flex justify-content-center align-items-center text-white para-p"
                                 style={{
-                                  width: "auto",
-                                  backgroundColor: "rgba(73, 183, 207, 0.13)",
-                                  color: "#49B7CF",
-                                  borderRadius: "0.8125rem",
-                                  fontSize: "0.625rem",
-                                  lineHeight: "0.625rem",
+                                  backgroundColor: "#49B7CF",
+                                  width: "2.5625rem",
+                                  height: "2.5625rem",
+                                  fontSize: "1.25rem",
                                 }}
                               >
-                                <span>4 &nbsp;</span>
-                                <svg
-                                  className="mb-1"
-                                  width="13"
-                                  height="13"
-                                  viewBox="0 0 13 13"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M6.96839 1.62284C6.75964 1.26309 6.24012 1.26309 6.03137 1.62284L4.56126 4.15638C4.45814 4.33409 4.27991 4.45537 4.07675 4.48605L1.32166 4.90217C0.858926 4.97207 0.69661 5.55631 1.05698 5.85488L3.10941 7.55529C3.29939 7.71269 3.38873 7.96097 3.34257 8.20333L2.80569 11.0228C2.72082 11.4685 3.18871 11.8148 3.59016 11.6034L6.18442 10.2374C6.38188 10.1334 6.61788 10.1334 6.81534 10.2374L9.4096 11.6034C9.81105 11.8148 10.2789 11.4685 10.1941 11.0228L9.65719 8.20333C9.61104 7.96097 9.70037 7.71269 9.89035 7.55529L11.9428 5.85488C12.3031 5.55631 12.1408 4.97207 11.6781 4.90217L8.92301 4.48605C8.71985 4.45537 8.54162 4.33409 8.4385 4.15638L6.96839 1.62284Z"
-                                    fill="#49B7CF"
-                                  />
-                                </svg>
+                                P
                               </div>
-                              {/* Reliable And Dependable Firm */}
-                            </b>
+                              <div
+                                className="d-inline ms-3"
+                                style={{ width: "auto" }}
+                              >
+                                <b
+                                  style={{
+                                    fontFamily: "Manrope",
+                                    fontWeight: "600",
+                                    fontSize: "1.75rem",
+                                    lineHeight: "2.05625rem",
+                                  }}
+                                >
+                                  Reliable and Dependable Firm &nbsp;
+                                </b>
+                                <ReactStars {...ratingSetting2} />
+                              </div>
+                            </div>
                             <p
+                              className="mt-3"
                               style={{
                                 fontFamily: "Public Sans",
-                                fontWeight: "400",
-                                fontSize: "0.625rem",
-                                lineHeight: "0.734375rem",
+                                fontWeight: "500",
+                                fontSize: "1.5rem",
+                                lineHeight: "1.7625rem",
                                 color: "#888888",
                               }}
                             >
-                              Designer{" "}
-                              <svg
-                                width="4"
-                                height="4"
-                                viewBox="0 0 4 4"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                              Review given by Parismita Rawal - Client
+                            </p>
+                            <p
+                              className="mt-3"
+                              style={{
+                                fontFamily: "Public Sans",
+                                fontWeight: "400",
+                                fontSize: "1rem",
+                                lineHeight: "1.46875rem",
+                                color: "#888888",
+                              }}
+                            >
+                              We engaged Forefront after interviewing quite a
+                              few interior designers as we were not sure at the
+                              time how the renovation for our new 5 room BTO
+                              flat should be done Lorem..... Read More
+                            </p>
+                          </div>
+                          <div className="mt-5">
+                            <div
+                              className="mt-3 g-0 "
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              <div
+                                className="d-flex justify-content-center align-items-center text-white para-p"
+                                style={{
+                                  backgroundColor: "#49B7CF",
+                                  width: "2.5625rem",
+                                  height: "2.5625rem",
+                                  fontSize: "1.25rem",
+                                }}
                               >
-                                <circle cx="2" cy="2" r="2" fill="#C4C4C4" />
-                              </svg>
-                              &nbsp; 01-02-2022
-                              {/* Review given by Parismita - Client */}
+                                P
+                              </div>
+                              <div
+                                className="d-inline ms-3"
+                                style={{ width: "auto" }}
+                              >
+                                <b
+                                  style={{
+                                    fontFamily: "Manrope",
+                                    fontWeight: "600",
+                                    fontSize: "1.75rem",
+                                    lineHeight: "2.05625rem",
+                                  }}
+                                >
+                                  Reliable and Dependable Firm &nbsp;
+                                </b>
+                                <ReactStars {...ratingSetting2} />
+                              </div>
+                            </div>
+                            <p
+                              className="mt-3"
+                              style={{
+                                fontFamily: "Public Sans",
+                                fontWeight: "500",
+                                fontSize: "1.5rem",
+                                lineHeight: "1.7625rem",
+                                color: "#888888",
+                              }}
+                            >
+                              Review given by Parismita Rawal - Client
+                            </p>
+                            <p
+                              className="mt-3"
+                              style={{
+                                fontFamily: "Public Sans",
+                                fontWeight: "400",
+                                fontSize: "1rem",
+                                lineHeight: "1.46875rem",
+                                color: "#888888",
+                              }}
+                            >
+                              We engaged Forefront after interviewing quite a
+                              few interior designers as we were not sure at the
+                              time how the renovation for our new 5 room BTO
+                              flat should be done Lorem..... Read More
                             </p>
                           </div>
                         </div>
-                        <p
-                          className="mt-3"
-                          style={{
-                            fontFamily: "Public Sans",
-                            fontWeight: "400",
-                            fontSize: "0.75rem",
-                            lineHeight: "1rem",
-                            color: "#888888",
-                          }}
-                        >
-                          We engaged Forefront after interviewing quite a few
-                          interior designers as we were not sure at the time how
-                          the renovation for our new 5 room BTO flat should be
-                          done Lorem..... Read More
-                        </p>
                       </div>
-                    </div>
+                    </section>
                   </div>
-                </section>
-                <section className="mt-4">
-                  <div className="">
-                    <div
-                      className="mb-3"
-                      style={{
-                        fontFamily: "Manrope",
-                        fontWeight: "500",
-                        fontSize: "1rem",
-                        lineHeight: "1.36625rem",
-                      }}
-                    >
-                      <p>Give your Review</p>
-                      <p
-                        style={{
-                          fontFamily: "Manrope",
-                          fontWeight: "300",
-                          fontSize: "0.625rem",
-                          lineHeight: "1rem",
-                          color: "#8B8A8A",
-                        }}
-                      >
-                        Tell others what you think
-                      </p>
-                    </div>
-                    <div className="d-flex justify-content-center" style={{width:"100%"}}>
-                      <ReactStars {...ratingSettings} />
-                    </div>
-                  </div>
-                  <div
-                    className="mt-3 d-flex justify-content-between"
+                  <section
+                    className="mt-4 p-3"
                     style={{
-                      color: "#49B7CF",
-                      fontFamily: "Manrope",
-                      fontSize: "0.875rem",
-                      fontWeight: "500",
-                      lineHeight: "1.1875",
-                      letterSpacing: "0em",
-                      textAlign: "left",
+                      width: "40%",
+                      boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+                      borderRadius: "5px",
+                      height: "28rem",
                     }}
                   >
-                    <div
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        setWriteAReviewTextArea(true);
-                      }}
-                    >
-                      Write a review
-                    </div>
-                    {writeAReviewTextArea && (
-                      <div>
-                        <FontAwesomeIcon
-                          icon={faClose}
-                          size="sm"
-                          color={"#8B8A8A"}
-                          className="fs-5 ms-5"
-                          onClick={() => {
-                            setWriteAReviewTextArea(false);
-                          }}
-                          style={{ cursor: "pointer" }}
-                        />
-                      </div>
-                    )}
-                  </div>
-                  {writeAReviewTextArea && (
-                    <div>
-                      <div class="form-group">
-                        <textarea
-                          className="form-control mt-3"
-                          id="exampleFormControlTextarea1"
-                          rows="1"
-                          placeholder="Write your review here"
-                          ref={reviewTextAreaRef}
-                          onChange={textAreaWordCountHandler}
-                          maxLength={200}
-                          style={{
-                            fontSize: "0.75rem",
-                            lineHeight: "1rem",
-                            fontWeight: "400",
-                            fontFamily: "Manrope",
-                          }}
-                        ></textarea>
-                        <div
-                          className="mt-1"
-                          style={{
-                            fontSize: "0.75rem",
-                            lineHeight: "1rem",
-                            fontWeight: "400",
-                            fontFamily: "Manrope",
-                            color: "#a7a7a7",
-                            textAlign: "right",
-                          }}
-                        >
-                          {wordCount}/200
-                        </div>
-                      </div>
-                      <button
-                        className="mt-3"
+                    <div className="">
+                      <div
+                        className="mb-3"
                         style={{
-                          height: "2.625rem",
-                          width: "100%",
-                          background: "#49B7CF",
-                          color: "white",
-                          fontFamily: "Manrope",
-                          fontWeight: "400",
-                          fontSize: "0.875rem",
-                          lineHeight: "1.195rem",
-                          border: "none",
-                          borderRadius: "0.3125rem",
-                        }}
-                        onClick={() => {
-                          setCommentAlert(true);
+                          textAlign: "center",
                         }}
                       >
-                        Submit
-                      </button>
-                      {commentAlert && (
-                        <Alert
-                          key={"light"}
-                          variant={"light"}
+                        <p
                           style={{
-                            height: "3rem",
-                            position: "fixed",
-                            width: "50%",
-                            top: "40%",
-                            zIndex: "12",
-                            left: "25%",
-                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                            fontFamily: "Manrope",
+                            fontWeight: "700",
+                            fontSize: "1.75rem",
+                            lineHeight: "2.390625rem",
                           }}
                         >
-                          Comment posted!
-                        </Alert>
-                      )}
+                          Give your Review
+                        </p>
+                        <p
+                          style={{
+                            fontFamily: "Manrope",
+                            fontWeight: "300",
+                            fontSize: "1rem",
+                            lineHeight: "1.36625rem",
+                            color: "#8B8A8A",
+                          }}
+                        >
+                          Tell others what you think
+                        </p>
+                      </div>
+                      <div
+                        className="d-flex justify-content-center"
+                        style={{ width: "100%" }}
+                      >
+                        <ReactStars {...ratingSettings} />
+                      </div>
                     </div>
-                  )}
+
+                    {
+                      <div>
+                        <div class="form-group mt-4">
+                          <textarea
+                            className="form-control mt-3"
+                            id="exampleFormControlTextarea1"
+                            rows="10"
+                            placeholder="Write your review here"
+                            ref={reviewTextAreaRef}
+                            onChange={textAreaWordCountHandler}
+                            maxLength={200}
+                            style={{
+                              fontSize: "0.75rem",
+                              lineHeight: "1rem",
+                              fontWeight: "400",
+                              fontFamily: "Manrope",
+                            }}
+                          ></textarea>
+                          <div
+                            className="mt-1"
+                            style={{
+                              fontSize: "0.75rem",
+                              lineHeight: "1rem",
+                              fontWeight: "400",
+                              fontFamily: "Manrope",
+                              color: "#a7a7a7",
+                              textAlign: "right",
+                            }}
+                          >
+                            {wordCount}/200
+                          </div>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                          <button
+                            className="mt-3"
+                            style={{
+                              height: "2.625rem",
+                              width: "50%",
+                              background: "#174E86",
+                              color: "white",
+                              fontFamily: "Manrope",
+                              fontWeight: "400",
+                              fontSize: "0.875rem",
+                              lineHeight: "1.195rem",
+                              border: "none",
+                              borderRadius: "0.3125rem",
+                            }}
+                            onClick={() => {
+                              setCommentAlert(true);
+                            }}
+                          >
+                            Submit
+                          </button>
+                        </div>
+                        {commentAlert && (
+                          <Alert
+                            key={"light"}
+                            variant={"light"}
+                            style={{
+                              height: "3rem",
+                              position: "fixed",
+                              width: "50%",
+                              top: "40%",
+                              zIndex: "12",
+                              left: "25%",
+                              boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                            }}
+                          >
+                            Comment posted!
+                          </Alert>
+                        )}
+                      </div>
+                    }
+                  </section>
                 </section>
+
                 <section>
                   <div className="">
                     <div
@@ -1633,8 +1756,7 @@ const DesignerProfile = ({ match, location, address }) => {
               </div>
             </div>
           </section>
-
-          <Footer2 />
+          <Footer />
         </div>
       )}
       {screenWidth < 767 && (
@@ -1669,7 +1791,8 @@ const DesignerProfile = ({ match, location, address }) => {
                     border: "2px solid white",
                     width: "25%",
                     cursor: "pointer",
-                    borderRadius:"0.2rem",margin:"auto"
+                    borderRadius: "0.2rem",
+                    margin: "auto",
                   }}
                 >
                   <FontAwesomeIcon
@@ -1678,12 +1801,16 @@ const DesignerProfile = ({ match, location, address }) => {
                     color={"white"}
                     className=""
                   />
-                  <span style={{
-                    color: "#F5F5F5",
-                    fontSize:"0.825rem",
-                    lineHeight:"0.85375rem",
-                    fontWeight:"600"
-                  }}>SAVE</span>
+                  <span
+                    style={{
+                      color: "#F5F5F5",
+                      fontSize: "0.825rem",
+                      lineHeight: "0.85375rem",
+                      fontWeight: "600",
+                    }}
+                  >
+                    SAVE
+                  </span>
                 </div>
               </div>
             </div>
@@ -1769,7 +1896,8 @@ const DesignerProfile = ({ match, location, address }) => {
                             top: "85%",
                             zIndex: "12",
                             left: "25%",
-                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",fontFamily: "Public Sans",
+                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                            fontFamily: "Public Sans",
                             fontSize: "0.625rem",
                             fontWeight: "300",
                             lineHeight: "0.734375rem",
@@ -1802,7 +1930,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       height: "5rem",
                       borderRadius: "5rem",
                       objectFit: "cover",
-                      border:"4px solid white"
+                      border: "4px solid white",
                     }}
                   />
                   {/* <img src={profilePicture} alt="profile-picture" /> */}
@@ -2627,7 +2755,10 @@ const DesignerProfile = ({ match, location, address }) => {
                       </p>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <ReactStars {...ratingSettings} style={{width:"50%"}}/>
+                      <ReactStars
+                        {...ratingSettings}
+                        style={{ width: "50%" }}
+                      />
                     </div>
                   </div>
                   <div
@@ -2728,11 +2859,11 @@ const DesignerProfile = ({ match, location, address }) => {
                             top: "85%",
                             zIndex: "12",
                             left: "25%",
-                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",fontFamily: "Public Sans",
+                            boxShadow: "0 0 1.5rem rgba(0,0,0,0.08)",
+                            fontFamily: "Public Sans",
                             fontSize: "0.625rem",
                             fontWeight: "300",
                             lineHeight: "0.875rem",
-                            
                           }}
                         >
                           Your review has been posted

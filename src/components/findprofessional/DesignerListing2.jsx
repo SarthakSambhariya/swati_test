@@ -115,7 +115,6 @@ const DesignerListing2 = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  console.log(address);
   return (
     <React.Fragment>
       {screenWidth > 768 && (

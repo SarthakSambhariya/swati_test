@@ -6,7 +6,6 @@ function Pagination({ page, location, pageCount, pageSize }) {
   const handlePageClick = (data) => {
     window.location.href = `${location.pathname}?page=${data.selected + 1}`;
   };
-
   return (
     <>
       <ReactPaginate
@@ -29,6 +28,7 @@ function Pagination({ page, location, pageCount, pageSize }) {
         breakLinkClassName={"page-link"}
         activeClassName={"active"}
         forcePage={page - 6}
+        pageSize={15}
       />
     </>
   );

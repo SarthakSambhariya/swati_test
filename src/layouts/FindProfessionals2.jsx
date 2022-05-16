@@ -99,8 +99,7 @@ const FindProfessionals = ({ mobileview, location }) => {
   const [loading, setLoading] = useState(true);
   const [html, setHtml] = useState("");
   const [pageCount, setPageCount] = useState(0);
-  
-  
+
   const [applyFilter, setAppliedFilter] = useState([]);
   const [cityFilter, setCityFilter] = useState([]);
   const [clearCityCheckBox, setClearCityCheckBox] = useState(false);
@@ -1433,8 +1432,8 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                       className="d-flex flex-column"
                                                       style={{
                                                         position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        bottom: "35%",
+                                                        left: "8%",
                                                       }}
                                                     >
                                                       <div>
@@ -1488,7 +1487,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                               color: "#3B5998",
                                                             }}
                                                           >
-                                                            Get Started
+                                                            Get Starteds
                                                           </b>
                                                           <img
                                                             src={
@@ -2233,7 +2232,6 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     style={{ flex: "30%" }}
                                   >
                                     {designerListings.map((listing, i) => (
-                                     
                                       <>
                                         {i === 3 && (
                                           <div className="">
@@ -2321,6 +2319,624 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   }
                                                   style={{
                                                     position: "absolute",
+                                                    bottom: "35%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 10 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "30%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 17 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "30%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 24 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "30%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 31 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "30%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 38 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "30%",
+                                                    left: "8%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                          </div>
+                                        )}
+                                        {i === 45 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
+                                                      style={{
+                                                        color: "#3B5998",
+                                                      }}
+                                                    >
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
+                                                  </div>
+                                                </button>
+                                              </div>
+                                            )}
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
                                                     bottom: "45%",
                                                     left: "6%",
                                                   }}
@@ -2345,1266 +2961,624 @@ const FindProfessionals = ({ mobileview, location }) => {
                                             )}
                                           </div>
                                         )}
-                                        {i === 10 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                        {i === 52 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 17 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 24 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                          </div>
+                                        )}
+                                        {i === 59 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 31 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 38 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                          </div>
+                                        )}
+                                        {i === 68 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 45 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 52 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                          </div>
+                                        )}
+                                        {i === 75 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                              {i === 59 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                            {i === 68 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                          </div>
+                                        )}
+                                        {i === 82 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                            {i === 75 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                            {i === 82 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                          </div>
+                                        )}
+                                        {i === 89 && (
+                                          <div className="">
+                                            {screenWidth < 768 && (
+                                              <div
+                                                className="dont-know "
+                                                id="dont-know"
+                                                style={{
+                                                  position: "relative",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCard}
+                                                  alt="..."
+                                                  style={{
+                                                    width: "100%",
+                                                    borderRadius: "5px",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "10px",
+                                                    left: "10px",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
-                                            {i === 89 && (
-                                              <div className="">
-                                                {screenWidth < 768 && (
-                                                  <div
-                                                    className="dont-know "
-                                                    id="dont-know"
-                                                    style={{
-                                                      position: "relative",
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCard}
-                                                      alt="..."
+                                            {screenWidth > 768 && (
+                                              <div
+                                                className="dont-know mb-2 me-2 ms-2"
+                                                id=""
+                                                style={{
+                                                  position: "relative",
+                                                  width: "20.8125rem",
+                                                }}
+                                              >
+                                                <img
+                                                  src={blueCardPC}
+                                                  alt="..."
+                                                  style={{
+                                                    borderRadius: "5px",
+                                                    width: "100%",
+                                                  }}
+                                                />
+                                                <button
+                                                  type="button"
+                                                  className="btn btn-light text-success mt-4"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target={
+                                                    user
+                                                      ? "#successmodal"
+                                                      : "#getstartedmodal"
+                                                  }
+                                                  style={{
+                                                    position: "absolute",
+                                                    bottom: "45%",
+                                                    left: "6%",
+                                                  }}
+                                                >
+                                                  <div className="d-flex align-items-center justify-content-between">
+                                                    <b
+                                                      className="mx-2"
+                                                      id=""
                                                       style={{
-                                                        width: "100%",
-                                                        borderRadius: "5px",
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "10px",
-                                                        left: "10px",
-                                                      }}
-                                                    >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
-                                                  </div>
-                                                )}
-                                                {screenWidth > 768 && (
-                                                  <div
-                                                    className="dont-know mb-2 me-2 ms-2"
-                                                    id=""
-                                                    style={{
-                                                      position: "relative",
-                                                      width: "20.8125rem",
-                                                     
-                                                    }}
-                                                  >
-                                                    <img
-                                                      src={blueCardPC}
-                                                      alt="..."
-                                                      style={{
-                                                        borderRadius: "5px",
-                                                        width: "100%",
-                                                      
-                                                      }}
-                                                    />
-                                                    <button
-                                                      type="button"
-                                                      className="btn btn-light text-success mt-4"
-                                                      data-bs-toggle="modal"
-                                                      data-bs-target={
-                                                        user
-                                                          ? "#successmodal"
-                                                          : "#getstartedmodal"
-                                                      }
-                                                      style={{
-                                                        position: "absolute",
-                                                        bottom: "45%",
-                                                        left: "6%",
+                                                        color: "#3B5998",
                                                       }}
                                                     >
-                                                      <div className="d-flex align-items-center justify-content-between">
-                                                        <b
-                                                          className="mx-2"
-                                                          id=""
-                                                          style={{
-                                                            color: "#3B5998",
-                                                          }}
-                                                        >
-                                                          Get Started
-                                                        </b>
-                                                        <img
-                                                          src={getStartedArrows}
-                                                          alt="..."
-                                                        />
-                                                      </div>
-                                                    </button>
+                                                      Get Started
+                                                    </b>
+                                                    <img
+                                                      src={getStartedArrows}
+                                                      alt="..."
+                                                    />
                                                   </div>
-                                                )}
+                                                </button>
                                               </div>
                                             )}
+                                          </div>
+                                        )}
                                         <DesignerListing2
                                           id={listing._id}
                                           name={listing.firstName}
@@ -3628,6 +3602,9 @@ const FindProfessionals = ({ mobileview, location }) => {
                                         />
                                       </>
                                     ))}
+                                    <div className="px-4 py-2 mb-3" style={{border:"1px solid #174E86",borderRadius:"0.2rem",margin:"auto"}}>
+                                      <button style={{fontSize:"1.25rem",color:"#174E86",fontWeight:"400",lineHeight:"1.4685rem",fontFamily:"Public Sans",border:"none",outline:"none",background:"white"}}>Load more</button>
+                                    </div>
                                   </div>
                                 </section>
                               </div>
@@ -4149,7 +4126,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 17 && (
+                                {i === 17 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4199,7 +4176,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 24 && (
+                                {i === 24 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4249,7 +4226,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 31 && (
+                                {i === 31 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4299,7 +4276,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 38 && (
+                                {i === 38 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4349,7 +4326,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 45 && (
+                                {i === 45 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4399,7 +4376,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 52 && (
+                                {i === 52 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4449,7 +4426,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 59 && (
+                                {i === 59 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4499,7 +4476,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 68 && (
+                                {i === 68 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4549,7 +4526,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 75 && (
+                                {i === 75 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4599,7 +4576,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 82 && (
+                                {i === 82 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}
@@ -4649,7 +4626,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                     </div>
                                   </div>
                                 )}
-                                 {i === 89 && (
+                                {i === 89 && (
                                   <div
                                     className=""
                                     style={{ transform: "translateY(-1.8rem)" }}

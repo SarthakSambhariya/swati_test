@@ -148,7 +148,7 @@ const Header = () => {
         <DesignerModal />
         <FilterModal />
         {screenWidth > 768 && (
-          <div className="container-fluid">
+          <div className="d-flex justify-content-between" style={{width:"100%"}}>
             <button
               className="navbar-toggler"
               type="button"
@@ -161,31 +161,23 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="navbar-brand d-flex justify-content-between">
-              <Link to="/" className="nav-link mx-">
+            <div className="navbar-brand d-flex justify-content-between" 
+                  style={{width:"auto"}}>
+              <Link to="/" className="nav-link">
                 <img
                   src={screenWidth < 768 ? idesignlogo2 : idesignlogopc}
                   alt="logo"
                   className="logosize"
                 />
               </Link>
-              {screenWidth < 768 ? (
-                <img
-                  className="mx-5"
-                  src={profilePic}
-                  alt="profile-pic"
-                  style={{ cursor: "pointer" }}
-                />
-              ) : (
-                <></>
-              )}
+              
             </div>
 
             <div
               className={
                 isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
               }
-              id="navbarsExample09"
+              id="navbarsExample09"style={{width:"100%"}}
             >
               <Link to="/" className="nav-link mobile-logo">
                 <img src={mobilelogo} alt="logo" className="w-50" />
@@ -223,28 +215,31 @@ const Header = () => {
                 </svg>
               </div>
               <ul
-                className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif"
+                className="d-flex justify-content-center navbar-nav me-auto mb-2 mb-lg-0 dm-serif"
                 style={{
                   fontFamily: "Manrope",
                   fontWeight: "600",
                   fontSize: "1.5rem",
-                  lineHeight: "2.04875rem",
-                  color: "#121212",
+                  color: "#121212",width:"90%"
+                  
                 }}
               >
+                <div className="d-flex justify-content-center" style={{width:"auto",}}>
                 {menus.map((m) => (
-                  <NavLink
-                    link={m.link}
-                    name={m.name}
-                    mobile={false}
-                    icon={window.location.pathname === m.link ? m.icon : " "}
-                    classname={
-                      window.location.pathname === m.link
-                        ? " active displayn"
-                        : " displayn"
-                    }
-                  />
-                ))}
+
+                    <NavLink
+                      link={m.link}
+                      name={m.name}
+                      mobile={false}
+                      icon={window.location.pathname === m.link ? m.icon : " "}
+                      classname={
+                        window.location.pathname === m.link
+                          ? " active displayn"
+                          : " displayn"
+                      }
+                    />
+                    ))}
+                    </div>
 
                 {mobilemenus.map((m, i) => (
                   <NavLink
@@ -274,7 +269,7 @@ const Header = () => {
                 </a>
               </li> */}
               </ul>
-              <form className="d-flex">
+              <form className="d-flex justify-content-end me-3" style={{width:"40%"}}>
                 <ul className="nav displayn">
                   {/* <button
                   type="button"
@@ -282,9 +277,9 @@ const Header = () => {
                 >
                   Get Free Quotes
                 </button> */}
-                  <button
+                  {/* <button
                     type="button"
-                    className="btn me-4 btn-sm text-light fs-6"
+                    className="me-2 btn btn-sm text-light fs-6"
                     onClick={() =>
                       (window.location.href =
                         "https://pro.idesign.market/login")
@@ -292,13 +287,12 @@ const Header = () => {
                     style={{
                       backgroundColor: "#49B7CF",
                       fontFamily: "Public Sans",
-                      fontSize: "1.25rem",
+                      fontSize: "1rem",
                       fontWeight: "500",
-                      lineHeight: "1.5rem",
                     }}
                   >
                     Get Free Quotes
-                  </button>
+                  </button> */}
                   <button
                     type="button"
                     className="btn me-4 btn-sm blue text-light fs-6"
@@ -309,7 +303,7 @@ const Header = () => {
                     style={{
                       backgroundColor: "#49B7CF",
                       fontFamily: "Public Sans",
-                      fontSize: "1.25rem",
+                      fontSize: "1rem",
                       fontWeight: "500",
                       lineHeight: "1.5rem",
                     }}
@@ -322,10 +316,10 @@ const Header = () => {
                   {!user && (
                     <li
                       type=""
-                      className=" me-4 btn-sm"
+                      className="btn-sm"
                       style={{ cursor: "pointer" }}
                     >
-                      {signedIn ? (
+                      {signedIn && (
                         <span
                           className="green-recon border-0"
                           data-bs-toggle="modal"
@@ -340,33 +334,32 @@ const Header = () => {
                             style={{ width: "3rem" }}
                           />
                         </span>
-                      ) : (
-                        <span
-                          className="green-recon border-0"
-                          data-bs-toggle="modal"
-                          data-bs-target={
-                            user ? "#successmodal" : "#staticBackdrop"
-                          }
-                          style={{
-                            fontFamily: "Manrope",
-                            fontWeight: "600",
-                            lineHeight: "2.04875rem",
-                          }}
-                        >
-                          Sign in / Sign up
-                        </span>
-                      )}
+                      ) 
+                      }
                     </li>
                   )}
 
-                  {user && (
+                  {user ? (
                     <Profile
                       imagepath={"https://github.com/mdo.png"}
                       showarrow={true}
                       path="/dashboard/home"
                       className="displayn"
                     />
-                  )}
+                  ):<span
+                  className="green-recon border-0 mt-1"
+                  data-bs-toggle="modal"
+                  data-bs-target={
+                    user ? "#successmodal" : "#staticBackdrop"
+                  }
+                  style={{
+                    fontFamily: "Manrope",
+                    fontWeight: "600",
+                    fontSize:"1rem"
+                  }}
+                >
+                  Sign in/up
+                </span>}
                 </ul>
               </form>
             </div>
@@ -397,7 +390,7 @@ const Header = () => {
                   style={{ width: "12rem" }}
                 />
               </Link>
-              {user && (
+              {user? (
                 
                     <Profile
                       imagepath={"https://github.com/mdo.png"}
@@ -405,7 +398,20 @@ const Header = () => {
                       path="/dashboard/home"
                       className="displayn"
                     />
-                  )}
+                  ):<span
+                  className="green-recon border-0"
+                  data-bs-toggle="modal"
+                  data-bs-target={
+                    user ? "#successmodal" : "#staticBackdrop"
+                  }
+                  style={{
+                    fontFamily: "Manrope",
+                    fontWeight: "600",
+                    fontSize:"1rem"
+                  }}
+                >
+                  Sign in/up
+                </span>}
             </div>
 
             <div
@@ -449,8 +455,9 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
                 {menus.map((m) => (
+                  
                   <NavLink
                     link={m.link}
                     name={m.name}

@@ -611,8 +611,41 @@ const FindProfessionals = ({ mobileview, location }) => {
                           </center>
                         ) : componentsToRender === "contractor" ? (
                           designerListings.map((listing, i) => (
+                            
                             <>
                               {i === 4 && (
+                                <div className="row mt-4">
+                                  <div className="nsure blue row  w-100">
+                                    <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">
+                                      {/* <button type="button" className="btn btn-primary">
+                                                Get Started
+                                                </button> */}
+                                      <p>Still not sure?</p>
+                                      <h2>
+                                        Let idesign send you instant
+                                        recommendations.
+                                      </h2>
+
+                                      <button
+                                        type="button"
+                                        className="btn btn-light mt-3 blue-text"
+                                        data-bs-toggle="modal"
+                                        data-bs-target={
+                                          user
+                                            ? "#successmodal"
+                                            : "#getstartedmodal"
+                                        }
+                                      >
+                                        <b>Get Started ⋙</b>
+                                      </button>
+                                    </div>
+                                    <div className="col-lg-4 col-md-12 displayn">
+                                      <img src={reco} alt="" />
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {i === 11 && (
                                 <div className="row mt-4">
                                   <div className="nsure blue row  w-100">
                                     <div className="col-lg-8 col-md-12 text-light p-lg-4 fd-ns">

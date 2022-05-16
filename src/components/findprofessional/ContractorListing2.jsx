@@ -122,7 +122,7 @@ const ContractorListing2 = ({
       {screenWidth > 768 && (
         <div
           className="d-flex me-2 ms-2 mb-3"
-          style={{ width: "20.8125rem", height: "34.5rem" }}
+          style={{ width: "20.8125rem", height: "32.5rem" }}
         >
           <div
             className="mb-1 "
@@ -337,9 +337,10 @@ const ContractorListing2 = ({
                     transform: "translateX(-0.95rem)",
                   }}
                 >
+                  <div className="d-flex justify-content-center flex-column" style={{width:"80%",}}>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%",  }}
                   >
                     <p
                       className=""
@@ -361,7 +362,7 @@ const ContractorListing2 = ({
                   </div>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%" }}
                   >
                     <p
                       className=""
@@ -383,7 +384,7 @@ const ContractorListing2 = ({
                   </div>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%" }}
                   >
                     <p
                       className=""
@@ -403,15 +404,22 @@ const ContractorListing2 = ({
                       ₹1000 sqft
                     </p>
                   </div>
+                  </div>
                 </div>
                 <div
                   className="mt-3"
                   style={{ borderTop: "2px solid rgba(127, 135, 144, 0.2)" }}
                 />
-                <div className="d-flex justify-content-center mt-2">
-                  <CallButton2 number={phoneNumber} listingName={listingName} />
-                  <WhatsApp2 phoneNumber={phoneNumber} />
-                </div>
+               <div className="d-flex justify-content-evenly align-items-center mt-1">
+                <CallButton2 number={phoneNumber} listingName={listingName} />
+                <div
+                  style={{
+                    borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    height: "1.1875rem",
+                  }}
+                ></div>
+                <WhatsApp2 phoneNumber={phoneNumber} listingName={listingName}/>
+              </div>
               </div>
             </div>
           </div>
@@ -504,7 +512,7 @@ const ContractorListing2 = ({
                     >
                       <div style={{ display: "flex", alignItems: "center"}}>
                         <p className="mt-2 d-inline dlsize">
-                          {name.length > 15 ? `${name.substr(0, 9)}...` : name}
+                          {name.length > 9 ? `${name.substr(0, 9)}...` : name}
                         </p>
                         {pro && <img className="ms-2 mt-2" src={tick} alt="" />}
                         <span
@@ -698,7 +706,7 @@ const ContractorListing2 = ({
                 />
                 <div className="d-flex justify-content-center mt-2">
                   <CallButton2 number={phoneNumber} listingName={listingName} />
-                  <WhatsApp2 phoneNumber={phoneNumber} />
+                  <WhatsApp2 phoneNumber={phoneNumber} listingName={listingName}/>
                 </div>
               </div>
             </div>

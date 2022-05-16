@@ -8,7 +8,7 @@ import callButton2 from "../../findprofessional/images/callButton2.svg";
 function CallButton2({ number, listingName }) {
   const [user, setUser] = useState(false);
   const [showNumber, setShowNumber] = useState(false);
-
+  
   useEffect(() => {
     authService.getToken() ? setUser(true) : setUser(false);
   }, []);
@@ -17,16 +17,16 @@ function CallButton2({ number, listingName }) {
 
     <button
       type="button"
-      className="btn text-light2 btn-width d-flex align-items-center justify-content-center"
+      className="btn text-light2 btn-width d-flex align-items-center justify-content-between"
       data-bs-toggle="modal"
       data-bs-target={!user && "#staticBackdrop"}
       onClick={() => user && setShowNumber(!showNumber)}
     >
-      <i className="me-2">
+      <i className="" >
         <img src={callButton2} />
       </i>
 
-      <span style={{ textTransform: "capitalize", color:"#174E86" }}>
+      <span style={{ textTransform: "capitalize", color:"#174E86",fontSize:listingName==="contractor" && "0.9rem" }}>
         {showNumber ? number : `Call ${listingName}`}
       </span>
     </button>

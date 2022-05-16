@@ -59,7 +59,6 @@ import CalendarModal from "../components/modal/CalendarModal";
 import Footer2 from "../components/common/footer2";
 import blueCard from "../components/findprofessional/images/blueCard.svg";
 import blueCardPC from "../components/findprofessional/images/blueCardPc.svg";
-import blueCardPCContractor from "../components/findprofessional/images/blueCardPc.png";
 import ContractorListing2 from "../components/findprofessional/ContractorListing2";
 function getScreenWidth() {
   const width = window.innerWidth;
@@ -99,8 +98,7 @@ const FindProfessionals = ({ mobileview, location }) => {
   const [loading, setLoading] = useState(true);
   const [html, setHtml] = useState("");
   const [pageCount, setPageCount] = useState(0);
-  
-  
+
   const [applyFilter, setAppliedFilter] = useState([]);
   const [cityFilter, setCityFilter] = useState([]);
   const [clearCityCheckBox, setClearCityCheckBox] = useState(false);
@@ -141,7 +139,7 @@ const FindProfessionals = ({ mobileview, location }) => {
       setPage(parseInt(pageNo));
     } catch (error) {}
 
-    const skip = parseInt(pageNo - 1) * 5;
+    const skip = parseInt(pageNo - 1) * 45;
     let params = "type=1";
     if (location.pathname.split("/")[2] === "") {
       params = "type=1";
@@ -168,6 +166,7 @@ const FindProfessionals = ({ mobileview, location }) => {
     }
     const response = await b2bservice.getlistDesignersFilter2(params);
     const r = await b2bservice.getlistProjectsFilter2(params);
+    console.log(r);
     setPageCount(response["count"]);
     setDesignerListings(response["data"]);
     setLoading(false);
@@ -279,13 +278,13 @@ const FindProfessionals = ({ mobileview, location }) => {
       let afilter = [...listoffilters];
       applyFilter.map((value) => {
         var index = afilter.indexOf(value);
-        // console.log(index);
+        console.log(index);
         if (index !== -1) {
           afilter.splice(index, 1);
         }
       });
 
-      // console.log(applyFilter, "applyFilter--", afilter);
+      console.log(applyFilter, "applyFilter--", afilter);
       // console.log(listoffilters);
       fil = [...afilter, ...applyFilter];
     } else {
@@ -353,6 +352,7 @@ const FindProfessionals = ({ mobileview, location }) => {
   };
 
   const getCallBackHandler = () => {
+    console.log("getCallBackHandler fired");
     setShowCalendarModal(true);
   };
 
@@ -782,7 +782,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               )}
                                             </div>
                                             {openCityFilter && (
-                                              <div>
+                                              <div >
                                                 <div
                                                   className=""
                                                   style={{
@@ -1417,88 +1417,49 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                     style={{
                                                       position: "relative",
                                                       width: "20.8125rem",
-                                                      height: "32.5rem",
+                                                      height: "33rem",
                                                     }}
                                                   >
                                                     <img
-                                                      src={blueCardPCContractor}
+                                                      src={blueCardPC}
                                                       alt="..."
                                                       style={{
                                                         borderRadius: "5px",
                                                         width: "100%",
-                                                        height: "32.5rem",
+                                                        height: "33rem",
                                                       }}
                                                     />
-                                                    <div
-                                                      className="d-flex flex-column"
+                                                    <button
+                                                      type="button"
+                                                      className="btn btn-light text-success mt-4"
+                                                      data-bs-toggle="modal"
+                                                      data-bs-target={
+                                                        user
+                                                          ? "#successmodal"
+                                                          : "#getstartedmodal"
+                                                      }
                                                       style={{
                                                         position: "absolute",
                                                         bottom: "45%",
                                                         left: "6%",
                                                       }}
                                                     >
-                                                      <div>
-                                                        <div
+                                                      <div className="d-flex align-items-center justify-content-between">
+                                                        <b
+                                                          className="mx-2"
+                                                          id=""
                                                           style={{
-                                                            fontFamily:
-                                                              "Public Sans",
-                                                            fontWeight: "400",
-                                                            color: "white",
-                                                            fontSize: "1rem",
-                                                            lineHeight:
-                                                              "1.175rem",
+                                                            color: "#3B5998",
                                                           }}
                                                         >
-                                                          Still not sure?
-                                                        </div>
-                                                        <div
-                                                          style={{
-                                                            fontFamily:
-                                                              "Public Sans",
-                                                            fontWeight: "600",
-                                                            color: "white",
-                                                            fontSize: "1.5rem",
-                                                            lineHeight:
-                                                              "1.7625rem",
-                                                          }}
-                                                        >
-                                                          Let idesign send you
-                                                          instant
-                                                          recommendations.
-                                                        </div>
+                                                          Get Started
+                                                        </b>
+                                                        <img
+                                                          src={getStartedArrows}
+                                                          alt="..."
+                                                        />
                                                       </div>
-                                                      <button
-                                                        type="button"
-                                                        className="btn btn-light text-success mt-4"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target={
-                                                          user
-                                                            ? "#successmodal"
-                                                            : "#getstartedmodal"
-                                                        }
-                                                        style={{
-                                                          width: "10.25rem",
-                                                        }}
-                                                      >
-                                                        <div className="d-flex align-items-center justify-content-between">
-                                                          <b
-                                                            className="mx-2"
-                                                            id=""
-                                                            style={{
-                                                              color: "#3B5998",
-                                                            }}
-                                                          >
-                                                            Get Started
-                                                          </b>
-                                                          <img
-                                                            src={
-                                                              getStartedArrows
-                                                            }
-                                                            alt="..."
-                                                          />
-                                                        </div>
-                                                      </button>
-                                                    </div>
+                                                    </button>
                                                   </div>
                                                 )}
                                               </div>
@@ -1722,7 +1683,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               className="mt-3 ms-3"
                                               style={{
                                                 fontFamily: "Public Sans",
-                                                fontSize: "1rem",
+                                                fontSize: "1.125rem",
                                                 fontWeight: " 300",
                                                 lineHeight: "1.321875rem",
                                               }}
@@ -1742,7 +1703,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Delhi
                                                 </label>
                                               </div>
-                                              <div className="form-check mt-2">
+                                              <div className="form-check">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"
@@ -1757,7 +1718,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Gurgaon
                                                 </label>
                                               </div>
-                                              <div className="form-check mt-2">
+                                              <div className="form-check">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"
@@ -1772,7 +1733,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                                   Bhopal
                                                 </label>
                                               </div>
-                                              <div className="form-check mt-2">
+                                              <div className="form-check">
                                                 <input
                                                   className="form-check-input"
                                                   type="checkbox"
@@ -3682,7 +3643,7 @@ const FindProfessionals = ({ mobileview, location }) => {
               </div>
             </div>
           </section>
-          <div id="io">
+         <div id="io">
             <Pagination
               page={page}
               location={location}
@@ -4759,14 +4720,14 @@ const FindProfessionals = ({ mobileview, location }) => {
                 </button>
               </div>
             </div> */}
-            <div id="io">
+           <div id="io">
               <Pagination
                 page={page}
                 location={location}
                 pageCount={pageCount}
                 pageSize={2}
               />
-            </div>
+          </div> 
             <Footer2 style={{ zIndex: "1" }} />
           </div>
         </>

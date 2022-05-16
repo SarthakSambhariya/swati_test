@@ -11,10 +11,10 @@ function Pagination({ page, location, pageCount, pageSize }) {
       <ReactPaginate
         previousLabel="previous"
         nextLabel="next"
-        breakLabel={"..."}
+        breakLabel={false}
         pageCount={totalPages}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={pageSize}
+        marginPagesDisplayed={false}
+        pageRangeDisplayed={5}
         onPageChange={handlePageClick}
         renderOnZeroPageCount={null}
         containerClassName={"pagination justify-content-center"}
@@ -27,7 +27,7 @@ function Pagination({ page, location, pageCount, pageSize }) {
         breakClassName={"page-item"}
         breakLinkClassName={"page-link"}
         activeClassName={"active"}
-        forcePage={page - 6}
+        forcePage={page - 1}
         pageSize={15}
       />
     </>

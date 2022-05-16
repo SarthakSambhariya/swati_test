@@ -148,7 +148,7 @@ const Header = () => {
         <DesignerModal />
         <FilterModal />
         {screenWidth > 768 && (
-          <div className="d-flex justify-content-between" style={{width:"100%"}}>
+          <div className="container-fluid">
             <button
               className="navbar-toggler"
               type="button"
@@ -161,257 +161,24 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="navbar-brand d-flex justify-content-between" 
-                  style={{width:"auto"}}>
-              <Link to="/" className="nav-link">
+            <div className="navbar-brand d-flex justify-content-between">
+              <Link to="/" className="nav-link mx-">
                 <img
                   src={screenWidth < 768 ? idesignlogo2 : idesignlogopc}
                   alt="logo"
                   className="logosize"
                 />
               </Link>
-              
-            </div>
-
-            <div
-              className={
-                isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
-              }
-              id="navbarsExample09"style={{width:"100%"}}
-            >
-              <Link to="/" className="nav-link mobile-logo">
-                <img src={mobilelogo} alt="logo" className="w-50" />
-              </Link>
-              <div
-                className="close__menu"
-                data-toggle="collapse"
-                data-target="#navbarsExample09"
-                aria-controls="navbarsExample09"
-                aria-expanded={!isNavCollapsed ? true : false}
-                aria-label="Toggle navigation"
-                onClick={handleNavCollapse}
-              >
-                <svg
-                  viewPort="0 0 12 12"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line
-                    x1="1"
-                    y1="11"
-                    x2="11"
-                    y2="1"
-                    stroke="black"
-                    stroke-width="2"
-                  />
-                  <line
-                    x1="1"
-                    y1="1"
-                    x2="11"
-                    y2="11"
-                    stroke="black"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <ul
-                className="d-flex justify-content-center navbar-nav me-auto mb-2 mb-lg-0 dm-serif"
-                style={{
-                  fontFamily: "Manrope",
-                  fontWeight: "600",
-                  fontSize: "1.5rem",
-                  color: "#121212",width:"90%"
-                  
-                }}
-              >
-                <div className="d-flex justify-content-center" style={{width:"auto",}}>
-                {menus.map((m) => (
-
-                    <NavLink
-                      link={m.link}
-                      name={m.name}
-                      mobile={false}
-                      icon={window.location.pathname === m.link ? m.icon : " "}
-                      classname={
-                        window.location.pathname === m.link
-                          ? " active displayn"
-                          : " displayn"
-                      }
-                    />
-                    ))}
-                    </div>
-
-                {mobilemenus.map((m, i) => (
-                  <NavLink
-                    link={m.link}
-                    img={m.img}
-                    name={m.name}
-                    idx={i}
-                    // icon={m.icon}
-                    mobile={true}
-                    classname={
-                      window.location.pathname === m.link
-                        ? " active displaydn inter"
-                        : " displaydn inter"
-                    }
-                  />
-                ))}
-                {/* <li className="nav-item nav-header displaydn">
-                <a
-                  alt=""
-                  data-bs-toggle="modal"
-                  data-bs-target="#mobilesignupinmodal"
-                  className="nav-link link-dark headerfont headerpadding "
-                  aria-current="page"
-                >
-                  <FontAwesomeIcon icon={faUser} className="me-2" />
-                  Sign In/Up
-                </a>
-              </li> */}
-              </ul>
-              <form className="d-flex justify-content-end me-3" style={{width:"40%"}}>
-                <ul className="nav displayn">
-                  {/* <button
-                  type="button"
-                  className="btn green text-light me-4 btn-sm"
-                >
-                  Get Free Quotes
-                </button> */}
-                  {/* <button
-                    type="button"
-                    className="me-2 btn btn-sm text-light fs-6"
-                    onClick={() =>
-                      (window.location.href =
-                        "https://pro.idesign.market/login")
-                    }
-                    style={{
-                      backgroundColor: "#49B7CF",
-                      fontFamily: "Public Sans",
-                      fontSize: "1rem",
-                      fontWeight: "500",
-                    }}
-                  >
-                    Get Free Quotes
-                  </button> */}
-                  <button
-                    type="button"
-                    className="btn me-4 btn-sm blue text-light fs-6"
-                    onClick={() =>
-                      (window.location.href =
-                        "https://pro.idesign.market/login")
-                    }
-                    style={{
-                      backgroundColor: "#49B7CF",
-                      fontFamily: "Public Sans",
-                      fontSize: "1rem",
-                      fontWeight: "500",
-                      lineHeight: "1.5rem",
-                    }}
-                  >
-                    Join as Pro
-                  </button>
-
-                  {/* <Profile imagepath={bellicon} showarrow={false} /> */}
-
-                  {!user && (
-                    <li
-                      type=""
-                      className="btn-sm"
-                      style={{ cursor: "pointer" }}
-                    >
-                      {signedIn && (
-                        <span
-                          className="green-recon border-0"
-                          data-bs-toggle="modal"
-                          data-bs-target={
-                            user ? "#successmodal" : "#staticBackdrop"
-                          }
-                        >
-                          <img className="me-2" src={notif} alt="..." />
-                          <img
-                            src={profilePic}
-                            alt=""
-                            style={{ width: "3rem" }}
-                          />
-                        </span>
-                      ) 
-                      }
-                    </li>
-                  )}
-
-                  {user ? (
-                    <Profile
-                      imagepath={"https://github.com/mdo.png"}
-                      showarrow={true}
-                      path="/dashboard/home"
-                      className="displayn"
-                    />
-                  ):<span
-                  className="green-recon border-0 mt-1"
-                  data-bs-toggle="modal"
-                  data-bs-target={
-                    user ? "#successmodal" : "#staticBackdrop"
-                  }
-                  style={{
-                    fontFamily: "Manrope",
-                    fontWeight: "600",
-                    fontSize:"1rem"
-                  }}
-                >
-                  Sign in/up
-                </span>}
-                </ul>
-              </form>
-            </div>
-          </div>
-        )}
-        {screenWidth < 768 && (
-          <div className="container-fluid">
-            <div
-              className="d-flex justify-content-between align-items-center"
-              style={{ width: "100%" }}
-            >
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarsExample09"
-                aria-controls="navbarsExample09"
-                aria-expanded={!isNavCollapsed ? true : false}
-                aria-label="Toggle navigation"
-                onClick={handleNavCollapse}
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <Link to="/" className="nav-link">
+              {screenWidth < 768 ? (
                 <img
-                  src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
-                  alt="logo"
-                  style={{ width: "12rem" }}
+                  className="mx-5"
+                  src={profilePic}
+                  alt="profile-pic"
+                  style={{ cursor: "pointer" }}
                 />
-              </Link>
-              {user? (
-                
-                    <Profile
-                      imagepath={"https://github.com/mdo.png"}
-                      showarrow={true}
-                      path="/dashboard/home"
-                      className="displayn"
-                    />
-                  ):<span
-                  className="green-recon border-0"
-                  data-bs-toggle="modal"
-                  data-bs-target={
-                    user ? "#successmodal" : "#staticBackdrop"
-                  }
-                  style={{
-                    fontFamily: "Manrope",
-                    fontWeight: "600",
-                    fontSize:"1rem"
-                  }}
-                >
-                  Sign in/up
-                </span>}
+              ) : (
+                <></>
+              )}
             </div>
 
             <div
@@ -455,9 +222,235 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
+              <ul
+                className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif"
+                style={{
+                  fontFamily: "Manrope",
+                  fontWeight: "600",
+                  fontSize: "1.5rem",
+                  lineHeight: "2.04875rem",
+                  color: "#121212",
+                }}
+              >
                 {menus.map((m) => (
-                  
+                  <NavLink
+                    link={m.link}
+                    name={m.name}
+                    mobile={false}
+                    icon={window.location.pathname === m.link ? m.icon : " "}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displayn"
+                        : " displayn"
+                    }
+                  />
+                ))}
+
+                {mobilemenus.map((m, i) => (
+                  <NavLink
+                    link={m.link}
+                    img={m.img}
+                    name={m.name}
+                    idx={i}
+                    // icon={m.icon}
+                    mobile={true}
+                    classname={
+                      window.location.pathname === m.link
+                        ? " active displaydn inter"
+                        : " displaydn inter"
+                    }
+                  />
+                ))}
+                {/* <li className="nav-item nav-header displaydn">
+                <a
+                  alt=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#mobilesignupinmodal"
+                  className="nav-link link-dark headerfont headerpadding "
+                  aria-current="page"
+                >
+                  <FontAwesomeIcon icon={faUser} className="me-2" />
+                  Sign In/Up
+                </a>
+              </li> */}
+              </ul>
+              <form className="d-flex">
+                <ul className="nav displayn">
+                  {/* <button
+                  type="button"
+                  className="btn green text-light me-4 btn-sm"
+                >
+                  Get Free Quotes
+                </button> */}
+                  <button
+                    type="button"
+                    className="btn me-4 btn-sm text-light fs-6"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://pro.idesign.market/login")
+                    }
+                    style={{
+                      backgroundColor: "#49B7CF",
+                      fontFamily: "Public Sans",
+                      fontSize: "1.25rem",
+                      fontWeight: "500",
+                      lineHeight: "1.5rem",
+                    }}
+                  >
+                    Get Free Quotes
+                  </button>
+                  <button
+                    type="button"
+                    className="btn me-4 btn-sm blue text-light fs-6"
+                    onClick={() =>
+                      (window.location.href =
+                        "https://pro.idesign.market/login")
+                    }
+                    style={{
+                      backgroundColor: "#49B7CF",
+                      fontFamily: "Public Sans",
+                      fontSize: "1.25rem",
+                      fontWeight: "500",
+                      lineHeight: "1.5rem",
+                    }}
+                  >
+                    Join as Pro
+                  </button>
+
+                  {/* <Profile imagepath={bellicon} showarrow={false} /> */}
+
+                  {!user && (
+                    <li
+                      type=""
+                      className=" me-4 btn-sm"
+                      style={{ cursor: "pointer" }}
+                    >
+                      {signedIn ? (
+                        <span
+                          className="green-recon border-0"
+                          data-bs-toggle="modal"
+                          data-bs-target={
+                            user ? "#successmodal" : "#staticBackdrop"
+                          }
+                        >
+                          <img className="me-2" src={notif} alt="..." />
+                          <img
+                            src={profilePic}
+                            alt=""
+                            style={{ width: "3rem" }}
+                          />
+                        </span>
+                      ) : (
+                        <span
+                          className="green-recon border-0"
+                          data-bs-toggle="modal"
+                          data-bs-target={
+                            user ? "#successmodal" : "#staticBackdrop"
+                          }
+                          style={{
+                            fontFamily: "Manrope",
+                            fontWeight: "600",
+                            lineHeight: "2.04875rem",
+                          }}
+                        >
+                          Sign in / Sign up
+                        </span>
+                      )}
+                    </li>
+                  )}
+
+                  {user && (
+                    <Profile
+                      imagepath={"https://github.com/mdo.png"}
+                      showarrow={true}
+                      path="/dashboard/home"
+                      className="displayn"
+                    />
+                  )}
+                </ul>
+              </form>
+            </div>
+          </div>
+        )}
+        {screenWidth < 768 && (
+          <div className="container-fluid">
+            <div
+              className="d-flex justify-content-between align-items-center"
+              style={{ width: "100%" }}
+            >
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarsExample09"
+                aria-controls="navbarsExample09"
+                aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+                onClick={handleNavCollapse}
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <Link to="/" className="nav-link">
+                <img
+                  src={screenWidth < 768 ? idesignlogo2 : idesignlogo}
+                  alt="logo"
+                  style={{ width: "12rem" }}
+                />
+              </Link>
+              {user && (
+                
+                    <Profile
+                      imagepath={"https://github.com/mdo.png"}
+                      showarrow={true}
+                      path="/dashboard/home"
+                      className="displayn"
+                    />
+                  )}
+            </div>
+
+            <div
+              className={
+                isNavCollapsed ? "collapse navbar-collapse" : "navbar-collapse"
+              }
+              id="navbarsExample09"
+            >
+              <Link to="/" className="nav-link mobile-logo">
+                <img src={mobilelogo} alt="logo" className="w-50" />
+              </Link>
+              <div
+                className="close__menu"
+                data-toggle="collapse"
+                data-target="#navbarsExample09"
+                aria-controls="navbarsExample09"
+                aria-expanded={!isNavCollapsed ? true : false}
+                aria-label="Toggle navigation"
+                onClick={handleNavCollapse}
+              >
+                <svg
+                  viewPort="0 0 12 12"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="1"
+                    y1="11"
+                    x2="11"
+                    y2="1"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="1"
+                    y1="1"
+                    x2="11"
+                    y2="11"
+                    stroke="black"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 dm-serif">
+                {menus.map((m) => (
                   <NavLink
                     link={m.link}
                     name={m.name}

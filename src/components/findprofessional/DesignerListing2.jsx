@@ -540,11 +540,10 @@ const DesignerListing2 = ({
               </table>
               <div
                 className="d-flex justify-content-evenly mt-2"
-                style={{ width: "110%", transform: "translateX(-1.1rem)" }}
+                style={{ width: "100%"}}
               >
                 <div
                   className="d-flex flex-column align-items-center  p-3"
-                  style={{ borderRight: "2px solid rgba(127, 135, 144, 0.2)" }}
                 >
                   <p
                     className="mt-2"
@@ -553,12 +552,17 @@ const DesignerListing2 = ({
                     Experience
                   </p>
                   <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
-                    {experience ? experience : "2-3yrs"} Yrs
+                    {experience ? experience : "2-3yrs"}
                   </p>
                 </div>
                 <div
+                    className="d-flex align-items-center mt-4"
+                    style={{height:"3rem",
+                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    }}
+                  />
+                <div
                   className="d-flex flex-column align-items-center  p-3"
-                  style={{ borderRight: "2px solid rgba(127, 135, 144, 0.2)" }}
                 >
                   <p
                     className="mt-2"
@@ -569,7 +573,12 @@ const DesignerListing2 = ({
                   <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
                     ₹ {fee ? fee : "3000"}
                   </p>
-                </div>
+                </div><div
+                    className="d-flex align-items-center mt-4"
+                    style={{height:"3rem",
+                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    }}
+                  />
                 <div className="d-flex flex-column align-items-center  p-3">
                   <p
                     className="mt-2"

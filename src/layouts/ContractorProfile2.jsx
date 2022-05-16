@@ -106,9 +106,9 @@ const ContractorProfile = ({ match, location, address }) => {
     count: 5,
     color: "#888888",
     activeColor: "#ffd700",
-    value: 4,
+    value: 0,
     a11y: true,
-    // isHalf: true,
+    isHalf: true,
     emptyIcon: <i class="far fa-thin fa-star"></i>,
     // halfIcon: <i class="fa-solid fa-star-half-stroke"></i>,
     filledIcon: <i class="far fa-solid fa-star"></i>,
@@ -908,7 +908,7 @@ const ContractorProfile = ({ match, location, address }) => {
                               type="button"
                               className="btn text-primary text-primary liked-ins"
                             >
-                              Paintingssss
+                              Paintings
                             </button>
                           </>
                         )}

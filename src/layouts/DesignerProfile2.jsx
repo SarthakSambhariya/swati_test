@@ -131,7 +131,7 @@ const DesignerProfile = ({ match, location, address }) => {
     count: 5,
     color: "#888888",
     activeColor: "#ffd700",
-    value: 4,
+    value: 0,
     a11y: true,
     // isHalf: true,
     emptyIcon: <i className="bi bi-star mx-3"></i>,
@@ -312,7 +312,7 @@ const DesignerProfile = ({ match, location, address }) => {
   const textAreaWordCountHandler = () => {
     setWordCount(reviewTextAreaRef.current.value.length);
   };
-
+  console.log(`Designer projects: ${designerProject}`);
   return (
     <React.Fragment>
       {screenWidth > 767 && (
@@ -1122,13 +1122,6 @@ const DesignerProfile = ({ match, location, address }) => {
                   </div>
                 )}
 
-                <div
-                  className="my-4"
-                  style={{
-                    width: "100%",
-                    borderBottom: "0.0625rem solid rgba(127, 135, 144, 0.2)",
-                  }}
-                />
                 <section className="d-flex justify-content-evenly">
                   <div className=" " style={{ width: "100%" }}>
                     <div
@@ -1943,6 +1936,7 @@ const DesignerProfile = ({ match, location, address }) => {
                       fontFamily: "Manrope",
                       textAlign: "center",
                       width: "98vw",
+                      textTransform: "capitalize",
                     }}
                   >
                     {Company ? Company : "ABC Design Firm"}
@@ -2517,15 +2511,8 @@ const DesignerProfile = ({ match, location, address }) => {
                   </div>
                 )}
 
-                <div
-                  className="my-4"
-                  style={{
-                    width: "100%",
-                    borderBottom: "0.0625rem solid rgba(127, 135, 144, 0.2)",
-                  }}
-                />
-                <section>
-                  <div className=" ">
+                <section className=" mt-5">
+                  <div>
                     <div
                       className="mb-3"
                       style={{

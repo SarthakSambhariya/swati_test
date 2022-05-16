@@ -17,7 +17,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 1,
+    items: 2,
   },
 };
 const DesignerProfileProjectCarousel = (props) => {
@@ -45,10 +45,10 @@ const DesignerProfileProjectCarousel = (props) => {
   return (
     <React.Fragment>
       <Carousel responsive={responsive} transitionDuration={false}>
-        <img src={imageArray[0]} style={{ width: "100%" }}></img>
-        <img src={imageArray[1]} style={{ width: "100%" }}></img>
-        <img src={imageArray[2]} style={{ width: "100%" }}></img>
-        <img src={imageArray[3]} style={{ width: "100%" }}></img>
+        <img className="p-1"src={imageArray[0]} style={{ width: "100%",height:"9.8125rem" }}></img>
+        <img className="p-1"src={imageArray[1]} style={{ width: "100%",height:"9.8125rem" }}></img>
+        <img className="p-1"src={imageArray[0]} style={{ width: "100%",height:"9.8125rem" }}></img>
+        <img className="p-1"src={imageArray[1]} style={{ width: "100%",height:"9.8125rem" }}></img>
       </Carousel>
     </React.Fragment>
   );

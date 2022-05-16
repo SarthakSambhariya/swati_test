@@ -299,12 +299,10 @@ const ContractorListing2 = ({
                     </td>
                   </tr>
                 </table>
-                <div className="d-flex justify-content-center mt-2" style={{}}>
+                <div className="d-flex justify-content-evenly mt-2" style={{}}>
                   <div
-                    className="d-flex flex-column align-items-center  p-3"
-                    style={{
-                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
-                    }}
+                    className="d-flex flex-column align-items-center p-3"
+                    
                   >
                     <p
                       className="mt-2"
@@ -315,6 +313,14 @@ const ContractorListing2 = ({
                     <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
                       {experience ? experience : "2-3yrs"} Yrs
                     </p>
+                  </div>
+                  <div
+                    className="d-flex align-items-center mt-4"
+                    style={{height:"3rem",
+                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    }}
+                  >
+                    
                   </div>
 
                   <div className="d-flex flex-column align-items-center  p-3">
@@ -350,7 +356,7 @@ const ContractorListing2 = ({
                     </p>
                     <p
                       className=""
-                      style={{ fontSize: "0.75rem", color: "#7F8790" }}
+                      style={{ fontSize: "0.75rem", color: "#7F8790",textAlign:"center" }}
                     >
                       :
                     </p>
@@ -394,7 +400,7 @@ const ContractorListing2 = ({
                     </p>
                     <p
                       className=""
-                      style={{ fontSize: "0.75rem", color: "#7F8790" }}
+                      style={{ fontSize: "0.75rem", color: "#7F8790",transform:"translateX(-1rem)" }}
                     >
                       :
                     </p>
@@ -595,12 +601,10 @@ const ContractorListing2 = ({
                     </td>
                   </tr>
                 </table>
-                <div className="d-flex justify-content-center mt-2" style={{}}>
+                <div className="d-flex justify-content-evenly mt-2" style={{}}>
                   <div
                     className="d-flex flex-column align-items-center  p-3"
-                    style={{
-                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
-                    }}
+                    
                   >
                     <p
                       className="mt-2"
@@ -612,30 +616,31 @@ const ContractorListing2 = ({
                       {experience ? experience : "2-3yrs"} Yrs
                     </p>
                   </div>
-
+<div className="mt-3" style={{borderRight:"2px solid rgba(127, 135, 144, 0.2)",height:"4rem"}}></div>
                   <div className="d-flex flex-column align-items-center  p-3">
                     <p
                       className="mt-2"
-                      style={{ fontSize: "16px", color: "#7F8790" }}
+                      style={{ fontSize: "1rem", color: "#7F8790" }}
                     >
                       Projects
                     </p>
-                    <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
+                    <p style={{ fontSize: "1rem", fontFamily: "Public Sans" }}>
                       200+
                     </p>
                   </div>
                 </div>
                 <div
-                  className="d-flex justify-content-center flex-column align-items-center p-3 mt-2"
+                  className="d-flex justify-content-center flex-column align-items-center py-3 mt-2"
                   style={{
                     width: "110%",
                     background: "#F5F5F5",
-                    transform: "translateX(-1.2rem)",
+                    transform: "translateX(-1.2rem)", 
                   }}
                 >
+                  <div style={{width:"80%"}}>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%",  }}
                   >
                     <p
                       className=""
@@ -657,7 +662,7 @@ const ContractorListing2 = ({
                   </div>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%",  }}
                   >
                     <p
                       className=""
@@ -679,7 +684,7 @@ const ContractorListing2 = ({
                   </div>
                   <div
                     className="d-flex justify-content-between align-items-center"
-                    style={{ width: "45%" }}
+                    style={{ width: "100%",  }}
                   >
                     <p
                       className=""
@@ -689,7 +694,7 @@ const ContractorListing2 = ({
                     </p>
                     <p
                       className=""
-                      style={{ fontSize: "0.75rem", color: "#7F8790" }}
+                      style={{ fontSize: "0.75rem", color: "#7F8790",transform:"translateX(-1rem)" }}
                     >
                       :
                     </p>
@@ -699,13 +704,20 @@ const ContractorListing2 = ({
                       ₹1000 sqft
                     </p>
                   </div>
+                  </div>
                 </div>
                 <div
                   className="mt-3"
                   style={{ borderTop: "2px solid rgba(127, 135, 144, 0.2)" }}
                 />
-                <div className="d-flex justify-content-center mt-2">
+                <div className="d-flex justify-content-evenly mt-2">
                   <CallButton2 number={phoneNumber} listingName={listingName} />
+                  <div
+                    className="d-flex align-items-center mt-2"
+                    style={{height:"1.6rem",width:"0",
+                      borderRight: "2px solid rgba(127, 135, 144, 0.2)",
+                    }}
+                  ></div>
                   <WhatsApp2 phoneNumber={phoneNumber} listingName={listingName}/>
                 </div>
               </div>

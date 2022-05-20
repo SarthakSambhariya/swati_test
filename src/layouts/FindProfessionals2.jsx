@@ -3576,7 +3576,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                           }
                                           experience={listing.workExperience}
                                           description={""}
-                                          fee={listing.fee}
+                                          fee={listing.fees}
                                           city={listing.city}
                                           company={listing.companyName}
                                           phoneNumber={listing.phoneNumber}
@@ -3586,6 +3586,7 @@ const FindProfessionals = ({ mobileview, location }) => {
                                               : true
                                           }
                                           listingName="designer"
+                                          projectCount={listing.projectCount}
                                         />
                                       </>
                                     ))}

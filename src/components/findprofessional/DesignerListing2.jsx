@@ -54,7 +54,7 @@ const DesignerListing2 = ({
   pro,
   liked,
   rating,
-  listingName,
+  listingName,projectCount
 }) => {
   const [user, setUser] = useState(false);
   const [showHeart, setShowHeart] = useState(false);
@@ -115,6 +115,7 @@ const DesignerListing2 = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  console.log(fee.designRoomPrice);
   return (
     <React.Fragment>
       {screenWidth > 768 && (
@@ -327,7 +328,7 @@ const DesignerListing2 = ({
                       Design Fee
                     </p>
                     <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
-                      ₹ {fee ? fee : "3000"}
+                      ₹ {fee.designRoomPrice ? fee.designRoomPrice : "3000"}
                     </p>
                   </div>
                   <div className="d-flex flex-column align-items-center  px-2">
@@ -338,7 +339,7 @@ const DesignerListing2 = ({
                       Projects
                     </p>
                     <p style={{ fontSize: "16px", fontFamily: "Public Sans" }}>
-                      200+
+                      {projectCount?projectCount:"200+"}
                     </p>
                   </div>
                 </div>
